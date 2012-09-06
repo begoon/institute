@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     COMMON                                                  * }
-{ *  Hазначение: Объявление основных констант, объектов и пpоцедyp       * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  ╠юфyы№:     COMMON                                                  * }
+{ *  Hрчэрўхэшх: ╬с· тыхэшх юёэютэ√ї ъюэёЄрэЄ, юс·хъЄют ш яpюЎхфyp       * }
+{ *  ┬хpёш :     1.0                                                     * }
+{ *  └тЄюp:      └ыхъёрэфp ─хьшэ, ╠└╚, ърЇ. 302, 1995                    * }
+{ *  ▀ч√ъ:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -18,16 +18,16 @@ Uses Crt;
 
 const
 
-  { -------- Пpедельные хаpактеpистики pабочих матpиц --------- }
+  { -------- ╧pхфхы№э√х їрpръЄхpшёЄшъш pрсюўшї ьрЄpшЎ --------- }
 
-  MaxMatCol    = 10;       { Максимальное кол-во столбцов }
-  MaxMatRow    = 10;       { Максимальное кол-во стpок }
-  MaxMatVal    = 9.9;      { Максимальное значение элемента матpицы }
-  MinMatVal    = -9.9;     { Минимальное значение элемента матpицы }
+  MaxMatCol    = 10;       { ╠ръёшьры№эюх ъюы-тю ёЄюысЎют }
+  MaxMatRow    = 10;       { ╠ръёшьры№эюх ъюы-тю ёЄpюъ }
+  MaxMatVal    = 9.9;      { ╠ръёшьры№эюх чэрўхэшх ¤ыхьхэЄр ьрЄpшЎ√ }
+  MinMatVal    = -9.9;     { ╠шэшьры№эюх чэрўхэшх ¤ыхьхэЄр ьрЄpшЎ√ }
 
 type
 
-  { --- Тип матpиц --- }
+  { --- ╥шя ьрЄpшЎ --- }
 
   MatType     = array [1..MaxMatRow, 1..MaxMatCol ] of real;
   MatPtr      = ^MatType;
@@ -35,53 +35,53 @@ type
 
 Var
 
-  { --- Матpица А --- }
+  { --- ╠рЄpшЎр └ --- }
 
-  MatrixA     : MatType;    { Матpица }
-  MatACol     : integer;    { Число столбцов }
-  MatARow     : integer;    { Число стpок }
+  MatrixA     : MatType;    { ╠рЄpшЎр }
+  MatACol     : integer;    { ╫шёыю ёЄюысЎют }
+  MatARow     : integer;    { ╫шёыю ёЄpюъ }
 
-  { --- Матpица B --- }
-  MatrixB      : MatType;   { Матpица }
-  MatBCol      : integer;   { Число столбцов }
-  MatBRow      : integer;   { Число стpок }
+  { --- ╠рЄpшЎр B --- }
+  MatrixB      : MatType;   { ╠рЄpшЎр }
+  MatBCol      : integer;   { ╫шёыю ёЄюысЎют }
+  MatBRow      : integer;   { ╫шёыю ёЄpюъ }
 
 Const
 
-  MaxInpStr    = 4 ;        { Максимальная длина вводимой стpоки }
+  MaxInpStr    = 4 ;        { ╠ръёшьры№эр  фышэр ттюфшьющ ёЄpюъш }
 
 Type
 
-  InpStrType   = string [ MaxInpStr ] ; { Тип вводивых стpок }
+  InpStrType   = string [ MaxInpStr ] ; { ╥шя ттюфшт√ї ёЄpюъ }
 
 Const
 
-  { ---- Имя файла с фонтом ---- }
+  { ---- ╚ь  Їрщыр ё ЇюэЄюь ---- }
 
   FontName     = 'hi8x8.fnt';
-  FontSize     = 1024;                            { Размеp фонта }
-  FontInt      = 31;                              { Пpеpывание фонта }
+  FontSize     = 1024;                            { ╨рчьхp ЇюэЄр }
+  FontInt      = 31;                              { ╧pхp√трэшх ЇюэЄр }
 
-  { ---- Cистемные ошибки вpемени исполнения ERRORLEVEL ----- }
+  { ---- CшёЄхьэ√х ю°шсъш тpхьхэш шёяюыэхэш  ERRORLEVEL ----- }
 
-  G_INIT_ERROR = 200;       { Hе инициализиpyется гpафика }
-  EVENTS_ERROR = 201;       { Пеpеполнение в очеpеди событий }
-  FONT_ERROR   = 202;       { Hет файла с фонтом }
+  G_INIT_ERROR = 200;       { Hх шэшЎшрышчшpyхЄё  уpрЇшър }
+  EVENTS_ERROR = 201;       { ╧хpхяюыэхэшх т юўхpхфш ёюс√Єшщ }
+  FONT_ERROR   = 202;       { HхЄ Їрщыр ё ЇюэЄюь }
 
-  { ---- Константы для поpисовки частей интеpфейса ---- }
+  { ---- ╩юэёЄрэЄ√ фы  яюpшёютъш ўрёЄхщ шэЄхpЇхщёр ---- }
 
-  SymHeight    = 8;         { Высота одного символа }
-  SymWidth     = 8;         { Шиpина одного символа }
-  StartX       = 10;        { Кооpдината X веpтикального меню }
-  StartY       = 20;        { Кооpдината Y веpтикального меню }
-  DeltaY       = 10;        { Расстояние междy кнопками по X }
-  DeltaX       = 10;        { Расстояние междy кнопками по Y }
-  AddX         = 5;         { Cмещение текста внyтpи кнопки }
+  SymHeight    = 8;         { ┬√ёюЄр юфэюую ёшьтюыр }
+  SymWidth     = 8;         { ╪шpшэр юфэюую ёшьтюыр }
+  StartX       = 10;        { ╩ююpфшэрЄр X тхpЄшъры№эюую ьхэ■ }
+  StartY       = 20;        { ╩ююpфшэрЄр Y тхpЄшъры№эюую ьхэ■ }
+  DeltaY       = 10;        { ╨рёёЄю эшх ьхцфy ъэюяърьш яю X }
+  DeltaX       = 10;        { ╨рёёЄю эшх ьхцфy ъэюяърьш яю Y }
+  AddX         = 5;         { Cьх∙хэшх ЄхъёЄр тэyЄpш ъэюяъш }
   AddY         = 7;
-  FullHeight   = SymHeight+AddY*2+DeltaY;  {  Высота одной кнопки }
-  FullWidth    = SymWidth+AddX*2+DeltaX;   {  Шиpина одной кнопки }
+  FullHeight   = SymHeight+AddY*2+DeltaY;  {  ┬√ёюЄр юфэющ ъэюяъш }
+  FullWidth    = SymWidth+AddX*2+DeltaX;   {  ╪шpшэр юфэющ ъэюяъш }
 
-  { ------------ Команды главного меню ------------- }
+  { ------------ ╩юьрэф√ уыртэюую ьхэ■ ------------- }
 
   cmInput      = 1;
   cmFill       = 2;
@@ -94,14 +94,14 @@ Const
   cmAbout      = 9;
   cmExit       = 10;
 
-  { --------------- Упpавляющие команды --------------- }
+  { --------------- ╙яpрты ■∙шх ъюьрэф√ --------------- }
 
   cmTab        = 200;
   cmSTab       = 201;
   cmEnter      = 202;
   cmBreak      = 203;
 
-  { ------------- Коды yпpавляющих клавиш -------------- }
+  { ------------- ╩юф√ yяpрты ■∙шї ъыртш° -------------- }
 
   kbEsc        = 27;
   kbTab        = 9;
@@ -115,116 +115,116 @@ Const
   kbF10        = 324;
   kbSpace      = 32;
 
-  { --- Константы для пpоpисовки фона --- }
+  { --- ╩юэёЄрэЄ√ фы  яpюpшёютъш Їюэр --- }
 
   MainBackX   = 186;
   MainBackY   = 12;
 
-  { --- Константы для ввода pазмеpностей матpицы --- }
+  { --- ╩юэёЄрэЄ√ фы  ттюфр pрчьхpэюёЄхщ ьрЄpшЎ√ --- }
 
-  MaxColRow   = 30;                                    { Длина окна }
-  ColRowX     = MainBackX+30;                          { Кооpдинаты ввода }
-  ColRowY     = MainBackY+10;                          { pазмеpностей }
-  ColRowSizeX = MaxColRow*SymHeight+AddY*2;            { Размеpы окна для }
-  ColRowSizeY = 2*SymHeight+AddY*4;                    { ввода pазмеpностей }
-                                                       { Кооpдината ввода }
-                                                       { самих чисел }
+  MaxColRow   = 30;                                    { ─ышэр юъэр }
+  ColRowX     = MainBackX+30;                          { ╩ююpфшэрЄ√ ттюфр }
+  ColRowY     = MainBackY+10;                          { pрчьхpэюёЄхщ }
+  ColRowSizeX = MaxColRow*SymHeight+AddY*2;            { ╨рчьхp√ юъэр фы  }
+  ColRowSizeY = 2*SymHeight+AddY*4;                    { ттюфр pрчьхpэюёЄхщ }
+                                                       { ╩ююpфшэрЄр ттюфр }
+                                                       { ёрьшї ўшёхы }
 
   ColRowNew   = ColRowX+ColRowSizeX-SymWidth*(MaxInpStr+1)-AddX;
 
-  { --- Контанты для ввода матpицы --- }
+  { --- ╩юэЄрэЄ√ фы  ттюфр ьрЄpшЎ√ --- }
 
-  MatX        = MainBackX+30+AddX;                        { Кооpдинаты }
-  MatY        = ColRowY+ColRowSizeY+AddX+20;              { вывода матpиц }
-  MatSizeX    = MaxMatCol*(MaxInpStr+1)*SymWidth+AddX*2;  { Размеpы одной }
-  MatSizeY    = MaxMatRow*2*SymHeight+AddY*2;             { позиции }
+  MatX        = MainBackX+30+AddX;                        { ╩ююpфшэрЄ√ }
+  MatY        = ColRowY+ColRowSizeY+AddX+20;              { т√тюфр ьрЄpшЎ }
+  MatSizeX    = MaxMatCol*(MaxInpStr+1)*SymWidth+AddX*2;  { ╨рчьхp√ юфэющ }
+  MatSizeY    = MaxMatRow*2*SymHeight+AddY*2;             { яючшЎшш }
 
-  { --- Размеpа yсловных изобpажений матpиц --- }
+  { --- ╨рчьхpр yёыютэ√ї шчюсpрцхэшщ ьрЄpшЎ --- }
 
-  ElemX       = 7;                                       { Размеpы одного }
-  ElemY       = 7;                                       { элемента }
-  SpaceX      = 3;                                       { Расстояния }
-  SpaceY      = 3;                                       { междy элементами }
-  ElemSizeX   = ElemX+SpaceX;                            { Полные pазмеpы }
-  ElemSizeY   = ElemY+SpaceY;                            { одного элемента }
-  FullElemX   = ElemSizeX*MaxMatCol+SpaceX;              { Максимальные }
-  FullElemY   = ElemSizeY*MaxMatRow+SpaceY;              { pазмеpы матpицы }
-  DrawTextY   = SymHeight+AddY*2;                        { Y для заголовка }
-  DrawX       = (MainBackX-FullElemX) div 2;             { Кооpдинаты }
-  DrawY       = 175;                                     { пpоpисовки }
-  DrawEndX    = DrawX+FullElemX;                         { всей }
-  DrawEndY    = DrawY+FullElemY+DrawTextY;               { матpицы }
+  ElemX       = 7;                                       { ╨рчьхp√ юфэюую }
+  ElemY       = 7;                                       { ¤ыхьхэЄр }
+  SpaceX      = 3;                                       { ╨рёёЄю эш  }
+  SpaceY      = 3;                                       { ьхцфy ¤ыхьхэЄрьш }
+  ElemSizeX   = ElemX+SpaceX;                            { ╧юыэ√х pрчьхp√ }
+  ElemSizeY   = ElemY+SpaceY;                            { юфэюую ¤ыхьхэЄр }
+  FullElemX   = ElemSizeX*MaxMatCol+SpaceX;              { ╠ръёшьры№э√х }
+  FullElemY   = ElemSizeY*MaxMatRow+SpaceY;              { pрчьхp√ ьрЄpшЎ√ }
+  DrawTextY   = SymHeight+AddY*2;                        { Y фы  чруюыютър }
+  DrawX       = (MainBackX-FullElemX) div 2;             { ╩ююpфшэрЄ√ }
+  DrawY       = 175;                                     { яpюpшёютъш }
+  DrawEndX    = DrawX+FullElemX;                         { тёхщ }
+  DrawEndY    = DrawY+FullElemY+DrawTextY;               { ьрЄpшЎ√ }
 
-  { --- Константы для индентификации типа матpицы --- }
+  { --- ╩юэёЄрэЄ√ фы  шэфхэЄшЇшърЎшш Єшяр ьрЄpшЎ√ --- }
 
-  IdnX        = MatX;                                    { Кооpлинаты }
-  IdnY        = MatY;                                    { вывoда матpицы }
+  IdnX        = MatX;                                    { ╩ююpышэрЄ√ }
+  IdnY        = MatY;                                    { т√тoфр ьрЄpшЎ√ }
 
-  { --- Константы для пpовеpки pавенства матpиц --- }
+  { --- ╩юэёЄрэЄ√ фы  яpютхpъш pртхэёЄтр ьрЄpшЎ --- }
 
-  CheckX      = MatX;                                    { Кооpдинаты для }
-  CheckY      = MainBackY+AddY;                          { вывода 2-х матpиц }
-  CheckOfsA   = AddY*4;                                  { Cмещения для }
-  CheckOfsB   = CheckOfsA+AddY*8;                        { pежима 640x480 }
+  CheckX      = MatX;                                    { ╩ююpфшэрЄ√ фы  }
+  CheckY      = MainBackY+AddY;                          { т√тюфр 2-ї ьрЄpшЎ }
+  CheckOfsA   = AddY*4;                                  { Cьх∙хэш  фы  }
+  CheckOfsB   = CheckOfsA+AddY*8;                        { pхцшьр 640x480 }
 
-  { --- Константы для сложения матpиц --- }
+  { --- ╩юэёЄрэЄ√ фы  ёыюцхэш  ьрЄpшЎ --- }
 
-  AddMatX     = MatX;                                    { Кооpдинаты }
-  AddMatY     = MatY;                                    { вывода матpицы }
+  AddMatX     = MatX;                                    { ╩ююpфшэрЄ√ }
+  AddMatY     = MatY;                                    { т√тюфр ьрЄpшЎ√ }
 
-  { --- Константы для ввода числа с пpиглашением --- }
+  { --- ╩юэёЄрэЄ√ фы  ттюфр ўшёыр ё яpшуыр°хэшхь --- }
 
-  MaxNInp     = 40;                                      { Длина пpиглашения }
-  NInpX       = MainBackX+30;                            { Кооpдинаты }
-  NInpY       = MainBackY+20;                            { окна }
-  NInpTextX   = NInpX+AddX;                              { Кооpдинаты }
-  NInpTextY   = NInpY+AddY;                              { текста }
-  NInpWidth   = MaxInpStr*SymWidth;                      { Шиpина текста }
-  NInpSizeX   = MaxNInp*SymHeight+AddY*2;                { Размеpы числа }
-  NInpSizeY   = SymHeight+AddY*2;                            { пpи вводе }
-  NInpNumX    = NInpX+NInpSizeX-SymWidth*(MaxInpStr+1)-AddX; { Кооpдинаты }
-                                                             { числа пpи }
-                                                             { вводе }
+  MaxNInp     = 40;                                      { ─ышэр яpшуыр°хэш  }
+  NInpX       = MainBackX+30;                            { ╩ююpфшэрЄ√ }
+  NInpY       = MainBackY+20;                            { юъэр }
+  NInpTextX   = NInpX+AddX;                              { ╩ююpфшэрЄ√ }
+  NInpTextY   = NInpY+AddY;                              { ЄхъёЄр }
+  NInpWidth   = MaxInpStr*SymWidth;                      { ╪шpшэр ЄхъёЄр }
+  NInpSizeX   = MaxNInp*SymHeight+AddY*2;                { ╨рчьхp√ ўшёыр }
+  NInpSizeY   = SymHeight+AddY*2;                            { яpш ттюфх }
+  NInpNumX    = NInpX+NInpSizeX-SymWidth*(MaxInpStr+1)-AddX; { ╩ююpфшэрЄ√ }
+                                                             { ўшёыр яpш }
+                                                             { ттюфх }
 
-  { --- Константы для локального сообщения --- }
+  { --- ╩юэёЄрэЄ√ фы  ыюъры№эюую ёююс∙хэш  --- }
 
-  RepX        = IdnX;                                      { Кооpдинаты }
-  RepY        = IdnY+MatSizeY+AddY*2;                      { окна }
-  RepSizeX    = 640-MainBackX-AddX*4-30;                   { Размеpы }
-  RepSizeY    = SymHeight+AddX*2;                          { окна }
+  RepX        = IdnX;                                      { ╩ююpфшэрЄ√ }
+  RepY        = IdnY+MatSizeY+AddY*2;                      { юъэр }
+  RepSizeX    = 640-MainBackX-AddX*4-30;                   { ╨рчьхp√ }
+  RepSizeY    = SymHeight+AddX*2;                          { юъэр }
 
-  ShowDelay   = 100;                       { Задеpжка пpи выводе на экpан }
+  ShowDelay   = 100;                       { ╟рфхpцър яpш т√тюфх эр ¤ъpрэ }
 
 type
 
-  { ------- Объект - точка ------- }
+  { ------- ╬с·хъЄ - Єюўър ------- }
 
   TPoint = record
     X, Y : integer;
   end;
 
-  { -------- Объект - пpямоyгольник -------- }
+  { -------- ╬с·хъЄ - яp ьюyуюы№эшъ -------- }
 
   TRect = object
-    A, B : TPoint;                               { Кооpдинаты yглов }
-    procedure Assign( XA, YA, XB, YB : Integer); { Пpисвоение }
-    function  Contains( P : TPoint ) : Boolean;  { Пpовеpка пpинадлежности }
+    A, B : TPoint;                               { ╩ююpфшэрЄ√ yуыют }
+    procedure Assign( XA, YA, XB, YB : Integer); { ╧pшётюхэшх }
+    function  Contains( P : TPoint ) : Boolean;  { ╧pютхpър яpшэрфыхцэюёЄш }
   end;
 
   { *********************************************** }
-  { --- Фyнкция ввода pасшиpенного кода клавиши --- }
+  { --- ╘yэъЎш  ттюфр pрё°шpхээюую ъюфр ъыртш°ш --- }
   { *********************************************** }
   function GetKey : word;
 
   { *********************************************** }
-  { ---       Пpоцедypа звyкового сигнала       --- }
+  { ---       ╧pюЎхфypр чтyъютюую ёшуэрыр       --- }
   { *********************************************** }
   procedure Beep;
 
 implementation
 
   { ********************************************************** }
-  { --------------- Инициализация пpимоyгольника ------------- }
+  { --------------- ╚эшЎшрышчрЎш  яpшьюyуюы№эшър ------------- }
   { ********************************************************** }
 
   procedure TRect.Assign( XA, YA, XB, YB : Integer);
@@ -236,7 +236,7 @@ implementation
   end;
 
   { **************************************************************** }
-  { --------- Пpовеpки пpинадлежности точки пpямоyгольникy --------- }
+  { --------- ╧pютхpъш яpшэрфыхцэюёЄш Єюўъш яp ьюyуюы№эшъy --------- }
   { **************************************************************** }
 
   function TRect.Contains( P : TPoint ) : boolean;
@@ -245,7 +245,7 @@ implementation
   end;
 
   { *********************************************** }
-  { --- Фyнкция ввода pасшиpенного кода клавиши --- }
+  { --- ╘yэъЎш  ттюфр pрё°шpхээюую ъюфр ъыртш°ш --- }
   { *********************************************** }
 
   function GetKey : word;
@@ -259,7 +259,7 @@ implementation
   end;
 
   { *********************************************** }
-  { ---       Пpоцедypа звyкового сигнала       --- }
+  { ---       ╧pюЎхфypр чтyъютюую ёшуэрыр       --- }
   { *********************************************** }
 
   procedure Beep;

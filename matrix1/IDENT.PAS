@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     IDENT                                                   * }
-{ *  Hазначение: Идентификация типа матpицы                              * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  ╠юфyы№:     IDENT                                                   * }
+{ *  Hрчэрўхэшх: ╚фхэЄшЇшърЎш  Єшяр ьрЄpшЎ√                              * }
+{ *  ┬хpёш :     1.0                                                     * }
+{ *  └тЄюp:      └ыхъёрэфp ─хьшэ, ╠└╚, ърЇ. 302, 1995                    * }
+{ *  ▀ч√ъ:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,44 +17,44 @@ interface
 Uses Common, Message, MatInput, Graph, Texts, Crt, Events, Determ;
 
   { ********************************************************************** }
-  { Пpоцедypа идентификации типа матpицы:
-      MatA           - yказатель на матpицy
-      MatCol, MatRow - pазмеpности матpицы
+  { ╧pюЎхфypр шфхэЄшЇшърЎшш Єшяр ьрЄpшЎ√:
+      MatA           - yърчрЄхы№ эр ьрЄpшЎy
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
   }
   procedure CheckType( Mat : MatPtr; MatCol, MatRow : IntPtr );
 
   { ********************************************************************** }
-  { Пpоцедypа вывод локального сообщения:
-      Msg - текст сообщения
+  { ╧pюЎхфypр т√тюф ыюъры№эюую ёююс∙хэш :
+      Msg - ЄхъёЄ ёююс∙хэш 
   }
   procedure LocalMsg( Msg : string );
 
   { ********************************************************************** }
-  { Пpовеpка матpицы на квадpатность и вывод сообщения об этом:
-      Col, Row  - pазмеpности матpицы
-      Title     - сообщение пpи пpовеpке
-      Резyльтат - True - квадpатная, False - нет
+  { ╧pютхpър ьрЄpшЎ√ эр ътрфpрЄэюёЄ№ ш т√тюф ёююс∙хэш  юс ¤Єюь:
+      Col, Row  - pрчьхpэюёЄш ьрЄpшЎ√
+      Title     - ёююс∙хэшх яpш яpютхpъх
+      ╨хчyы№ЄрЄ - True - ътрфpрЄэр , False - эхЄ
   }
   function TestSqrMat( Col, Row : integer; Title : string ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки нyль-матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True - нyль-матpица, False - нет
+  { ╘yэъЎш  яpютхpъш эyы№-ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True - эyы№-ьрЄpшЎр, False - эхЄ
   }
   function NullMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки единичной и диагональной матpиц:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Local          - сообщение о pаботе
-      Idn            - идентификатоp матpицы
-      Yes, No        - сообщения о pазных pезyльтатах
-      YesMsg, NoMsg  - окна о pазных pезyльтатах
-      What           - True - пpовеpяем диагональность, False - единичность
-      Резyльтат      - True - диагональная или единичная, False - нет
+  { ╘yэъЎш  яpютхpъш хфшэшўэющ ш фшруюэры№эющ ьрЄpшЎ:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      Local          - ёююс∙хэшх ю pрсюЄх
+      Idn            - шфхэЄшЇшърЄюp ьрЄpшЎ√
+      Yes, No        - ёююс∙хэш  ю pрчэ√ї pхчyы№ЄрЄрї
+      YesMsg, NoMsg  - юъэр ю pрчэ√ї pхчyы№ЄрЄрї
+      What           - True - яpютхp хь фшруюэры№эюёЄ№, False - хфшэшўэюёЄ№
+      ╨хчyы№ЄрЄ      - True - фшруюэры№эр  шыш хфшэшўэр , False - эхЄ
   }
   function SingleDiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
                           Local, Idn, Yes, No, YesMsg, NoMsg : string;
@@ -62,18 +62,18 @@ Uses Common, Message, MatInput, Graph, Texts, Crt, Events, Determ;
                          ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки симметpичной и кососимметpичной матpицы матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Local          - сообщение о pаботе
-      Idn            - идентификатоp матpицы
-      Yes, No        - сообщения о pазных pезyльтатах
-      YesMsg, NoMsg  - окна о pазных pезyльтатах
-      N              - 0  - пpовеpяем тpеyгольность
-                       1  - пpовеpяем симметpичность
-                       -1 - пpовеpяем кососимметpичность
-      Резyльтат      - True - тpеyгольная или косо/симметpическая
-                       False - нет
+  { ╘yэъЎш  яpютхpъш ёшььхЄpшўэющ ш ъюёюёшььхЄpшўэющ ьрЄpшЎ√ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      Local          - ёююс∙хэшх ю pрсюЄх
+      Idn            - шфхэЄшЇшърЄюp ьрЄpшЎ√
+      Yes, No        - ёююс∙хэш  ю pрчэ√ї pхчyы№ЄрЄрї
+      YesMsg, NoMsg  - юъэр ю pрчэ√ї pхчyы№ЄрЄрї
+      N              - 0  - яpютхp хь Єpхyуюы№эюёЄ№
+                       1  - яpютхp хь ёшььхЄpшўэюёЄ№
+                       -1 - яpютхp хь ъюёюёшььхЄpшўэюёЄ№
+      ╨хчyы№ЄрЄ      - True - Єpхyуюы№эр  шыш ъюёю/ёшььхЄpшўхёър 
+                       False - эхЄ
   }
   function SymmSlantTriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
                              Local, Idn, Yes, No, YesMsg, NoMsg : string;
@@ -81,127 +81,127 @@ Uses Common, Message, MatInput, Graph, Texts, Crt, Events, Determ;
                            ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки диагональной матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True-диагональная, False - нет
+  { ╘yэъЎш  яpютхpъш фшруюэры№эющ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True-фшруюэры№эр , False - эхЄ
   }
   function DiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки единичной матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True-единичная, False - нет
+  { ╘yэъЎш  яpютхpъш хфшэшўэющ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True-хфшэшўэр , False - эхЄ
   }
   function SingleMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки симметpичной матpицы матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True-симметpическая, False - нет
+  { ╘yэъЎш  яpютхpъш ёшььхЄpшўэющ ьрЄpшЎ√ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True-ёшььхЄpшўхёър , False - эхЄ
   }
   function SymmMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки кососимметpичной матpицы матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True-кососимметpическая, False - нет
+  { ╘yэъЎш  яpютхpъш ъюёюёшььхЄpшўэющ ьрЄpшЎ√ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True-ъюёюёшььхЄpшўхёър , False - эхЄ
   }
   function SlantMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки тpеyгольной матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True-тpеyгольная, False - нет
+  { ╘yэъЎш  яpютхpъш Єpхyуюы№эющ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True-Єpхyуюы№эр , False - эхЄ
   }
   function TriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { Фyнкция пpовеpки выpожденной матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
-      Резyльтат      - True-выpожденная, False - нет
+  { ╘yэъЎш  яpютхpъш т√pюцфхээющ ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
+      ╨хчyы№ЄрЄ      - True-т√pюцфхээр , False - эхЄ
   }
   function DegenMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
 implementation
 
   { ********************************** }
-  { --- Вывод локального сообщения --- }
+  { --- ┬√тюф ыюъры№эюую ёююс∙хэш  --- }
   { ********************************** }
 
   procedure LocalMsg( Msg : string );
   var
-    Event : TEvent;                                      { Cобытие }
-    R     : TRect;                                       { и его облаcть }
+    Event : TEvent;                                      { Cюс√Єшх }
+    R     : TRect;                                       { ш хую юсырcЄ№ }
     i     : word;
   begin
-    R.Assign( RepX, RepY, RepX+RepSizeX, RepY+RepSizeY ); { Hаpисоваить }
-    DrawButton( R, Msg, True, Cyan, 0, Black );           { кнопочкy }
-    if Msg=AnyKeyMsg then begin                           { Это сообщение }
+    R.Assign( RepX, RepY, RepX+RepSizeX, RepY+RepSizeY ); { HрpшёютршЄ№ }
+    DrawButton( R, Msg, True, Cyan, 0, Black );           { ъэюяюўъy }
+    if Msg=AnyKeyMsg then begin                           { ▌Єю ёююс∙хэшх }
       Event.Rect:=R;                                      { "Press key" ? }
-      Event.Command:=1;                                   { Если да, то   }
-      Event.Key:=kbSpace;                                 { офоpмить       }
-      MakeEvent( Event );                                 { событие на этy }
-      i:=GetEvent( i );                                   { кнопкy         }
+      Event.Command:=1;                                   { ┼ёыш фр, Єю   }
+      Event.Key:=kbSpace;                                 { юЇюpьшЄ№       }
+      MakeEvent( Event );                                 { ёюс√Єшх эр ¤Єy }
+      i:=GetEvent( i );                                   { ъэюяъy         }
       ClearEvents;
     end;
   end;
 
   { ****************************************************************** }
-  { --- Пpовеpка матpицы на квадpатность и вывод сообщения об этом --- }
+  { --- ╧pютхpър ьрЄpшЎ√ эр ътрфpрЄэюёЄ№ ш т√тюф ёююс∙хэш  юс ¤Єюь --- }
   { ****************************************************************** }
 
   function TestSqrMat( Col, Row : integer; Title : string ) : boolean;
   var
     i : integer;
   begin
-    if Col<>Row then begin                              { Она квадpатная ? }
+    if Col<>Row then begin                              { ╬эр ътрфpрЄэр  ? }
       Beep;
       i:=MessageBox( SqrOneMsg+Title+SqrTwoMsg, OkNum, OkButs );
       LocalMsg( NotSqrMsg );
-      TestSqrMat:=false;                                { Ответ - нет }
-    end else TestSqrMat:=true;                          { Ответ - да  }
+      TestSqrMat:=false;                                { ╬ЄтхЄ - эхЄ }
+    end else TestSqrMat:=true;                          { ╬ЄтхЄ - фр  }
   end;
 
   { ************************************* }
-  { --- Фyнкция пpовеpки нyль-матpицы --- }
+  { --- ╘yэъЎш  яpютхpъш эyы№-ьрЄpшЎ√ --- }
   { ************************************* }
 
   function NullMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
   var
     i, j : integer;
-    Flag : boolean;                                    { Флажок pезyльтата }
+    Flag : boolean;                                    { ╘ырцюъ pхчyы№ЄрЄр }
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );        { Вывести матpицy }
-    LocalMsg( NullTestMsg );                           { Cообщение о pаботе }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );        { ┬√тхёЄш ьрЄpшЎy }
+    LocalMsg( NullTestMsg );                           { Cююс∙хэшх ю pрсюЄх }
     flag:=true;
-    for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin  { Цикл по матpице }
-      ShowNPos( IdnX, IdnY, Yellow, i, j, Mat^[i, j] );  { Вывести элемент }
-      delay( ShowDelay );                                { Подождать }
-      if Mat^[i,j]<>0 then begin                         { Это не 0 ? }
-        ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );   { Показать не 0 }
-        delay( ShowDelay );                              { Подождать }
+    for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin  { ╓шъы яю ьрЄpшЎх }
+      ShowNPos( IdnX, IdnY, Yellow, i, j, Mat^[i, j] );  { ┬√тхёЄш ¤ыхьхэЄ }
+      delay( ShowDelay );                                { ╧юфюцфрЄ№ }
+      if Mat^[i,j]<>0 then begin                         { ▌Єю эх 0 ? }
+        ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );   { ╧юърчрЄ№ эх 0 }
+        delay( ShowDelay );                              { ╧юфюцфрЄ№ }
         Flag:=False;
       end;
     end;
-    LocalMsg( AnyKeyMsg );                               { Ждем нажатия }
+    LocalMsg( AnyKeyMsg );                               { ╞фхь эрцрЄш  }
     if Flag then begin
-      LocalMsg( NullTitle );                             { Hyлевая }
+      LocalMsg( NullTitle );                             { Hyыхтр  }
       i:=MessageBox( NullMsg, OkNum, OkButs );
     end else begin
-      LocalMsg( NullNoTitle );                           { Hе нyлевая }
+      LocalMsg( NullNoTitle );                           { Hх эyыхтр  }
       i:=MessageBox( NullNoMsg, OkNum, OkButs );
     end;
-    NullMat:=Flag;                                       { Резyльтат }
+    NullMat:=Flag;                                       { ╨хчyы№ЄрЄ }
   end;
 
   { ****************************************************** }
-  { -- Фyнкция пpовеpки единичной и диагональной матpиц -- }
+  { -- ╘yэъЎш  яpютхpъш хфшэшўэющ ш фшруюэры№эющ ьрЄpшЎ -- }
   { ****************************************************** }
 
   function SingleDiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
@@ -210,47 +210,47 @@ implementation
                          ) : boolean;
   var
     i, j : integer;
-    Flag : boolean;                                    { pезyльтат }
+    Flag : boolean;                                    { pхчyы№ЄрЄ }
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );        { Показать матpицy }
-    LocalMsg( Local );                                 { Cообщение о pаботе }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );        { ╧юърчрЄ№ ьрЄpшЎy }
+    LocalMsg( Local );                                 { Cююс∙хэшх ю pрсюЄх }
     flag:=false;
-    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin    { Она квадpатная ? }
+    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin    { ╬эр ътрфpрЄэр  ? }
       flag:=true;
-      for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin { Цикл по матpице }
-        ShowNPos( IdnX, IdnY, Yellow, i, j, Mat^[i, j] ); { Вывести элемент }
-        delay( ShowDelay );                               { Подождать }
-        if i=j then begin                                 { Hа диагонали ? }
-          ShowNPos( IdnX, IdnY, Green, i, j, Mat^[i, j] );{ Вывести элемент }
-          if What and (Mat^[i,j]=0) then begin            { Показать ошибкy }
-            ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );{ y диагональной }
-            Flag:=False;                                  { матpицы }
+      for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin { ╓шъы яю ьрЄpшЎх }
+        ShowNPos( IdnX, IdnY, Yellow, i, j, Mat^[i, j] ); { ┬√тхёЄш ¤ыхьхэЄ }
+        delay( ShowDelay );                               { ╧юфюцфрЄ№ }
+        if i=j then begin                                 { Hр фшруюэрыш ? }
+          ShowNPos( IdnX, IdnY, Green, i, j, Mat^[i, j] );{ ┬√тхёЄш ¤ыхьхэЄ }
+          if What and (Mat^[i,j]=0) then begin            { ╧юърчрЄ№ ю°шсъy }
+            ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );{ y фшруюэры№эющ }
+            Flag:=False;                                  { ьрЄpшЎ√ }
           end;
-          if (not What) and (Mat^[i,j]<>1) then begin     { Показать ошибкy }
-            ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );{ y единичной }
-            Flag:=False;                                  { матpицы }
+          if (not What) and (Mat^[i,j]<>1) then begin     { ╧юърчрЄ№ ю°шсъy }
+            ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );{ y хфшэшўэющ }
+            Flag:=False;                                  { ьрЄpшЎ√ }
           end;
         end;
-        if (i<>j) and (Mat^[i, j]<>0) then begin          { Показать ошибкy }
-          ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );  { y обоих }
-          Flag:=False;                                    { матpиц }
+        if (i<>j) and (Mat^[i, j]<>0) then begin          { ╧юърчрЄ№ ю°шсъy }
+          ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] );  { y юсюшї }
+          Flag:=False;                                    { ьрЄpшЎ }
         end;
-        delay( ShowDelay );                               { Подождать }
+        delay( ShowDelay );                               { ╧юфюцфрЄ№ }
       end;
-      LocalMsg( AnyKeyMsg );                              { Ждем нажатия }
+      LocalMsg( AnyKeyMsg );                              { ╞фхь эрцрЄш  }
       if Flag then begin
-        LocalMsg( Yes );                                  { Ответ да }
+        LocalMsg( Yes );                                  { ╬ЄтхЄ фр }
         i:=MessageBox( YesMsg, OkNum, OkButs );
       end else begin
-        LocalMsg( No );                                   { Ответ нет }
+        LocalMsg( No );                                   { ╬ЄтхЄ эхЄ }
         i:=MessageBox( NoMsg, OkNum, OkButs );
       end;
     end;
-    SingleDiagMat:=flag;                                  { Резyльтат }
+    SingleDiagMat:=flag;                                  { ╨хчyы№ЄрЄ }
   end;
 
   { ********************************************************************** }
-  { -- Фyнкция пpовеpки симметpичной и кососимметpичной матpицы матpицы -- }
+  { -- ╘yэъЎш  яpютхpъш ёшььхЄpшўэющ ш ъюёюёшььхЄpшўэющ ьрЄpшЎ√ ьрЄpшЎ√ -- }
   { ********************************************************************** }
 
   function SymmSlantTriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
@@ -259,51 +259,51 @@ implementation
                            ) : boolean;
   var
     i, j : integer;
-    Flag : boolean;                                     { pезyльтат }
+    Flag : boolean;                                     { pхчyы№ЄрЄ }
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );         { Показать матpицy }
-    LocalMsg( Local );                                  { Показать матpицy }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );         { ╧юърчрЄ№ ьрЄpшЎy }
+    LocalMsg( Local );                                  { ╧юърчрЄ№ ьрЄpшЎy }
     flag:=false;
-    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin    { Она квадpатная ? }
+    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin    { ╬эр ътрфpрЄэр  ? }
       flag:=true;
-      if MatCol^<>1 then begin                          { Она более чем }
-                                                        { пpосто число ? }
-        for i:=2 to MatRow^ do for j:=1 to i-1 do begin { Цикл по матpице }
-                                                        { Показать елемент }
-                                                           { матpицы }
+      if MatCol^<>1 then begin                          { ╬эр сюыхх ўхь }
+                                                        { яpюёЄю ўшёыю ? }
+        for i:=2 to MatRow^ do for j:=1 to i-1 do begin { ╓шъы яю ьрЄpшЎх }
+                                                        { ╧юърчрЄ№ хыхьхэЄ }
+                                                           { ьрЄpшЎ√ }
           ShowNPos( IdnX, IdnY, Yellow, i, j, Mat^[i, j] );
-          delay( ShowDelay );                               { Подождать }
-          if N=0 then begin                              { Пpовеpяем }
-                                                         { тpеyгольность ? }
-            if Mat^[i,j]<>0 then begin                       { Показать    }
-              ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] ); { ошибкy в    }
-              Flag:=False;                                   { тpеyгольной }
-            end;                                             { матpице     }
+          delay( ShowDelay );                               { ╧юфюцфрЄ№ }
+          if N=0 then begin                              { ╧pютхp хь }
+                                                         { Єpхyуюы№эюёЄ№ ? }
+            if Mat^[i,j]<>0 then begin                       { ╧юърчрЄ№    }
+              ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] ); { ю°шсъy т    }
+              Flag:=False;                                   { Єpхyуюы№эющ }
+            end;                                             { ьрЄpшЎх     }
           end else begin
             ShowNPos( IdnX, IdnY, Yellow, j, i, Mat^[j, i] );
-            if Mat^[i,j]<>Mat^[j,i]*N then begin             { Показать   }
-              ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] ); { ошибкy     }
-              ShowNPos( IdnX, IdnY, RED, j, i, Mat^[j, i] ); { в косо/    }
-              Flag:=False;                                   { симметp-й  }
-            end;                                             { матpице    }
+            if Mat^[i,j]<>Mat^[j,i]*N then begin             { ╧юърчрЄ№   }
+              ShowNPos( IdnX, IdnY, RED, i, j, Mat^[i, j] ); { ю°шсъy     }
+              ShowNPos( IdnX, IdnY, RED, j, i, Mat^[j, i] ); { т ъюёю/    }
+              Flag:=False;                                   { ёшььхЄp-щ  }
+            end;                                             { ьрЄpшЎх    }
           end;
-          delay( ShowDelay );                                { Подождать }
+          delay( ShowDelay );                                { ╧юфюцфрЄ№ }
         end;
-        LocalMsg( AnyKeyMsg );                              { Ждем нажатия }
+        LocalMsg( AnyKeyMsg );                              { ╞фхь эрцрЄш  }
         if Flag then begin
-          LocalMsg( Yes );                                   { Ответ да }
+          LocalMsg( Yes );                                   { ╬ЄтхЄ фр }
           i:=MessageBox( YesMsg, OkNum, OkButs );
         end else begin
-          LocalMsg( No );                                    { Ответ нет }
+          LocalMsg( No );                                    { ╬ЄтхЄ эхЄ }
           i:=MessageBox( NoMsg, OkNum, OkButs );
         end;
       end;
     end;
-    SymmSlantTriaMat:=flag;                                  { Резyльтат }
+    SymmSlantTriaMat:=flag;                                  { ╨хчyы№ЄрЄ }
   end;
 
   { ********************************************* }
-  { --- Фyнкция пpовеpки диагональной матpицы --- }
+  { --- ╘yэъЎш  яpютхpъш фшруюэры№эющ ьрЄpшЎ√ --- }
   { ********************************************* }
 
   function DiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -314,7 +314,7 @@ implementation
   end;
 
   { ****************************************** }
-  { --- Фyнкция пpовеpки единичной матpицы --- }
+  { --- ╘yэъЎш  яpютхpъш хфшэшўэющ ьрЄpшЎ√ --- }
   { ****************************************** }
 
   function SingleMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -325,7 +325,7 @@ implementation
   end;
 
   { *************************************************** }
-  { -- Фyнкция пpовеpки симметpичной матpицы матpицы -- }
+  { -- ╘yэъЎш  яpютхpъш ёшььхЄpшўэющ ьрЄpшЎ√ ьрЄpшЎ√ -- }
   { *************************************************** }
 
   function SymmMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -336,7 +336,7 @@ implementation
   end;
 
   { ******************************************************* }
-  { -- Фyнкция пpовеpки кососимметpичной матpицы матpицы -- }
+  { -- ╘yэъЎш  яpютхpъш ъюёюёшььхЄpшўэющ ьрЄpшЎ√ ьрЄpшЎ√ -- }
   { ******************************************************* }
 
   function SlantMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -347,7 +347,7 @@ implementation
   end;
 
   { ******************************************** }
-  { --- Фyнкция пpовеpки тpеyгольной матpицы --- }
+  { --- ╘yэъЎш  яpютхpъш Єpхyуюы№эющ ьрЄpшЎ√ --- }
   { ******************************************** }
 
   function TriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -358,7 +358,7 @@ implementation
   end;
 
   { ******************************************** }
-  { --- Фyнкция пpовеpки выpожденной матpицы --- }
+  { --- ╘yэъЎш  яpютхpъш т√pюцфхээющ ьрЄpшЎ√ --- }
   { ******************************************** }
 
   function DegenMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -368,32 +368,32 @@ implementation
     Depend : boolean;
     i      : integer;
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );          { Выводим матpицy }
-    LocalMsg( DegenTestMsg );                               { Cообщение }
-    if MatCol^=MatRow^ then begin                           { Квадpатная ? }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );          { ┬√тюфшь ьрЄpшЎy }
+    LocalMsg( DegenTestMsg );                               { Cююс∙хэшх }
+    if MatCol^=MatRow^ then begin                           { ╩трфpрЄэр  ? }
       if MatCol^<>1 then begin
-        Det:=Determinate( Mat, MatCol^ );                   { Опpеделитель }
+        Det:=Determinate( Mat, MatCol^ );                   { ╬яpхфхышЄхы№ }
         Depend:=Det=0;
         if Depend then begin
-          LocalMsg( DegenTitle );                           { Ответ - да }
+          LocalMsg( DegenTitle );                           { ╬ЄтхЄ - фр }
           i:=MessageBox( DegenMsg, OkNum, OkButs );
         end else begin
-          Str( Det:5:1, DetStr );                           { Ответ - нет }
+          Str( Det:5:1, DetStr );                           { ╬ЄтхЄ - эхЄ }
           LocalMsg( DegenNoTitle+DetStr+' ' );
           i:=MessageBox( DegenNoMsg, OkNum, OkButs );
         end;
       end;
-    end else begin                                        { Это не }
-      Beep;                                               { квадpатная }
-      i:=MessageBox( DegenSqrMsg, OkNum, OkButs );        { матpица }
-      LocalMsg( NotSqrMsg );                              { Cообщение об }
-      Depend:=false;                                      { этом }
+    end else begin                                        { ▌Єю эх }
+      Beep;                                               { ътрфpрЄэр  }
+      i:=MessageBox( DegenSqrMsg, OkNum, OkButs );        { ьрЄpшЎр }
+      LocalMsg( NotSqrMsg );                              { Cююс∙хэшх юс }
+      Depend:=false;                                      { ¤Єюь }
     end;
     DegenMat:=Depend;
   end;
 
   { ******************************************** }
-  { --- Пpоцедypа идентификации типа матpицы --- }
+  { --- ╧pюЎхфypр шфхэЄшЇшърЎшш Єшяр ьрЄpшЎ√ --- }
   { ******************************************** }
 
   procedure CheckType( Mat : MatPtr; MatCol, MatRow : IntPtr );
@@ -403,27 +403,26 @@ implementation
     i    : integer;
     flag : boolean;
   begin
-    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);  { Cтиpаем стаpое }
+    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);  { CЄшpрхь ёЄрpюх }
     DrawBox( R, True, DarkGray );
     R.Assign( 0, 0, MainBackX-1, GetMaxY);
     DrawBox( R, True, LightBlue );
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );         { Вывести матpицy }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );         { ┬√тхёЄш ьрЄpшЎy }
     repeat
-      i:=Menu( False, 0, CheckNum, CheckButs );         { Что делать ? }
-      Delay( ShowDelay );                               { Подождать }
+      i:=Menu( False, 0, CheckNum, CheckButs );         { ╫Єю фхырЄ№ ? }
+      Delay( ShowDelay );                               { ╧юфюцфрЄ№ }
       if not ( i in [ 0, 8 ] ) then begin
-        case i of                                       { Пpовеpки: }
-          1 : Flag:=NullMat( Mat, MatCol, MatRow );     { Hyлевой }
-          2 : Flag:=DiagMat( Mat, MatCol, MatRow );     { Диагональной   }
-          3 : Flag:=SingleMat( Mat, MatCol, MatRow );   { Единичной      }
-          4 : Flag:=SymmMat( Mat, MatCol, MatRow );     { Cимметpической }
-          5 : Flag:=SlantMat( Mat, MatCol, MatRow );    { КомоCимметp-й  }
-          6 : Flag:=TriaMat( Mat, MatCol, MatRow );     { Тpеyгольной    }
-          7 : Flag:=DegenMat( Mat, MatCol, MatRow );    { Выpожденной    }
+        case i of                                       { ╧pютхpъш: }
+          1 : Flag:=NullMat( Mat, MatCol, MatRow );     { Hyыхтющ }
+          2 : Flag:=DiagMat( Mat, MatCol, MatRow );     { ─шруюэры№эющ   }
+          3 : Flag:=SingleMat( Mat, MatCol, MatRow );   { ┼фшэшўэющ      }
+          4 : Flag:=SymmMat( Mat, MatCol, MatRow );     { CшььхЄpшўхёъющ }
+          5 : Flag:=SlantMat( Mat, MatCol, MatRow );    { ╩юьюCшььхЄp-щ  }
+          6 : Flag:=TriaMat( Mat, MatCol, MatRow );     { ╥pхyуюы№эющ    }
+          7 : Flag:=DegenMat( Mat, MatCol, MatRow );    { ┬√pюцфхээющ    }
         end;
       end;
-    until i in [ 0, 8 ];                                { Пока не конец }
+    until i in [ 0, 8 ];                                { ╧юър эх ъюэхЎ }
   end;
 
 end.
-

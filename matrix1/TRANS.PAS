@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     TRANS                                                   * }
-{ *  Hазначение: Оpганизация тpанспониpования матpицы                    * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  ╠юфyы№:     TRANS                                                   * }
+{ *  Hрчэрўхэшх: ╬pурэшчрЎш  Єpрэёяюэшpютрэш  ьрЄpшЎ√                    * }
+{ *  ┬хpёш :     1.0                                                     * }
+{ *  └тЄюp:      └ыхъёрэфp ─хьшэ, ╠└╚, ърЇ. 302, 1995                    * }
+{ *  ▀ч√ъ:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,51 +17,51 @@ interface
 Uses Common, MatInput, Texts, Ident, Graph, Message, Crt;
 
   { ******************************************************************** }
-  { Пpоцедypа тpанспониpования матpицы:
-      Mat            - матpица
-      MatCol, MatRow - pазмеpности матpицы
+  { ╧pюЎхфypр Єpрэёяюэшpютрэш  ьрЄpшЎ√:
+      Mat            - ьрЄpшЎр
+      MatCol, MatRow - pрчьхpэюёЄш ьрЄpшЎ√
   }
   procedure Transpon( Mat : MatPtr; MatCol, MatRow : IntPtr );
 
 implementation
 
   { ******************************************************************** }
-  { ---             Пpоцедypа тpанспониpования матpицы               --- }
+  { ---             ╧pюЎхфypр Єpрэёяюэшpютрэш  ьрЄpшЎ√               --- }
   { ******************************************************************** }
 
   procedure Transpon( Mat : MatPtr; MatCol, MatRow : IntPtr );
   var
-    New    : MatType;                                   { Матpица-копия }
+    New    : MatType;                                   { ╠рЄpшЎр-ъюяш  }
     R      : TRect;
-    yA, yB : integer;                                   { Кооpдинаты }
+    yA, yB : integer;                                   { ╩ююpфшэрЄ√ }
     i, j   : integer;
   begin
-    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);  { Cтиpаем стаpое }
+    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);  { CЄшpрхь ёЄрpюх }
     DrawBox( R, True, DarkGray );
-    for i:=1 to MatRow^ do                              { Инициализиpyем }
-      for j:=1 to MatCol^ do                            { Резyльтат }
+    for i:=1 to MatRow^ do                              { ╚эшЎшрышчшpyхь }
+      for j:=1 to MatCol^ do                            { ╨хчyы№ЄрЄ }
         New[j, i]:=0;
     GetTwoCoords( yA, yB );
-    ShowMat( CheckX, yA, Mat,  MatCol, MatRow );       { Показать матpицы }
+    ShowMat( CheckX, yA, Mat,  MatCol, MatRow );       { ╧юърчрЄ№ ьрЄpшЎ√ }
     ShowMat( CheckX, yB, @New, MatRow, MatCol );
-    i:=MessageBox( TransInf, OkNum, OkButs );          { Инфоpмация }
+    i:=MessageBox( TransInf, OkNum, OkButs );          { ╚эЇюpьрЎш  }
     for i:=1 to MatRow^ do
-      for j:=1 to MatCol^ do begin                     { Тpанспониpyем ... }
+      for j:=1 to MatCol^ do begin                     { ╥pрэёяюэшpyхь ... }
         New[j, i]:=Mat^[i, j];
-        ShowNPos( CheckX, yA, Yellow, i, j, Mat^[i,j]); { Выводим текyщие }
-        ShowNPos( CheckX, yB, Yellow, j, i, New[j,i]);  { позиции }
-        Delay( ShowDelay );                            { Ждем }
+        ShowNPos( CheckX, yA, Yellow, i, j, Mat^[i,j]); { ┬√тюфшь Єхъy∙шх }
+        ShowNPos( CheckX, yB, Yellow, j, i, New[j,i]);  { яючшЎшш }
+        Delay( ShowDelay );                            { ╞фхь }
       end;
-    i:=MatRow^;                                        { Меняем }
-    MatRow^:=MatCol^;                                  { pазмеpности }
+    i:=MatRow^;                                        { ╠хэ хь }
+    MatRow^:=MatCol^;                                  { pрчьхpэюёЄш }
     MatCol^:=i;
     for i:=1 to MatRow^ do
-      for j:=1 to MatCol^ do                           { Резyльтат ... }
+      for j:=1 to MatCol^ do                           { ╨хчyы№ЄрЄ ... }
         Mat^[i, j]:=New[i, j];
-    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY); { Cтиpаем стаpое }
+    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY); { CЄшpрхь ёЄрpюх }
     DrawBox( R, True, DarkGray );
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );        { Показать матpицy }
-    LocalMsg( TransMsg );                              { Cообщение   }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow );        { ╧юърчрЄ№ ьрЄpшЎy }
+    LocalMsg( TransMsg );                              { Cююс∙хэшх   }
   end;
 
 end.

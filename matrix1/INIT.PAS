@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     INIT                                                    * }
-{ *  Hазначение: Инициализация основных модyлей пpогpаммы                * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  ╠юфyы№:     INIT                                                    * }
+{ *  Hрчэрўхэшх: ╚эшЎшрышчрЎш  юёэютэ√ї ьюфyыхщ яpюуpрьь√                * }
+{ *  ┬хpёш :     1.0                                                     * }
+{ *  └тЄюp:      └ыхъёрэфp ─хьшэ, ╠└╚, ърЇ. 302, 1995                    * }
+{ *  ▀ч√ъ:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -18,21 +18,21 @@ uses Graph, Message, Common, Texts, Dos;
 
 var
 
-  GraphMode : integer;            { Использyемый гpафичеcкий pежим }
+  GraphMode : integer;            { ╚ёяюы№чyхь√щ уpрЇшўхcъшщ pхцшь }
 
-  FontFile  : file;               { Файл с фонтом }
-  FontPtr   : pointer;            { Указатель на стаpый фонт }
+  FontFile  : file;               { ╘рщы ё ЇюэЄюь }
+  FontPtr   : pointer;            { ╙ърчрЄхы№ эр ёЄрp√щ ЇюэЄ }
 
-  Font      : array [ 1..FontSize ] of byte;     { Cам фонт }
+  Font      : array [ 1..FontSize ] of byte;     { Cрь ЇюэЄ }
 
-  procedure GraphInit;            { Инициализация гpафики }
-  procedure DrawBackground;       { Пpоpисовка фона }
+  procedure GraphInit;            { ╚эшЎшрышчрЎш  уpрЇшъш }
+  procedure DrawBackground;       { ╧pюpшёютър Їюэр }
   procedure Done;
 
 implementation
 
 { ********************************************************** }
-{ ---------- Пpоцедypа инициализации гpафики --------------- }
+{ ---------- ╧pюЎхфypр шэшЎшрышчрЎшш уpрЇшъш --------------- }
 { ********************************************************** }
 
 procedure GraphInit;
@@ -43,7 +43,7 @@ var
 begin
 
   {$I-}
-  Assign( FontFile, FontName );             { Читаем файл с фонтом }
+  Assign( FontFile, FontName );             { ╫шЄрхь Їрщы ё ЇюэЄюь }
   Reset( FontFile, 1);
   BlockRead( FontFile, Font, FontSize );
   Close( FontFile );
@@ -54,16 +54,16 @@ begin
   end;
 
   GetIntVec( FontInt, FontPtr );
-  SetIntVec( FontInt, @Font );              { Устанавливаем фонт }
+  SetIntVec( FontInt, @Font );              { ╙ёЄрэртыштрхь ЇюэЄ }
 
-  grDriver := Detect;                    { Автоматический pежим }
+  grDriver := Detect;                    { └тЄюьрЄшўхёъшщ pхцшь }
   grMode   := VGAMed;
-  InitGraph(grDriver, grMode,' ');          { Входим в гpафикy }
-  ErrCode := GraphResult;                   { Пpовеpяем ошибки }
+  InitGraph(grDriver, grMode,' ');          { ┬їюфшь т уpрЇшъy }
+  ErrCode := GraphResult;                   { ╧pютхp хь ю°шсъш }
   if ErrCode <> grOk then begin
     Writeln('Graphics error: ', GraphErrorMsg(ErrCode));
     halt( G_INIT_ERROR );
-  end;                                      { Пpовеpяем нyжные pежимы }
+  end;                                      { ╧pютхp хь эyцэ√х pхцшь√ }
 
   if ( GetMaxX<639 ) or ( GetMaxY<349 ) then begin
     CloseGraph;
@@ -78,7 +78,7 @@ begin
 end;
 
 { ******************************************************** }
-{ ----------------- Пpоpисовка фона ---------------------- }
+{ ----------------- ╧pюpшёютър Їюэр ---------------------- }
 { ******************************************************** }
 
 procedure DrawBackground;
@@ -94,7 +94,7 @@ begin
 end;
 
 { *********************************************** }
-{ ----------- Основная инициализация ------------ }
+{ ----------- ╬ёэютэр  шэшЎшрышчрЎш  ------------ }
 { *********************************************** }
 
 Var
@@ -102,7 +102,7 @@ Var
 
 begin
 
-  { --- Инициализация матpиц ---}
+  { --- ╚эшЎшрышчрЎш  ьрЄpшЎ ---}
 
   for i:=1 to MaxMatRow do for j:=1 to MaxMatCol do begin
     MatrixA[i,j]:=0;
