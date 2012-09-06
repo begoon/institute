@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     FILLMAT                                                 * }
-{ *  H†ß≠†Á•≠®•: ép£†≠®ß†Ê®Ô ß†ØÆ´≠•≠®Ô ¨†‚p®Ê                           * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     FILLMAT                                                 * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ûp–≥–∞–Ω–∏–∑–∞—Ü–∏—è –∑–∞–ø–æ–ª–Ω–µ–Ω–∏—è –º–∞—Çp–∏—Ü                           * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,28 +17,28 @@ interface
 Uses Common, Texts, Message, Crt, InpStr, ShowMats, Screen, Wins;
 
   { ********************************************************************** }
-  { é·≠Æ¢≠†Ô ØpÆÊ•§yp† ß†ØÆ´≠•≠®Ô ¨†‚p®ÊÎ:
-      Mat      - ¨†‚p®Ê†
-      Col, Row - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
+  { –û—Å–Ω–æ–≤–Ω–∞—è –øp–æ—Ü–µ–¥yp–∞ –∑–∞–ø–æ–ª–Ω–µ–Ω–∏—è –º–∞—Çp–∏—Ü—ã:
+      Mat      - –º–∞—Çp–∏—Ü–∞
+      Col, Row - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
   }
   procedure Fill( Mat : MatPtr; Col, Row : IntPtr );
 
 implementation
 
 { ********************************************************************** }
-{ ---            é·≠Æ¢≠†Ô ØpÆÊ•§yp† ß†ØÆ´≠•≠®Ô ¨†‚p®ÊÎ               --- }
+{ ---            –û—Å–Ω–æ–≤–Ω–∞—è –øp–æ—Ü–µ–¥yp–∞ –∑–∞–ø–æ–ª–Ω–µ–Ω–∏—è –º–∞—Çp–∏—Ü—ã               --- }
 { ********************************************************************** }
 
 procedure Fill( Mat : MatPtr; Col, Row : IntPtr );
 var
-  Answer  : integer;                               { é‚¢•‚ ØÆ´ÏßÆ¢†‚•´Ô }
-  N       : real;                                  { Ç¢•§•≠≠Æ• Á®·´Æ }
-  Number  : real;                                  { ó®·´Æ ß†ØÆ´≠•≠®Ô }
-  Dt      : DtType;                                { Ä‚p®°y‚Î ¨†‚p®ÊÎ }
-  Need    : boolean;                               { î´†£ ≠•Æ°ÂÆ§®¨Æ·‚® }
+  Answer  : integer;                               { –û—Ç–≤–µ—Ç –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—è }
+  N       : real;                                  { –í–≤–µ–¥–µ–Ω–Ω–æ–µ —á–∏—Å–ª–æ }
+  Number  : real;                                  { –ß–∏—Å–ª–æ –∑–∞–ø–æ–ª–Ω–µ–Ω–∏—è }
+  Dt      : DtType;                                { –ê—Çp–∏–±y—Ç—ã –º–∞—Çp–∏—Ü—ã }
+  Need    : boolean;                               { –§–ª–∞–≥ –Ω–µ–æ–±—Ö–æ–¥–∏–º–æ—Å—Ç–∏ }
   i, j    : integer;
 
-  { --- îy™≠Ê®Ô £•≠•p†Ê®® ·´yÁ†©≠Æ£Æ Á®·´† --- }
+  { --- –§y–∫–Ω—Ü–∏—è –≥–µ–Ω–µp–∞—Ü–∏–∏ —Å–ªy—á–∞–π–Ω–æ–≥–æ —á–∏—Å–ª–∞ --- }
   function RndNum : real;
   begin
     RndNum:=Random( Trunc(MaxMatVal) )
@@ -46,38 +46,38 @@ var
   end;
 
 begin
-  Randomize;                                           { ì·‚†≠Æ¢™† RND }
-  N:=1;                                                { H†Á†´Ï≠Æ• Á®·´Æ }
-  Answer:=MessageBox( WhatMsg, WhatNum, WhatButs );    { ä†™ ß†ØÆ´≠Ô•¨ ? }
-  if Answer in [1, 2] then begin                       { é‚¢•‚ ‚Æ‚ ? }
+  Randomize;                                           { –£—Å—Ç–∞–Ω–æ–≤–∫–∞ RND }
+  N:=1;                                                { H–∞—á–∞–ª—å–Ω–æ–µ —á–∏—Å–ª–æ }
+  Answer:=MessageBox( WhatMsg, WhatNum, WhatButs );    { –ö–∞–∫ –∑–∞–ø–æ–ª–Ω—è–µ–º ? }
+  if Answer in [1, 2] then begin                       { –û—Ç–≤–µ—Ç —Ç–æ—Ç ? }
 
-    for i:=1 to MaxMatRow do                           { äp†·®¨ ¨†‚p®Êy }
-      for j:=1 to MaxMatCol do                         { ¢ Æ°ÎÁ≠Î© }
-        Dt.At[i, j]:=bcLightGray;                      { Ê¢•‚ }
+    for i:=1 to MaxMatRow do                           { –öp–∞—Å–∏–º –º–∞—Çp–∏—Üy }
+      for j:=1 to MaxMatCol do                         { –≤ –æ–±—ã—á–Ω—ã–π }
+        Dt.At[i, j]:=bcLightGray;                      { —Ü–≤–µ—Ç }
 
-    if Answer=1                                        { Ç¢•·‚® Á®·´Æ }
+    if Answer=1                                        { –í–≤–µ—Å—Ç–∏ —á–∏—Å–ª–æ }
       then Need:=InpNumberMsg( RndFillMsg, N,
                                MinMatVal, MaxMatVal,
                                True )
       else Need:=True;
-    if Need then begin                                 { Esc ≠• °Î´Æ ? }
-      LocalMsg( FillingMsg );                          { CÆÆ°È•≠®• }
-      for i:=1 to Row^ do for j:=1 to Col^ do begin    { ñ®™´ ØÆ ¨†‚p®Ê• }
-        ShowNPos( MatX, MatY, i, j,                    { èÆ™†ß†‚Ï }
-                  Yellow+bcLightGray,                  { ØÆß®Ê®Ó }
+    if Need then begin                                 { Esc –Ω–µ –±—ã–ª–æ ? }
+      LocalMsg( FillingMsg );                          { C–æ–æ–±—â–µ–Ω–∏–µ }
+      for i:=1 to Row^ do for j:=1 to Col^ do begin    { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–µ }
+        ShowNPos( MatX, MatY, i, j,                    { –ü–æ–∫–∞–∑–∞—Ç—å }
+                  Yellow+bcLightGray,                  { –ø–æ–∑–∏—Ü–∏—é }
                   Mat, Col, Row, @Dt );
-        Delay( ShowDelay );                            { èÆ§Æ¶§†‚Ï }
-        if Answer=1                                    { í®Ø Á®·´†: }
-          then Number:=N                               {  - ¢¢•§•≠≠Æ• }
-          else Number:=RndNum;                         {  - ·´yÁ†©≠Æ• }
-        Mat^[i, j]:=Number;                            { á†ØÆ´≠®‚Ï }
-        ShowNPos( MatX, MatY, i, j,                    { èÆ™†ß†‚Ï }
-                  LightRed+bcLightGray,                { ≠Æ¢yÓ }
-                  Mat, Col, Row, @Dt );                { ØÆß®Ê®Ó }
-        Delay( ShowDelay );                            { èÆ§Æ¶§†‚Ï }
+        Delay( ShowDelay );                            { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
+        if Answer=1                                    { –¢–∏–ø —á–∏—Å–ª–∞: }
+          then Number:=N                               {  - –≤–≤–µ–¥–µ–Ω–Ω–æ–µ }
+          else Number:=RndNum;                         {  - —Å–ªy—á–∞–π–Ω–æ–µ }
+        Mat^[i, j]:=Number;                            { –ó–∞–ø–æ–ª–Ω–∏—Ç—å }
+        ShowNPos( MatX, MatY, i, j,                    { –ü–æ–∫–∞–∑–∞—Ç—å }
+                  LightRed+bcLightGray,                { –Ω–æ–≤y—é }
+                  Mat, Col, Row, @Dt );                { –ø–æ–∑–∏—Ü–∏—é }
+        Delay( ShowDelay );                            { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
       end;
-      LocalMsg( FilledMsg );                           { CÆÆ°È•≠®• Æ }
-    end;                                               { ™Æ≠Ê• p†°Æ‚Î }
+      LocalMsg( FilledMsg );                           { C–æ–æ–±—â–µ–Ω–∏–µ –æ }
+    end;                                               { –∫–æ–Ω—Ü–µ p–∞–±–æ—Ç—ã }
   end;
 end;
 

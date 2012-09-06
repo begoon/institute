@@ -1,10 +1,10 @@
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     MULTNUM                                                 * }
-{ *  H†ß≠†Á•≠®•: ép£†≠®ß†Ê®Ô y¨≠Æ¶•≠®Ô ¨†‚p®ÊÎ ≠† Á®·´Æ                  * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     MULTNUM                                                 * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ûp–≥–∞–Ω–∏–∑–∞—Ü–∏—è y–º–Ω–æ–∂–µ–Ω–∏—è –º–∞—Çp–∏—Ü—ã –Ω–∞ —á–∏—Å–ª–æ                  * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -15,42 +15,42 @@ interface
 Uses Common, Crt, InpStr, Texts, Message, ShowMats, Convert, Screen, Wins;
 
   { ********************************************************************** }
-  { èpÆÊ•§yp† ®§•≠‚®‰®™†Ê®® ‚®Ø† ¨†‚p®ÊÎ:
-      Mat      - y™†ß†‚•´Ï ≠† ¨†‚p®Êy
-      Col, Row - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
+  { –üp–æ—Ü–µ–¥yp–∞ –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ü–∏–∏ —Ç–∏–ø–∞ –º–∞—Çp–∏—Ü—ã:
+      Mat      - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Çp–∏—Üy
+      Col, Row - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
   }
   procedure MultNumber( Mat : MatPtr; Col, Row : IntPtr );
 
 implementation
 
   { ******************************************************************** }
-  { ---           èpÆÊ•§yp† ®§•≠‚®‰®™†Ê®® ‚®Ø† ¨†‚p®ÊÎ               --- }
+  { ---           –üp–æ—Ü–µ–¥yp–∞ –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ü–∏–∏ —Ç–∏–ø–∞ –º–∞—Çp–∏—Ü—ã               --- }
   { ******************************************************************** }
 
   procedure MultNumber( Mat : MatPtr; Col, Row : IntPtr );
   var
-    N     : real;                                       { ó®·´Æ §Æ¨≠Æ¶•≠®Ô }
-    Ch    : word;                                       { äÆ§ ™´†¢®Ë® }
+    N     : real;                                       { –ß–∏—Å–ª–æ –¥–æ–º–Ω–æ–∂–µ–Ω–∏—è }
+    Ch    : word;                                       { –ö–æ–¥ –∫–ª–∞–≤–∏—à–∏ }
     i, j  : integer;
     Need  : boolean;
     Dt    : DtType;
   begin
-    ClearMainBox;                                       { C‚®p†•¨ ·‚†pÆ• }
-    i:=MessageBox( NMultTitle, OkNum, OkButs );         { à≠‰Æp¨†Ê®Ô }
-    ShowMat( TwoAX, TwoAY, Mat, Col, Row, @Dt );          { ÇÎ¢•·‚® ¨†‚p®Êy }
+    ClearMainBox;                                       { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
+    i:=MessageBox( NMultTitle, OkNum, OkButs );         { –ò–Ω—Ñ–æp–º–∞—Ü–∏—è }
+    ShowMat( TwoAX, TwoAY, Mat, Col, Row, @Dt );          { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
     ShowColRow( TwoAX, TwoAY, Col, Row );
-    Need:=InpNumberMsg( NMultInpMsg, N,                 { Ç¢•·‚® Á®·´Æ }
+    Need:=InpNumberMsg( NMultInpMsg, N,                 { –í–≤–µ—Å—Ç–∏ —á–∏—Å–ª–æ }
                         MinMatVal,  MaxMatVal,
                         True );
-    if Need then begin                                  { §´Ô y¨≠Æ¶•≠®Ô }
-       for i:=1 to Row^ do for j:=1 to Col^ do begin         { ñ®™´ }
-         ShowNPos( TwoAX, TwoAY, i, j, Yellow+bcLightGray,     { èÆ™†ß†‚Ï }
-                   Mat, Col, Row, @Dt );                     { ØÆß®Ê®Ó }
-         Delay( ShowDelay );                                 { èÆ§Æ¶§†‚Ï }
-         Mat^[i, j]:=Mat^[i, j]*N;                           { ì¨≠Æ¶®‚Ï }
-         ShowNPos( TwoAX, TwoAY, i, j, Brown+bcLightGray,       { èÆ™†ß†‚Ï }
-                   Mat, Col, Row, @Dt );                     { ØÆß®Ê®Ó }
-         Delay( ShowDelay );                                 { èÆ§Æ¶§†‚Ï }
+    if Need then begin                                  { –¥–ª—è y–º–Ω–æ–∂–µ–Ω–∏—è }
+       for i:=1 to Row^ do for j:=1 to Col^ do begin         { –¶–∏–∫–ª }
+         ShowNPos( TwoAX, TwoAY, i, j, Yellow+bcLightGray,     { –ü–æ–∫–∞–∑–∞—Ç—å }
+                   Mat, Col, Row, @Dt );                     { –ø–æ–∑–∏—Ü–∏—é }
+         Delay( ShowDelay );                                 { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
+         Mat^[i, j]:=Mat^[i, j]*N;                           { –£–º–Ω–æ–∂–∏—Ç—å }
+         ShowNPos( TwoAX, TwoAY, i, j, Brown+bcLightGray,       { –ü–æ–∫–∞–∑–∞—Ç—å }
+                   Mat, Col, Row, @Dt );                     { –ø–æ–∑–∏—Ü–∏—é }
+         Delay( ShowDelay );                                 { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
        end;
     end;
   end;

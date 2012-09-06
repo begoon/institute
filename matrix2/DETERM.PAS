@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     DETERM                                                  * }
-{ *  H†ß≠†Á•≠®•: ÇÎÁ®·´•≠®• ÆØp•§•´®‚•´Ô ¨†‚p®ÊÎ                         * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     DETERM                                                  * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –í—ã—á–∏—Å–ª–µ–Ω–∏–µ –æ–øp–µ–¥–µ–ª–∏—Ç–µ–ª—è –º–∞—Çp–∏—Ü—ã                         * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,70 +17,70 @@ Interface
 Uses Common;
 
   { ******************************************************************* }
-  { îy≠™Ê®Ô ¢ÎÁ®·´•≠®• ÆØp•§•´®‚•´Ô ¨†‚p®ÊÎ:
-      Mat            - y™†ß†‚•´Ï ≠† ¨†‚p®Êy
-      N              - p†ß¨•p≠Æ·‚Ï ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - ÆØp•§•´®‚•´Ï
+  { –§y–Ω–∫—Ü–∏—è –≤—ã—á–∏—Å–ª–µ–Ω–∏–µ –æ–øp–µ–¥–µ–ª–∏—Ç–µ–ª—è –º–∞—Çp–∏—Ü—ã:
+      Mat            - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Çp–∏—Üy
+      N              - p–∞–∑–º–µp–Ω–æ—Å—Ç—å –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - –æ–øp–µ–¥–µ–ª–∏—Ç–µ–ª—å
   }
   function Determinate( Mat : MatPtr; N : Integer ) : real;
 
 implementation
 
   { ********************************************************************* }
-  { ---          îy≠™Ê®Ô ¢ÎÁ®·´•≠®• ÆØp•§•´®‚•´Ô ¨†‚p®ÊÎ              --- }
+  { ---          –§y–Ω–∫—Ü–∏—è –≤—ã—á–∏—Å–ª–µ–Ω–∏–µ –æ–øp–µ–¥–µ–ª–∏—Ç–µ–ª—è –º–∞—Çp–∏—Ü—ã              --- }
   { ********************************************************************* }
 
   function Determinate( Mat : MatPtr; N : Integer ) : real;
   var
-    New            : MatType;                      { Ñy°´®pyÓÈ†Ô ¨†‚p®Ê† }
-    MaxElm         : real;                         { å†™·®¨y¨ ¢ ØÆ§¨†‚p®Ê• }
-    MaxCol, MaxRow : integer;                      { à≠§•™·Î ¨†™·®¨y¨† }
-    Det            : real;                         { éØp•§•´®‚•´Ï }
-    g              : real;                         { äÆÌ‰-‚ §Æ¨≠Æ¶•≠®Ô }
-    Sign           : real;                         { C¨•≠† ß≠†™† }
+    New            : MatType;                      { –îy–±–ª–∏py—é—â–∞—è –º–∞—Çp–∏—Ü–∞ }
+    MaxElm         : real;                         { –ú–∞–∫—Å–∏–ºy–º –≤ –ø–æ–¥–º–∞—Çp–∏—Ü–µ }
+    MaxCol, MaxRow : integer;                      { –ò–Ω–¥–µ–∫—Å—ã –º–∞–∫—Å–∏–ºy–º–∞ }
+    Det            : real;                         { –û–øp–µ–¥–µ–ª–∏—Ç–µ–ª—å }
+    g              : real;                         { –ö–æ—ç—Ñ-—Ç –¥–æ–º–Ω–æ–∂–µ–Ω–∏—è }
+    Sign           : real;                         { C–º–µ–Ω–∞ –∑–Ω–∞–∫–∞ }
     Temp           : real;
     i, j, k        : integer;
   begin
     if N<>1 then begin
-      for i:=1 to N do                                 { Ñ•´†•¨ ™ÆØ®Ó }
-        for j:=1 to N do                               { ®·ÂÆ§≠Æ© }
-          New[i, j]:=Mat^[i, j];                       { ¨†‚p®ÊÎ }
+      for i:=1 to N do                                 { –î–µ–ª–∞–µ–º –∫–æ–ø–∏—é }
+        for j:=1 to N do                               { –∏—Å—Ö–æ–¥–Ω–æ–π }
+          New[i, j]:=Mat^[i, j];                       { –º–∞—Çp–∏—Ü—ã }
       Sign:=1;
       Det:=1;
-      for k:=1 to N-1 do begin                         { ñ®™´ ØÆ ¨†‚p®Ê• }
+      for k:=1 to N-1 do begin                         { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–µ }
         MaxElm:=-1;
-        for i:=k to N do for j:=k to N-1 do            { àÈ•¨ ¨†™·®¨†´Ï≠Î© }
-          if MaxElm < abs( New[i,j] ) then begin       { Ì´•¨•≠‚ ¢ }
-            MaxElm:=abs( New[i, j] );                  { ØÆ§¨†‚p®Ê• }
+        for i:=k to N do for j:=k to N-1 do            { –ò—â–µ–º –º–∞–∫—Å–∏–º–∞–ª—å–Ω—ã–π }
+          if MaxElm < abs( New[i,j] ) then begin       { —ç–ª–µ–º–µ–Ω—Ç –≤ }
+            MaxElm:=abs( New[i, j] );                  { –ø–æ–¥–º–∞—Çp–∏—Ü–µ }
             MaxCol:=j;
             MaxRow:=i;
           end;
-        if MaxElm=0 then det:=0;                       { å†‚p®Ê† ¢ÎpÆ¶§•≠† }
-        if k<>MaxRow then begin                        { è•p•·‚†¢´Ô•¨ }
-          for j:=k to N do begin                       { ·‚pÆ™® }
+        if MaxElm=0 then det:=0;                       { –ú–∞—Çp–∏—Ü–∞ –≤—ãp–æ–∂–¥–µ–Ω–∞ }
+        if k<>MaxRow then begin                        { –ü–µp–µ—Å—Ç–∞–≤–ª—è–µ–º }
+          for j:=k to N do begin                       { —Å—Çp–æ–∫–∏ }
             temp:=New[k, j];
             New[k, j]:=New[ MaxRow, j];
             New[MaxRow, j]:=temp;
           end;
-          Sign:=-Sign;                                 { å•≠Ô•¨ ß≠†™ }
+          Sign:=-Sign;                                 { –ú–µ–Ω—è–µ–º –∑–Ω–∞–∫ }
         end;
-        if k<>MaxCol then begin                        { è•p•·‚†¢´Ô•¨ }
-          for i:=k to N do begin                       { ·‚Æ´°ÊÎ }
+        if k<>MaxCol then begin                        { –ü–µp–µ—Å—Ç–∞–≤–ª—è–µ–º }
+          for i:=k to N do begin                       { —Å—Ç–æ–ª–±—Ü—ã }
             temp:=New[ i, k ];
             New[ i, k ]:=New[ i, MaxCol ];
             New[ i, MaxCol ]:=temp;
           end;
-          Sign:=-Sign;                                 { å•≠Ô•¨ ß≠†™ }
+          Sign:=-Sign;                                 { –ú–µ–Ω—è–µ–º –∑–Ω–∞–∫ }
         end;
-        if Det<>0 then                                 { C¢Æ§®¨ ™ }
-          for i:=k+1 to N do begin                     { ‚p•y£Æ´Ï≠®™y }
+        if Det<>0 then                                 { C–≤–æ–¥–∏–º –∫ }
+          for i:=k+1 to N do begin                     { —Çp–µy–≥–æ–ª—å–Ω–∏–∫y }
             g:=New[ i, k ] / New[ k, k ];
             for j:=k to N do
               New[ i, j ]:=New[ i, j ] - g*New[ k, j ];
           end;
       end;
-      for i:=1 to N do Det:=Det*New[ i, i ];           { CÁ®‚†•¨ }
-      Determinate:=Det*Sign;                           { ÆØp•§•´®‚•´Ï }
+      for i:=1 to N do Det:=Det*New[ i, i ];           { C—á–∏—Ç–∞–µ–º }
+      Determinate:=Det*Sign;                           { –æ–øp–µ–¥–µ–ª–∏—Ç–µ–ª—å }
     end else Determinate:=Mat^[1, 1];
   end;
 

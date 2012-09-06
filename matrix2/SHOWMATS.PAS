@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     SHOWMATS                                                * }
-{ *  H†ß≠†Á•≠®•: ép£†≠®ß†Ê®Ô p®·Æ¢†≠®Ô ¨†‚p®Ê                            * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     SHOWMATS                                                * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ûp–≥–∞–Ω–∏–∑–∞—Ü–∏—è p–∏—Å–æ–≤–∞–Ω–∏—è –º–∞—Çp–∏—Ü                            * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,38 +17,38 @@ interface
 Uses Common, Convert, Texts, Screen, Wins;
 
   { ********************************************************************* }
-  { èpÆÊ•§yp† ¢Î¢Æ§† ¨†‚p®Ê ≠† Ì™p†≠:
-       x, y     - äy§† ¢Î¢Æ§®‚Ï
-       Mat      - ì™†ß†‚•´Ï ≠† ¨†‚p®Êy
-       Col, Row - ì™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚®
-       Dt       - ì™†ß†‚•´Ï ≠† ¨†··®¢ †‚p®°y‚Æ¢
+  { –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ –º–∞—Çp–∏—Ü –Ω–∞ —ç–∫p–∞–Ω:
+       x, y     - –öy–¥–∞ –≤—ã–≤–æ–¥–∏—Ç—å
+       Mat      - –£–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Çp–∏—Üy
+       Col, Row - –£–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏
+       Dt       - –£–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Å—Å–∏–≤ –∞—Çp–∏–±y—Ç–æ–≤
   }
   procedure ShowMat( x, y : integer;
                      Mat : MatPtr; Col, Row : IntPtr; Dt : DtPtr );
 
   { ********************************************************************* }
-  { èpÆÊ•§yp† ¢Î¢Æ§† Ì´•¨•≠‚Æ¢ ¨†‚p®Ê ≠† Ì™p†≠:
-       x, y     - äy§† ¢Î¢Æ§®‚Ï
-       i, j     - à≠§•™·Î Ì´•¨•≠‚†
-       Color    - ñ¢•‚ ¢Î¢Æ§†
-       Mat      - ì™†ß†‚•´Ï ≠† ¨†‚p®Êy
-       Col, Row - ì™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚®
-       Dt       - ì™†ß†‚•´Ï ≠† ¨†··®¢ †‚p®°y‚Æ¢
+  { –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ —ç–ª–µ–º–µ–Ω—Ç–æ–≤ –º–∞—Çp–∏—Ü –Ω–∞ —ç–∫p–∞–Ω:
+       x, y     - –öy–¥–∞ –≤—ã–≤–æ–¥–∏—Ç—å
+       i, j     - –ò–Ω–¥–µ–∫—Å—ã —ç–ª–µ–º–µ–Ω—Ç–∞
+       Color    - –¶–≤–µ—Ç –≤—ã–≤–æ–¥–∞
+       Mat      - –£–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Çp–∏—Üy
+       Col, Row - –£–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏
+       Dt       - –£–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Å—Å–∏–≤ –∞—Çp–∏–±y—Ç–æ–≤
   }
   procedure ShowNPos( x, y, i, j : integer; Color : byte;
                       Mat : MatPtr; Col, Row : IntPtr; Dt : DtPtr );
 
   { ********************************************************************* }
-  { èpÆÊ•§yp† ¢Î¢Æ§† p†ß¨•p≠Æ·‚•© ¨†‚p®Ê ≠† Ì™p†≠:
-       x, y     - äy§† ¢Î¢Æ§®‚Ï
-       Col, Row - ì™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚®
+  { –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π –º–∞—Çp–∏—Ü –Ω–∞ —ç–∫p–∞–Ω:
+       x, y     - –öy–¥–∞ –≤—ã–≤–æ–¥–∏—Ç—å
+       Col, Row - –£–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏
   }
   procedure ShowColRow( x, y : integer; Col, Row : IntPtr );
 
 Implementation
 
   { -------------------------------------------------------------------- }
-  { ---          îy≠Ê®Ô Ø•p•¢Æ§† p†ß¨•p≠Æ·‚® · ·‚pÆ™y                --- }
+  { ---          –§y–Ω—Ü–∏—è –ø–µp–µ–≤–æ–¥–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ —Å —Å—Çp–æ–∫y                --- }
   { -------------------------------------------------------------------- }
 
   function Int2Str( N : integer ) : RowColType;
@@ -60,7 +60,7 @@ Implementation
   end;
 
   { ********************************************************************* }
-  { ---              èpÆÊ•§yp† ¢Î¢Æ§† ¨†‚p®Ê ≠† Ì™p†≠                 --- }
+  { ---              –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ –º–∞—Çp–∏—Ü –Ω–∞ —ç–∫p–∞–Ω                 --- }
   { ********************************************************************* }
 
   procedure ShowMat( x, y : integer;
@@ -68,75 +68,75 @@ Implementation
   var
     i, j : integer;
   begin
-    DrawFillBox( x, y, x+WinMatSizeX+1, y+WinMatY+1 ); { ê®·y•¨ p†¨™y }
-    for i:=1 to MaxMatRow do                           { à≠®Ê®†´®ß®py•¨ }
-      for j:=1 to MaxMatCol do                         { ¨†··®¢ }
-        Dt^.At[i,j]:=bcLightGray+Blue;                 { †‚p®°y‚Æ¢ }
-    Dt^.x:=1;                                          { H†Á†´Ï≠Î• }
-    Dt^.y:=1;                                          { ·¨•È•≠®Ô }
-    PutColorStr( x+2, y, MatElem, bcWhite );           { ÇÎ¢Æ§®¨ ß†£Æ´Æ¢Æ™ }
-    ShowNPos( x, y, 1, 1, bcLightGray+Blue,            { ÇÎ¢Æ§®¨ Ì´•¨•≠‚ }
+    DrawFillBox( x, y, x+WinMatSizeX+1, y+WinMatY+1 ); { –†–∏—Åy–µ–º p–∞–º–∫y }
+    for i:=1 to MaxMatRow do                           { –ò–Ω–∏—Ü–∏–∞–ª–∏–∑–∏py–µ–º }
+      for j:=1 to MaxMatCol do                         { –º–∞—Å—Å–∏–≤ }
+        Dt^.At[i,j]:=bcLightGray+Blue;                 { –∞—Çp–∏–±y—Ç–æ–≤ }
+    Dt^.x:=1;                                          { H–∞—á–∞–ª—å–Ω—ã–µ }
+    Dt^.y:=1;                                          { —Å–º–µ—â–µ–Ω–∏—è }
+    PutColorStr( x+2, y, MatElem, bcWhite );           { –í—ã–≤–æ–¥–∏–º –∑–∞–≥–æ–ª–æ–≤–æ–∫ }
+    ShowNPos( x, y, 1, 1, bcLightGray+Blue,            { –í—ã–≤–æ–¥–∏–º —ç–ª–µ–º–µ–Ω—Ç }
               Mat, Col, Row, Dt );                     { 1, 1 }
   end;
 
   { ********************************************************************* }
-  { ---          èpÆÊ•§yp† ¢Î¢Æ§† Ì´•¨•≠‚Æ¢ ¨†‚p®Ê ≠† Ì™p†≠           --- }
+  { ---          –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ —ç–ª–µ–º–µ–Ω—Ç–æ–≤ –º–∞—Çp–∏—Ü –Ω–∞ —ç–∫p–∞–Ω           --- }
   { ********************************************************************* }
 
   procedure ShowNPos( x, y, i, j : integer; Color : byte;
                       Mat : MatPtr; Col, Row : IntPtr; Dt : DtPtr );
   var
-    RunI, RunJ : integer;                              { è•p•¨•≠≠Î• }
-    ResI, ResJ : integer;                              { Ê®™´Æ¢ }
+    RunI, RunJ : integer;                              { –ü–µp–µ–º–µ–Ω–Ω—ã–µ }
+    ResI, ResJ : integer;                              { —Ü–∏–∫–ª–æ–≤ }
   begin
-    PutColorStr( x+MatElemOfs, y,                      { ÇÎ¢Æ§ ≠Æ¨•pÆ¢ }
-                 Int2Str(i)+','+Int2Str(j),            { Ì´•¨•≠‚† }
+    PutColorStr( x+MatElemOfs, y,                      { –í—ã–≤–æ–¥ –Ω–æ–º–µp–æ–≤ }
+                 Int2Str(i)+','+Int2Str(j),            { —ç–ª–µ–º–µ–Ω—Ç–∞ }
                  bcWhite );
-    if Col^<WinMatX then                               { Ö·´® ¨†‚p®Ê† }
-      PutBox( x+Col^*ElemSizeX+1, y+1,                 { ¨•≠ÏË• Æ™≠†, }
-              x+WinMatSizeX, y+WinMatY,                { ‚Æ ØÆÁ®·‚®‚Ï }
-              ' ', bcLightGray+Blue );                 { Á†·‚Ï Æ™≠† }
+    if Col^<WinMatX then                               { –ï—Å–ª–∏ –º–∞—Çp–∏—Ü–∞ }
+      PutBox( x+Col^*ElemSizeX+1, y+1,                 { –º–µ–Ω—å—à–µ –æ–∫–Ω–∞, }
+              x+WinMatSizeX, y+WinMatY,                { —Ç–æ –ø–æ—á–∏—Å—Ç–∏—Ç—å }
+              ' ', bcLightGray+Blue );                 { —á–∞—Å—Ç—å –æ–∫–Ω–∞ }
 
-    if Row^<WinMatY then                               { Ö·´® ¨†‚p®Ê† }
-      PutBox( x+1, y+Row^+1, x+WinMatSizeX, y+WinMatY, { ¨•≠ÏË• Æ™≠†, }
-              ' ', bcLightGray+Blue );                 { ‚Æ ØÆÁ®·‚®‚Ï •£Æ }
+    if Row^<WinMatY then                               { –ï—Å–ª–∏ –º–∞—Çp–∏—Ü–∞ }
+      PutBox( x+1, y+Row^+1, x+WinMatSizeX, y+WinMatY, { –º–µ–Ω—å—à–µ –æ–∫–Ω–∞, }
+              ' ', bcLightGray+Blue );                 { —Ç–æ –ø–æ—á–∏—Å—Ç–∏—Ç—å –µ–≥–æ }
 
-    Dt^.At[ i, j ]:=Color;                             { ñ¢•‚ Ì´•¨•≠‚† }
-    if Col^<=WinMatX                                   { àÈ•¨ Dt^.x }
-      then Dt^.x:=1                                    { 1- •·´® ¨†´•≠Ï™†Ô }
-      else begin                                       { à≠†Á• - ·Á®‚†•¨ }
+    Dt^.At[ i, j ]:=Color;                             { –¶–≤–µ—Ç —ç–ª–µ–º–µ–Ω—Ç–∞ }
+    if Col^<=WinMatX                                   { –ò—â–µ–º Dt^.x }
+      then Dt^.x:=1                                    { 1- –µ—Å–ª–∏ –º–∞–ª–µ–Ω—å–∫–∞—è }
+      else begin                                       { –ò–Ω–∞—á–µ - —Å—á–∏—Ç–∞–µ–º }
         if j >= (Dt^.x+WinMatX)
           then Dt^.x:=j-WinMatX+1;
         if j < Dt^.x then Dt^.x:=j;
       end;
-    if Row^<=WinMatY                                   { àÈ•¨ Dt^.y }
-      then Dt^.y:=1                                    { 1- •·´® ¨†´•≠Ï™†Ô }
-      else begin                                       { à≠†Á• - ·Á®‚†•¨ }
+    if Row^<=WinMatY                                   { –ò—â–µ–º Dt^.y }
+      then Dt^.y:=1                                    { 1- –µ—Å–ª–∏ –º–∞–ª–µ–Ω—å–∫–∞—è }
+      else begin                                       { –ò–Ω–∞—á–µ - —Å—á–∏—Ç–∞–µ–º }
         if i >= (Dt^.y+WinMatY)
           then Dt^.y:=i-WinMatY+1;
         if i < Dt^.y then Dt^.y:=i;
       end;
-    for RunI:=0 to WinMatY-1 do                        { ñ®™´ ØÆ Æ™≠y }
+    for RunI:=0 to WinMatY-1 do                        { –¶–∏–∫–ª –ø–æ –æ–∫–Ωy }
       for RunJ:=0 to WinMatX-1 do begin
-        ResJ:=RunJ+Dt^.x;                              { ÇÎÁ®·´®‚Ï }
-        ResI:=RunI+Dt^.y;                              { ®≠§•™·Î }
-        if ( ResI <= Row^) and (ResJ <= Col^ ) then     { åÎ ¢ ¨†‚p®Ê• ? }
-          PutColorStr( x+RunJ*ElemSizeX+1, y+RunI+1,   { ÇÎ¢•·‚® Ì´•¨•≠‚ }
+        ResJ:=RunJ+Dt^.x;                              { –í—ã—á–∏—Å–ª–∏—Ç—å }
+        ResI:=RunI+Dt^.y;                              { –∏–Ω–¥–µ–∫—Å—ã }
+        if ( ResI <= Row^) and (ResJ <= Col^ ) then     { –ú—ã –≤ –º–∞—Çp–∏—Ü–µ ? }
+          PutColorStr( x+RunJ*ElemSizeX+1, y+RunI+1,   { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
                        RealToStr(Mat^[ResI, ResJ]),
-                       Dt^.At[ResI, ResJ]);            { · Ê¢•‚Æ¨ }
+                       Dt^.At[ResI, ResJ]);            { —Å —Ü–≤–µ—Ç–æ–º }
       end;
   end;
 
   { ********************************************************************* }
-  { ---         èpÆÊ•§yp† ¢Î¢Æ§† p†ß¨•p≠Æ·‚•© ¨†‚p®Ê ≠† Ì™p†≠         --- }
+  { ---         –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π –º–∞—Çp–∏—Ü –Ω–∞ —ç–∫p–∞–Ω         --- }
   { ********************************************************************* }
 
   procedure ShowColRow( x, y : integer; Col, Row : IntPtr );
   begin
-    PutColorStr( x+2, y+WinMatY+1, MatTitle, bcWhite );   { ÇÎ¢Æ§®¨ }
-    PutColorStr( x+MatTitleOfs, y+WinMatY+1,              { ß†£Æ´Æ¢Æ™ }
-                 Int2Str(Row^)+','+Int2Str(Col^),         { ® ·†¨® }
-                 bcWhite );                               { p†ß¨•p≠Æ·‚® }
+    PutColorStr( x+2, y+WinMatY+1, MatTitle, bcWhite );   { –í—ã–≤–æ–¥–∏–º }
+    PutColorStr( x+MatTitleOfs, y+WinMatY+1,              { –∑–∞–≥–æ–ª–æ–≤–æ–∫ }
+                 Int2Str(Row^)+','+Int2Str(Col^),         { –∏ —Å–∞–º–∏ }
+                 bcWhite );                               { p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
   end;
 
 end.

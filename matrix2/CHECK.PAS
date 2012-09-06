@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     CHECK                                                   * }
-{ *  H†ß≠†Á•≠®•: èpÆ¢•p™† ¨†‚p®Ê ≠† p†¢•≠·‚¢Æ                            * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     CHECK                                                   * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –üp–æ–≤–µp–∫–∞ –º–∞—Çp–∏—Ü –Ω–∞ p–∞–≤–µ–Ω—Å—Ç–≤–æ                            * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,11 +17,11 @@ interface
 Uses Common, Texts, ShowMats, Message, Crt, Wins, Screen;
 
   { ****************************************************************** }
-  { èpÆÊ•§yp† ØpÆ¢•p™® ¨†‚p®Ê ≠† p†¢•≠‚·¢Æ:
-      MatA       - y™†ß†‚•´Ï ≠† Ø•p¢yÓ ¨†‚p®Êy
-      ColA, RowA - y™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ Ä
-      MatB       - y™†ß†‚•´Ï ≠† ¢‚ÆpyÓ ¨†‚p®Êy
-      ColB, RowB - y™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ B
+  { –üp–æ—Ü–µ–¥yp–∞ –øp–æ–≤–µp–∫–∏ –º–∞—Çp–∏—Ü –Ω–∞ p–∞–≤–µ–Ω—Ç—Å–≤–æ:
+      MatA       - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –ø–µp–≤y—é –º–∞—Çp–∏—Üy
+      ColA, RowA - y–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã –ê
+      MatB       - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –≤—Ç–æpy—é –º–∞—Çp–∏—Üy
+      ColB, RowB - y–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã B
   }
   procedure CheckEqu( MatA : MatPtr; ColA, RowA : IntPtr;
                       MatB : MatPtr; ColB, RowB : IntPtr );
@@ -29,54 +29,54 @@ Uses Common, Texts, ShowMats, Message, Crt, Wins, Screen;
 implementation
 
   { ********************************************************************* }
-  { ---            èpÆÊ•§yp† ØpÆ¢•p™® ¨†‚p®Ê ≠† p†¢•≠‚·¢Æ             --- }
+  { ---            –üp–æ—Ü–µ–¥yp–∞ –øp–æ–≤–µp–∫–∏ –º–∞—Çp–∏—Ü –Ω–∞ p–∞–≤–µ–Ω—Ç—Å–≤–æ             --- }
   { ********************************************************************* }
 
   procedure CheckEqu( MatA : MatPtr; ColA, RowA : IntPtr;
                       MatB : MatPtr; ColB, RowB : IntPtr );
   var
-    DtA      : DtType;                                { Ä‚p®°y‚Î }
-    DtB      : DtType;                                { ¨†‚p®Ê }
-    Equ      : boolean;                               { î´†¶Æ™ p†¢•≠·‚¢† }
+    DtA      : DtType;                                { –ê—Çp–∏–±y—Ç—ã }
+    DtB      : DtType;                                { –º–∞—Çp–∏—Ü }
+    Equ      : boolean;                               { –§–ª–∞–∂–æ–∫ p–∞–≤–µ–Ω—Å—Ç–≤–∞ }
     i, j     : integer;
   begin
-    ClearMainBox;                                     { C‚®p†•¨ ·‚†pÆ• }
+    ClearMainBox;                                     { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
 
-    ShowMat( TwoAX, TwoAY, MatA, ColA, RowA, @DtA);   { èÆ™†ß†‚Ï Æ°• }
-    ShowColRow( TwoAX, TwoAY, ColA, RowA );           { ¨†‚p®ÊÎ }
-    ShowMat( TwoBX, TwoBY, MatB, ColB, RowB, @DtB);   { ≠† Ì™p†≠• }
+    ShowMat( TwoAX, TwoAY, MatA, ColA, RowA, @DtA);   { –ü–æ–∫–∞–∑–∞—Ç—å –æ–±–µ }
+    ShowColRow( TwoAX, TwoAY, ColA, RowA );           { –º–∞—Çp–∏—Ü—ã }
+    ShowMat( TwoBX, TwoBY, MatB, ColB, RowB, @DtB);   { –Ω–∞ —ç–∫p–∞–Ω–µ }
     ShowColRow( TwoBX, TwoBY, ColB, RowB );
 
-    i:=MessageBox( CheckInfMsg, OkNum, OkButs );      { à≠‰Æp¨†Ê®Ô }
-    if (ColA^=ColB^) and (RowA^=RowB^) then begin     { C¢•p®¨ p†ß¨•p≠Æ·‚® }
+    i:=MessageBox( CheckInfMsg, OkNum, OkButs );      { –ò–Ω—Ñ–æp–º–∞—Ü–∏—è }
+    if (ColA^=ColB^) and (RowA^=RowB^) then begin     { C–≤–µp–∏–º p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
       Equ:=True;
-      for i:=1 to RowA^ do for j:=1 to ColA^ do begin   { ñ®™´ ØÆ ¨†‚p®Ê• }
-        ShowNPos( TwoAX, TwoAY, i, j,                   { ÇÎ¢Æ§®¨ ‚•™yÈ®• }
+      for i:=1 to RowA^ do for j:=1 to ColA^ do begin   { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–µ }
+        ShowNPos( TwoAX, TwoAY, i, j,                   { –í—ã–≤–æ–¥–∏–º —Ç–µ–∫y—â–∏–µ }
                   Yellow+bcLightGray, MatA,
                   ColA, RowA, @DtA );
-        ShowNPos( TwoBX, TwoBY, i, j,                   { ØÆß®Ê®® }
+        ShowNPos( TwoBX, TwoBY, i, j,                   { –ø–æ–∑–∏—Ü–∏–∏ }
                   Yellow+bcLightGray, MatB,
                   ColA, RowB, @DtB );
-        Delay( ShowDelay );                             { èÆ§Æ¶§†‚Ï }
-        if MatA^[i, j]<>MatB^[i, j] then begin          { C¢•p®‚Ï ? }
-          ShowNPos( TwoAX, TwoAY, i, j,                 { èÆ™†ß†‚Ï ÆË®°™y }
-                    Red+bcLightGray, MatA,              { ¢ ≠•·Æ¢Ø†§•≠®® }
-                    ColA, RowA, @DtA );                 { Ì´•¨•≠‚Æ¢ }
-          ShowNPos( TwoBX, TwoBY, i, j,                 { ¨†‚p®Ê }
+        Delay( ShowDelay );                             { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
+        if MatA^[i, j]<>MatB^[i, j] then begin          { C–≤–µp–∏—Ç—å ? }
+          ShowNPos( TwoAX, TwoAY, i, j,                 { –ü–æ–∫–∞–∑–∞—Ç—å –æ—à–∏–±–∫y }
+                    Red+bcLightGray, MatA,              { –≤ –Ω–µ—Å–æ–≤–ø–∞–¥–µ–Ω–∏–∏ }
+                    ColA, RowA, @DtA );                 { —ç–ª–µ–º–µ–Ω—Ç–æ–≤ }
+          ShowNPos( TwoBX, TwoBY, i, j,                 { –º–∞—Çp–∏—Ü }
                     Red+bcLightGray, MatB,
                     ColA, RowB, @DtB );
-          Equ:=false;                                   { ì·‚†≠Æ¢®‚Ï ‰´†£ }
+          Equ:=false;                                   { –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ñ–ª–∞–≥ }
         end;
-        delay( ShowDelay );                             { èÆ§Æ¶§†‚Ï }
+        delay( ShowDelay );                             { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
       end;
       if Equ
-        then i:=MessageBox( CheckYesMsg,                { é‚¢•‚-ê†¢≠Î }
+        then i:=MessageBox( CheckYesMsg,                { –û—Ç–≤–µ—Ç-–†–∞–≤–Ω—ã }
                             OkNum, OkButs )
-        else i:=MessageBox( CheckNoMsg,                 { é‚¢•‚-H• p†¢≠Î }
+        else i:=MessageBox( CheckNoMsg,                 { –û—Ç–≤–µ—Ç-H–µ p–∞–≤–Ω—ã }
                             OkNum, OkButs );
     end else begin
-      Beep;                                             { "è´ÆÂ®•" }
-      i:=MessageBox( CheckDifMsg, OkNum, OkButs );      { p†ß¨•p≠Æ·‚® }
+      Beep;                                             { "–ü–ª–æ—Ö–∏–µ" }
+      i:=MessageBox( CheckDifMsg, OkNum, OkButs );      { p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
     end;
   end;
 

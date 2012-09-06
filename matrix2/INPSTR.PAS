@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Œ®¤y«ì:     INPSTR                                                  * }
-{ *  H §­ ç¥­¨¥: Žp£ ­¨§ æ¨ï ¢¢®¤  áâp®ª ¨ ç¨á¥«                         * }
-{ *  ‚¥pá¨ï:     2.0                                                     * }
-{ *  €¢â®p:      €«¥ªá ­¤p „¥¬¨­, Œ€ˆ, ª ä. 302, 1995                    * }
-{ *  Ÿ§ëª:       Turbo Pascal 5.5                                        * }
+{ *  ÐœÐ¾Ð´yÐ»ÑŒ:     INPSTR                                                  * }
+{ *  HÐ°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ÐžpÐ³Ð°Ð½Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° ÑÑ‚pÐ¾Ðº Ð¸ Ñ‡Ð¸ÑÐµÐ»                         * }
+{ *  Ð’ÐµpÑÐ¸Ñ:     2.0                                                     * }
+{ *  ÐÐ²Ñ‚Ð¾p:      ÐÐ»ÐµÐºÑÐ°Ð½Ð´p Ð”ÐµÐ¼Ð¸Ð½, ÐœÐÐ˜, ÐºÐ°Ñ„. 302, 1995                    * }
+{ *  Ð¯Ð·Ñ‹Ðº:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,20 +17,20 @@ interface
 Uses Common, Screen, Convert, Texts, Crt, Image, Message, Wins;
 
   { ******************************************************************* }
-  { ”y­ªæ¨ï ¢¢®¤  áâp®ª¨:
-      x, y       - ª®®p¤¨­ âë
-      S          - áâp®ª 
-      ¥§y«ìâ â  - True-‚á¥ ¢¢¥¤¥­®, False - H ¦ â ESC
+  { Ð¤yÐ½ÐºÑ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° ÑÑ‚pÐ¾ÐºÐ¸:
+      x, y       - ÐºÐ¾Ð¾pÐ´Ð¸Ð½Ð°Ñ‚Ñ‹
+      S          - ÑÑ‚pÐ¾ÐºÐ°
+      Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚  - True-Ð’ÑÐµ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾, False - HÐ°Ð¶Ð°Ñ‚ ESC
   }
   function InputStr( x, y : integer; var S : InpStrType ) : boolean;
 
   { ******************************************************************* }
-  { ”y­ªæ¨ï ¢¢®¤  ç¨á« :
-      x, y       - ª®®p¤¨­ âë
-      N          - ç¨á«®
-      Min,Max    - £p ­¨æë §­ ç¥­¨ï ç¨á« 
+  { Ð¤yÐ½ÐºÑ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° Ñ‡Ð¸ÑÐ»Ð°:
+      x, y       - ÐºÐ¾Ð¾pÐ´Ð¸Ð½Ð°Ñ‚Ñ‹
+      N          - Ñ‡Ð¸ÑÐ»Ð¾
+      Min,Max    - Ð³pÐ°Ð½Ð¸Ñ†Ñ‹ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ñ‡Ð¸ÑÐ»Ð°
       NumType    - True - real, False - integer
-      ¥§y«ìâ â  - True-‚á¥ ¢¢¥¤¥­®, False - H ¦ â ESC
+      Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚  - True-Ð’ÑÐµ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾, False - HÐ°Ð¶Ð°Ñ‚ ESC
   }
   function InputNumber( x, y     : integer;
                         var N;
@@ -38,12 +38,12 @@ Uses Common, Screen, Convert, Texts, Crt, Image, Message, Wins;
                         NumType  : boolean ) : boolean;
 
   { ********************************************************************* }
-  { ”y­ªæ¨ï ¢¢®¤  ç¨á«  á ¯p¨£« è¥­¨¥¬:
-      Msg        - p¨£« è¥­¨ï ¤«ï ¢¢®¤ 
-      N          - ç¨á«®
-      Min,Max    - £p ­¨æë §­ ç¥­¨ï ç¨á« 
+  { Ð¤yÐ½ÐºÑ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° Ñ‡Ð¸ÑÐ»Ð° Ñ Ð¿pÐ¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸ÐµÐ¼:
+      Msg        - ÐŸpÐ¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ð²Ð²Ð¾Ð´Ð°
+      N          - Ñ‡Ð¸ÑÐ»Ð¾
+      Min,Max    - Ð³pÐ°Ð½Ð¸Ñ†Ñ‹ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ñ‡Ð¸ÑÐ»Ð°
       NumType    - True - real, False - integer
-      ¥§y«ìâ â  - True-‚á¥ ¢¢¥¤¥­®, False - H ¦ â ESC
+      Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚  - True-Ð’ÑÐµ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾, False - HÐ°Ð¶Ð°Ñ‚ ESC
   }
   function InpNumberMsg( Msg      : string;
                          var N;
@@ -53,49 +53,49 @@ Uses Common, Screen, Convert, Texts, Crt, Image, Message, Wins;
 implementation
 
   { ******************************************************************* }
-  { ---                    ”y­ªæ¨ï ¢¢®¤  áâp®ª¨                     --- }
+  { ---                    Ð¤yÐ½ÐºÑ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° ÑÑ‚pÐ¾ÐºÐ¸                     --- }
   { ******************************************************************* }
 
   function InputStr( x, y : integer; var S : InpStrType ) : boolean;
   var
-    Key    : word;                             { Š®¤ ­ ¦ â®© ª« ¢¨è¨ }
-    Ptr    : word;                             { ®§¨æ¨ï ¢ áâp®ª¥ }
-    Origin : InpStrType;                       { H ç «ì­®¥ §­ ç¥­¨¥ }
+    Key    : word;                             { ÐšÐ¾Ð´ Ð½Ð°Ð¶Ð°Ñ‚Ð¾Ð¹ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸ }
+    Ptr    : word;                             { ÐŸÐ¾Ð·Ð¸Ñ†Ð¸Ñ Ð² ÑÑ‚pÐ¾ÐºÐµ }
+    Origin : InpStrType;                       { HÐ°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ }
   begin
-    Origin:=S;                                 { H ç «ì­®¥ §­ ç¥­¨¥ }
-    S:=ChangeSpace( S );                       { ‡ ¬¥­¨âì ¯p®¡¥«ë }
-    Ptr:=1;                                    { H ç «ì­ ï ¯®§¨æ¨ï ¢ áâp®ª¥ }
-    CursorON;                                  { ‚ª«îç¨âì ªypá®p }
+    Origin:=S;                                 { HÐ°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ }
+    S:=ChangeSpace( S );                       { Ð—Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿pÐ¾Ð±ÐµÐ»Ñ‹ }
+    Ptr:=1;                                    { HÐ°Ñ‡Ð°Ð»ÑŒÐ½Ð°Ñ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ Ð² ÑÑ‚pÐ¾ÐºÐµ }
+    CursorON;                                  { Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÐºypÑÐ¾p }
     repeat
-      PutColorStr( x, y, S, bcWhite );         { ‚ë¢¥áâ¨ áâp®ªy }
-      GotoXY( x+Ptr, y+1);                     { ¨ ªypá®p }
-      Key:=GetKey;                             { ‚¢¥áâ¨ ª®¤ ª« ¢¨è¨ }
+      PutColorStr( x, y, S, bcWhite );         { Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÑ‚pÐ¾Ðºy }
+      GotoXY( x+Ptr, y+1);                     { Ð¸ ÐºypÑÐ¾p }
+      Key:=GetKey;                             { Ð’Ð²ÐµÑÑ‚Ð¸ ÐºÐ¾Ð´ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸ }
       case Key of
-        kbLeft :            Dec(Ptr);          { ¥p¥¬¥é¥­¨¥ ¢«¥¢® }
-        kbRight :           Inc(Ptr);          { ¥p¥¬¥é¥­¨¥ ¢¯p ¢® }
+        kbLeft :            Dec(Ptr);          { ÐŸÐµpÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð²Ð»ÐµÐ²Ð¾ }
+        kbRight :           Inc(Ptr);          { ÐŸÐµpÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð²Ð¿pÐ°Ð²Ð¾ }
         ord('0')..ord('9'),
         ord('.'), ord('-'),
-        ord(' ') :                             { –¨äp®¢ë¥ ª« ¢¨è¨ }
+        ord(' ') :                             { Ð¦Ð¸Ñ„pÐ¾Ð²Ñ‹Ðµ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸ }
                            begin
-                             S[Ptr]:=chr(Key); { ‡ ¯¨á âì ­®¢yî æ¨äpy }
+                             S[Ptr]:=chr(Key); { Ð—Ð°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð½Ð¾Ð²yÑŽ Ñ†Ð¸Ñ„py }
                              Inc(Ptr);
                            end;
       end;
-      if Ptr>MaxInpStr then Key:=kbEnter;      { p®¢¥p¨âì ¤«¨­y ¢¢®¤  }
+      if Ptr>MaxInpStr then Key:=kbEnter;      { ÐŸpÐ¾Ð²ÐµpÐ¸Ñ‚ÑŒ Ð´Ð»Ð¸Ð½y Ð²Ð²Ð¾Ð´Ð° }
       If Ptr<1 then Ptr:=1;
-    until Key in [ kbEnter, kbEsc ];           { ®ª  ­¥ ª®­¥æ ¢¢®¤  }
-    if Key=kbEsc then begin                    { …á«¨ Esc, â® ­¥ ¬¥­ïâì }
+    until Key in [ kbEnter, kbEsc ];           { ÐŸÐ¾ÐºÐ° Ð½Ðµ ÐºÐ¾Ð½ÐµÑ† Ð²Ð²Ð¾Ð´Ð° }
+    if Key=kbEsc then begin                    { Ð•ÑÐ»Ð¸ Esc, Ñ‚Ð¾ Ð½Ðµ Ð¼ÐµÐ½ÑÑ‚ÑŒ }
       S:=Origin;
       InputStr:=False;
     end
-    else InputStr:=True;                       { ‚¥p­yâì p¥§y«ìâ â }
-    PutColorStr( x, y, S, bcLightGray );       { ‚ë¢¥áâ¨ áâp®ªy }
-    CursorOFF;                                 { ‚ëª«îç¨âì ªypá®p }
+    else InputStr:=True;                       { Ð’ÐµpÐ½yÑ‚ÑŒ pÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚ }
+    PutColorStr( x, y, S, bcLightGray );       { Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÑ‚pÐ¾Ðºy }
+    CursorOFF;                                 { Ð’Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÐºypÑÐ¾p }
     S:=DelSpaces( S );
   end;
 
   { ******************************************************************* }
-  { ---                     ”y­ªæ¨ï ¢¢®¤  ç¨á«                      --- }
+  { ---                     Ð¤yÐ½ÐºÑ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° Ñ‡Ð¸ÑÐ»Ð°                     --- }
   { ******************************************************************* }
 
   function InputNumber( x, y     : integer;
@@ -103,50 +103,50 @@ implementation
                         Min, Max : real;
                         NumType  : boolean ) : boolean;
   var
-    Origin : InpStrType;                         { H ç «ì­®¥ ç¨á«®-áâp®ª  }
-    S      : InpStrType;                         { ‚¢¥¤¥­­ ï áâp®ª  }
-    RealN  : real absolute N;                    { ¥§y«ìâ â ¢¢®¤  REAL }
-    IntN   : integer absolute N;                 { ¥§y«ìâ â ¢¢®¤  INTEGER }
-    Code   : integer;                            { ¥§y«ìâ â ¯p¥®¡p §®¢ ­¨ï }
-    Need   : boolean;                            { ”« £ §­ ç¥­¨ï ç¨á«  }
-    Res    : boolean;                            { ¥§y«ìâ â ¢¢®¤  }
+    Origin : InpStrType;                         { HÐ°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾-ÑÑ‚pÐ¾ÐºÐ° }
+    S      : InpStrType;                         { Ð’Ð²ÐµÐ´ÐµÐ½Ð½Ð°Ñ ÑÑ‚pÐ¾ÐºÐ° }
+    RealN  : real absolute N;                    { Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚ Ð²Ð²Ð¾Ð´Ð° REAL }
+    IntN   : integer absolute N;                 { Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚ Ð²Ð²Ð¾Ð´Ð° INTEGER }
+    Code   : integer;                            { Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚ Ð¿pÐµÐ¾Ð±pÐ°Ð·Ð¾Ð²Ð°Ð½Ð¸Ñ }
+    Need   : boolean;                            { Ð¤Ð»Ð°Ð³ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ñ‡Ð¸ÑÐ»Ð° }
+    Res    : boolean;                            { Ð ÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚ Ð²Ð²Ð¾Ð´Ð° }
     i      : integer;
   begin
-    if NumType                                   { ¥p¥¢¥áâ¨ N ¢ áâp®ªy }
+    if NumType                                   { ÐŸÐµpÐµÐ²ÐµÑÑ‚Ð¸ N Ð² ÑÑ‚pÐ¾Ðºy }
       then S:=RealToStr( RealN )
       else S:=IntToStr( IntN );
     Origin:=S;
     repeat
       S:=Origin;
-      Res:=InputStr( x, y, S );                  { ‚¢¥áâ¨-¨§¬¥­¨âì áâp®ªy }
-      if NumType                                 { ¥p¥¢¥áâ¨ S ¢ ç¨á«® }
+      Res:=InputStr( x, y, S );                  { Ð’Ð²ÐµÑÑ‚Ð¸-Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÑÑ‚pÐ¾Ðºy }
+      if NumType                                 { ÐŸÐµpÐµÐ²ÐµÑÑ‚Ð¸ S Ð² Ñ‡Ð¸ÑÐ»Ð¾ }
         then Val( S, RealN, Code )
         else Val( S, IntN, Code );
-      if Code<>0 then begin                        { —¨á«® ¯p ¢¨«ì­®¥ ? }
+      if Code<>0 then begin                        { Ð§Ð¸ÑÐ»Ð¾ Ð¿pÐ°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ ? }
         Beep;
-        i:=MessageBox( BadMsg, OkNum, OkButs );    { Ž¡p ¡®â âì ®è¨¡ªy }
+        i:=MessageBox( BadMsg, OkNum, OkButs );    { ÐžÐ±pÐ°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð¾ÑˆÐ¸Ð±Ðºy }
         Need:=False;
-      end else begin                               { —¨á«® ¢ ­y¦­ëå }
-        if NumType                                 { £p ­¨æ å ? }
+      end else begin                               { Ð§Ð¸ÑÐ»Ð¾ Ð² Ð½yÐ¶Ð½Ñ‹Ñ… }
+        if NumType                                 { Ð³pÐ°Ð½Ð¸Ñ†Ð°Ñ… ? }
           then Need:=(RealN>=Min) and (RealN<=Max)
           else Need:=(IntN>=Min) and (IntN<=Max);
         if not Need then begin
-          Beep;                                    { Ž¡p ¡®â âì ®è¨¡ªy }
+          Beep;                                    { ÐžÐ±pÐ°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð¾ÑˆÐ¸Ð±Ðºy }
           i:=MessageBox( NeedMsg, OkNum, OkButs );
         end;
       end;
-    until (Code=0) and Need;                       { ®ª  ­¥¯p ¢¨«ì­® }
+    until (Code=0) and Need;                       { ÐŸÐ¾ÐºÐ° Ð½ÐµÐ¿pÐ°Ð²Ð¸Ð»ÑŒÐ½Ð¾ }
     if not Res then begin
-      if NumType                                   { ˆ§¬¥­ï«¨ ¨«¨ ­¥â ? }
-        then Val( Origin, RealN, Code )            { ¥p¥¢¥áâ¨ ¢ }
-        else Val( Origin, IntN, Code );            { ç¨á«® }
+      if NumType                                   { Ð˜Ð·Ð¼ÐµÐ½ÑÐ»Ð¸ Ð¸Ð»Ð¸ Ð½ÐµÑ‚ ? }
+        then Val( Origin, RealN, Code )            { ÐŸÐµpÐµÐ²ÐµÑÑ‚Ð¸ Ð² }
+        else Val( Origin, IntN, Code );            { Ñ‡Ð¸ÑÐ»Ð¾ }
       InputNumber:=False;
     end
-    else InputNumber:=True;                        { ‚¥p­yâì p¥§y«ìâ â }
+    else InputNumber:=True;                        { Ð’ÐµpÐ½yÑ‚ÑŒ pÐµÐ·yÐ»ÑŒÑ‚Ð°Ñ‚ }
   end;
 
   { ********************************************************************* }
-  { ---              ”y­ªæ¨ï ¢¢®¤  ç¨á«  á ¯p¨£« è¥­¨¥¬               --- }
+  { ---              Ð¤yÐ½ÐºÑ†Ð¸Ñ Ð²Ð²Ð¾Ð´Ð° Ñ‡Ð¸ÑÐ»Ð° Ñ Ð¿pÐ¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸ÐµÐ¼               --- }
   { ********************************************************************* }
 
   function InpNumberMsg( Msg      : string;
@@ -154,14 +154,14 @@ implementation
                          Min, Max : real;
                          NumType  : boolean ) : boolean;
   var
-    Buf : Pointer;                                           { yä¥p }
+    Buf : Pointer;                                           { Ð‘yÑ„Ðµp }
   begin
-    GetImage( NInpX, NInpY, NInpX+MaxNInpX, NInpY+2, Buf );  { C®åp ­¨âì }
-    DrawFillBox( NInpX, NInpY, NInpX+MaxNInpX, NInpY+2 );    { ‚ë¢¥áâ¨ ä®­ }
-    PutColorStr( NInpX+1, NInpY+1, Msg, bcLightGray );       { p¨£« è¥­¨¥ }
-    InpNumberMsg := InputNumber( NInpNumX, NInpY+1,          { ‚¢¥áâ¨ ç¨á«® }
+    GetImage( NInpX, NInpY, NInpX+MaxNInpX, NInpY+2, Buf );  { CÐ¾Ñ…pÐ°Ð½Ð¸Ñ‚ÑŒ }
+    DrawFillBox( NInpX, NInpY, NInpX+MaxNInpX, NInpY+2 );    { Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ Ñ„Ð¾Ð½ }
+    PutColorStr( NInpX+1, NInpY+1, Msg, bcLightGray );       { ÐŸpÐ¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ }
+    InpNumberMsg := InputNumber( NInpNumX, NInpY+1,          { Ð’Ð²ÐµÑÑ‚Ð¸ Ñ‡Ð¸ÑÐ»Ð¾ }
                                  N, Min, Max, NumType );
-    PutImage( NInpX, NInpY, Buf );                           { ‚®ááâ ­®¢¨âì }
+    PutImage( NInpX, NInpY, Buf );                           { Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ }
   end;
 
 end.

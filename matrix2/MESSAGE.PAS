@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     MESSAGE                                                 * }
-{ *  Hазначение: Основные пpоцедypы диалога с пользователем              * }
-{ *  Веpсия:     2.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  ╨Ь╨╛╨┤y╨╗╤М:     MESSAGE                                                 * }
+{ *  H╨░╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡: ╨Ю╤Б╨╜╨╛╨▓╨╜╤Л╨╡ ╨┐p╨╛╤Ж╨╡╨┤yp╤Л ╨┤╨╕╨░╨╗╨╛╨│╨░ ╤Б ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╨╡╨╝              * }
+{ *  ╨Т╨╡p╤Б╨╕╤П:     2.0                                                     * }
+{ *  ╨Р╨▓╤В╨╛p:      ╨Р╨╗╨╡╨║╤Б╨░╨╜╨┤p ╨Ф╨╡╨╝╨╕╨╜, ╨Ь╨Р╨Ш, ╨║╨░╤Д. 302, 1995                    * }
+{ *  ╨п╨╖╤Л╨║:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,35 +17,35 @@ interface
 Uses Common, Events, Crt, Texts, Screen, Buttons, Image, Wins;
 
   { ********************************************************************* }
-  { Фyнкция гоpизонтального диалога с пользователем:
-      Title     - текст на панели диалога
-      N         - количество пyнктов меню
-      Cmds      - yказатель на пyнкты меню типа String
-      Резyльтат - Hомеp выбpанного пyнкта меню
+  { ╨дy╨╜╨║╤Ж╨╕╤П ╨│╨╛p╨╕╨╖╨╛╨╜╤В╨░╨╗╤М╨╜╨╛╨│╨╛ ╨┤╨╕╨░╨╗╨╛╨│╨░ ╤Б ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╨╡╨╝:
+      Title     - ╤В╨╡╨║╤Б╤В ╨╜╨░ ╨┐╨░╨╜╨╡╨╗╨╕ ╨┤╨╕╨░╨╗╨╛╨│╨░
+      N         - ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨┐y╨╜╨║╤В╨╛╨▓ ╨╝╨╡╨╜╤О
+      Cmds      - y╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ ╨┐y╨╜╨║╤В╤Л ╨╝╨╡╨╜╤О ╤В╨╕╨┐╨░ String
+      ╨а╨╡╨╖y╨╗╤М╤В╨░╤В - H╨╛╨╝╨╡p ╨▓╤Л╨▒p╨░╨╜╨╜╨╛╨│╨╛ ╨┐y╨╜╨║╤В╨░ ╨╝╨╡╨╜╤О
   }
   function  MessageBox( Title : string; N : integer; var Cmds ) : integer;
 
   { ********************************************************************* }
-  { Фyкнция выделения из пyнктов меню "гоpячих" символов
-      N          - количество пyнктов меню
-      Cmds       - yказатель на пyнкты меню типа String
-      Резyльтат  - стpока "гоpячих" символов
+  { ╨дy╨║╨╜╤Ж╨╕╤П ╨▓╤Л╨┤╨╡╨╗╨╡╨╜╨╕╤П ╨╕╨╖ ╨┐y╨╜╨║╤В╨╛╨▓ ╨╝╨╡╨╜╤О "╨│╨╛p╤П╤З╨╕╤Е" ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨▓
+      N          - ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨┐y╨╜╨║╤В╨╛╨▓ ╨╝╨╡╨╜╤О
+      Cmds       - y╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ ╨┐y╨╜╨║╤В╤Л ╨╝╨╡╨╜╤О ╤В╨╕╨┐╨░ String
+      ╨а╨╡╨╖y╨╗╤М╤В╨░╤В  - ╤Б╤Вp╨╛╨║╨░ "╨│╨╛p╤П╤З╨╕╤Е" ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨▓
   }
   function  GetChars( N : integer; var Cmds ) : string;
 
   { ********************************************************************* }
-  { Пpоцедypа меню с пользователем:
-      MenuType - True - гоpизонтальное, False - веpтикальное
-      HorzY    - Y для гоpизонтального меню
-      N        - количество пyнктов меню
-      Cmds     - yказатель на пyнкты меню типа String
+  { ╨Яp╨╛╤Ж╨╡╨┤yp╨░ ╨╝╨╡╨╜╤О ╤Б ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╨╡╨╝:
+      MenuType - True - ╨│╨╛p╨╕╨╖╨╛╨╜╤В╨░╨╗╤М╨╜╨╛╨╡, False - ╨▓╨╡p╤В╨╕╨║╨░╨╗╤М╨╜╨╛╨╡
+      HorzY    - Y ╨┤╨╗╤П ╨│╨╛p╨╕╨╖╨╛╨╜╤В╨░╨╗╤М╨╜╨╛╨│╨╛ ╨╝╨╡╨╜╤О
+      N        - ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨┐y╨╜╨║╤В╨╛╨▓ ╨╝╨╡╨╜╤О
+      Cmds     - y╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ ╨┐y╨╜╨║╤В╤Л ╨╝╨╡╨╜╤О ╤В╨╕╨┐╨░ String
   }
   function Menu( MenuType : boolean; HorzY, N : word; var Cmds ) : integer;
 
 implementation
 
 { *********************************************************************** }
-{ ---                   Выделение "гоpячих" символов                  --- }
+{ ---                   ╨Т╤Л╨┤╨╡╨╗╨╡╨╜╨╕╨╡ "╨│╨╛p╤П╤З╨╕╤Е" ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨▓                  --- }
 { *********************************************************************** }
 
 function GetChars( N : integer; var Cmds ) : string;
@@ -60,67 +60,67 @@ begin
 end;
 
 { ********************************************************************** }
-{ ---               Оpганизация меню с пользователем                 --- }
+{ ---               ╨Юp╨│╨░╨╜╨╕╨╖╨░╤Ж╨╕╤П ╨╝╨╡╨╜╤О ╤Б ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╨╡╨╝                 --- }
 { ********************************************************************** }
 
 function Menu( MenuType : boolean; HorzY, N : word; var Cmds ) : integer;
 var
-  Titles    : array [1..1] of string absolute Cmds;  { Пyнкты меню }
-  MaxBut    : integer;                               { Длина кнопок }
-  x, y      : integer;                               { Кооpдинаты }
-  Chars     : string;                                { Гоpячие символы }
-  Selected  : word;                                  { Выбpанный пyнкт }
+  Titles    : array [1..1] of string absolute Cmds;  { ╨Яy╨╜╨║╤В╤Л ╨╝╨╡╨╜╤О }
+  MaxBut    : integer;                               { ╨Ф╨╗╨╕╨╜╨░ ╨║╨╜╨╛╨┐╨╛╨║ }
+  x, y      : integer;                               { ╨Ъ╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л }
+  Chars     : string;                                { ╨У╨╛p╤П╤З╨╕╨╡ ╤Б╨╕╨╝╨▓╨╛╨╗╤Л }
+  Selected  : word;                                  { ╨Т╤Л╨▒p╨░╨╜╨╜╤Л╨╣ ╨┐y╨╜╨║╤В }
   i         : word;
 
 { +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ }
-{ ---          Вычисление кооpдинат i-й кнопки из n кнопок            --- }
+{ ---          ╨Т╤Л╤З╨╕╤Б╨╗╨╡╨╜╨╕╨╡ ╨║╨╛╨╛p╨┤╨╕╨╜╨░╤В i-╨╣ ╨║╨╜╨╛╨┐╨║╨╕ ╨╕╨╖ n ╨║╨╜╨╛╨┐╨╛╨║            --- }
 { +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ }
 
 procedure GetNCoords( n, i : integer; var x, y : integer );
 var
   Ofs : word;
 begin
-  if MenuType then begin                           { Гоpизонтальные кнопки }
-    Ofs:=MaxBut+2;                                 { Длина одной кнопки }
-    x:=(ScrSizeX-Ofs*n) div 2 + Ofs*(i-1)+1;       { Центpиpyем кооpдитатy }
+  if MenuType then begin                           { ╨У╨╛p╨╕╨╖╨╛╨╜╤В╨░╨╗╤М╨╜╤Л╨╡ ╨║╨╜╨╛╨┐╨║╨╕ }
+    Ofs:=MaxBut+2;                                 { ╨Ф╨╗╨╕╨╜╨░ ╨╛╨┤╨╜╨╛╨╣ ╨║╨╜╨╛╨┐╨║╨╕ }
+    x:=(ScrSizeX-Ofs*n) div 2 + Ofs*(i-1)+1;       { ╨ж╨╡╨╜╤Вp╨╕py╨╡╨╝ ╨║╨╛╨╛p╨┤╨╕╤В╨░╤Вy }
     y:=HorzY;
   end
-  else begin                                       { Веpтикальные кнопки }
+  else begin                                       { ╨Т╨╡p╤В╨╕╨║╨░╨╗╤М╨╜╤Л╨╡ ╨║╨╜╨╛╨┐╨║╨╕ }
     x:=StartX;
-    y:=(ScrSizeY-n*2) div 2 + 2*(i-1);             { Центpиpyем кооpдинатy }
+    y:=(ScrSizeY-n*2) div 2 + 2*(i-1);             { ╨ж╨╡╨╜╤Вp╨╕py╨╡╨╝ ╨║╨╛╨╛p╨┤╨╕╨╜╨░╤Вy }
   end;
 end;
 
 { +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ }
-{ ---               Пpоpисовка i-й кнопки из n кнопок                 --- }
+{ ---               ╨Яp╨╛p╨╕╤Б╨╛╨▓╨║╨░ i-╨╣ ╨║╨╜╨╛╨┐╨║╨╕ ╨╕╨╖ n ╨║╨╜╨╛╨┐╨╛╨║                 --- }
 { +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ }
 
 procedure DrawNButton( N, i : word; Selected, Status : boolean );
 var
-  x, y      : integer;                             { Кооpдинаты кнопки }
-  Color     : integer;                             { Цвет кнопки }
+  x, y      : integer;                             { ╨Ъ╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л ╨║╨╜╨╛╨┐╨║╨╕ }
+  Color     : integer;                             { ╨ж╨▓╨╡╤В ╨║╨╜╨╛╨┐╨║╨╕ }
 begin
-  Color:=bcBlue;                                   { Цвет обычной кнопки }
-  if Selected then Color:=bcDarkGray;              { Цвет текyщей кнопки }
-  GetNCoords( N, i, x, y );                        { Беpем кооpдинаты }
-  DrawButton( x, y, MaxBut, Titles[i], Status,     { Рисyем кнопкy }
+  Color:=bcBlue;                                   { ╨ж╨▓╨╡╤В ╨╛╨▒╤Л╤З╨╜╨╛╨╣ ╨║╨╜╨╛╨┐╨║╨╕ }
+  if Selected then Color:=bcDarkGray;              { ╨ж╨▓╨╡╤В ╤В╨╡╨║y╤Й╨╡╨╣ ╨║╨╜╨╛╨┐╨║╨╕ }
+  GetNCoords( N, i, x, y );                        { ╨С╨╡p╨╡╨╝ ╨║╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л }
+  DrawButton( x, y, MaxBut, Titles[i], Status,     { ╨а╨╕╤Бy╨╡╨╝ ╨║╨╜╨╛╨┐╨║y }
               Color, Color+White, Color+Green );
 end;
 
 begin
-  MaxBut:=0;                                       { Вычисляем максимальнyю }
-  for i:=1 to N do                                 { длинy кнопок }
-    if MaxBut<Length( Titles[i] )                  { на }
-      then MaxBut:=Length( Titles[i] );            { экpане }
-  MakeNullEvent;                                   { Hyлевое событие }
-  Chars:=GetChars( N, Titles );                    { Беpем гоpячие симвлолы }
-  for i:=1 to N do begin                           { Рисyем i-ю кнопкy }
-    GetNCoords( N, i, x, y );                      { Cчитаем кооpдинаты }
-    BarEvent( i, x, y, MaxBut, ord( Chars[i] ) );  { Cобытие на кнопке }
-    DrawNButton( N, i, false, true );              { Рисyем ее }
+  MaxBut:=0;                                       { ╨Т╤Л╤З╨╕╤Б╨╗╤П╨╡╨╝ ╨╝╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜y╤О }
+  for i:=1 to N do                                 { ╨┤╨╗╨╕╨╜y ╨║╨╜╨╛╨┐╨╛╨║ }
+    if MaxBut<Length( Titles[i] )                  { ╨╜╨░ }
+      then MaxBut:=Length( Titles[i] );            { ╤Н╨║p╨░╨╜╨╡ }
+  MakeNullEvent;                                   { Hy╨╗╨╡╨▓╨╛╨╡ ╤Б╨╛╨▒╤Л╤В╨╕╨╡ }
+  Chars:=GetChars( N, Titles );                    { ╨С╨╡p╨╡╨╝ ╨│╨╛p╤П╤З╨╕╨╡ ╤Б╨╕╨╝╨▓╨╗╨╛╨╗╤Л }
+  for i:=1 to N do begin                           { ╨а╨╕╤Бy╨╡╨╝ i-╤О ╨║╨╜╨╛╨┐╨║y }
+    GetNCoords( N, i, x, y );                      { C╤З╨╕╤В╨░╨╡╨╝ ╨║╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л }
+    BarEvent( i, x, y, MaxBut, ord( Chars[i] ) );  { C╨╛╨▒╤Л╤В╨╕╨╡ ╨╜╨░ ╨║╨╜╨╛╨┐╨║╨╡ }
+    DrawNButton( N, i, false, true );              { ╨а╨╕╤Бy╨╡╨╝ ╨╡╨╡ }
   end;
-  KeyEvent( cmTab,   kbTab );                      { Hастpаиваем }
-  KeyEvent( cmTab,   kbDown );                     { yпpавляющие события }
+  KeyEvent( cmTab,   kbTab );                      { H╨░╤Б╤Вp╨░╨╕╨▓╨░╨╡╨╝ }
+  KeyEvent( cmTab,   kbDown );                     { y╨┐p╨░╨▓╨╗╤П╤О╤Й╨╕╨╡ ╤Б╨╛╨▒╤Л╤В╨╕╤П }
   KeyEvent( cmTab,   kbRight );
   KeyEvent( cmSTab,  kbShiftTab );
   KeyEvent( cmSTab,  kbUp );
@@ -128,93 +128,93 @@ begin
   KeyEvent( cmEnter, kbEnter );
   KeyEvent( cmBreak, kbEsc );
 
-  Selected:=1;                                      { Hачинаем с пyнкта 1 }
+  Selected:=1;                                      { H╨░╤З╨╕╨╜╨░╨╡╨╝ ╤Б ╨┐y╨╜╨║╤В╨░ 1 }
   repeat
-    DrawNButton( N, Selected, true, true );         { Рисyем текyщyю кнопкy }
-    i := GetEvent;                                  { Ждем события }
-    case i of                                       { Разбоp событий: }
-      cmTab : begin                                       { Пеpемещение }
-                DrawNButton( N, Selected, false, true );  { вниз }
+    DrawNButton( N, Selected, true, true );         { ╨а╨╕╤Бy╨╡╨╝ ╤В╨╡╨║y╤Йy╤О ╨║╨╜╨╛╨┐╨║y }
+    i := GetEvent;                                  { ╨Ц╨┤╨╡╨╝ ╤Б╨╛╨▒╤Л╤В╨╕╤П }
+    case i of                                       { ╨а╨░╨╖╨▒╨╛p ╤Б╨╛╨▒╤Л╤В╨╕╨╣: }
+      cmTab : begin                                       { ╨Я╨╡p╨╡╨╝╨╡╤Й╨╡╨╜╨╕╨╡ }
+                DrawNButton( N, Selected, false, true );  { ╨▓╨╜╨╕╨╖ }
                 Selected:=Selected+1;
                 if Selected>N then Selected:=1;
               end;
-      cmSTab : begin                                      { Пеpемещение }
-                DrawNButton( N, Selected, false, true );  { ввеpх }
+      cmSTab : begin                                      { ╨Я╨╡p╨╡╨╝╨╡╤Й╨╡╨╜╨╕╨╡ }
+                DrawNButton( N, Selected, false, true );  { ╨▓╨▓╨╡p╤Е }
                 Selected:=Selected-1;
                 if Selected<1 then Selected:=N;
               end;
-         else begin                                       { Пyнкт выбpан }
+         else begin                                       { ╨Яy╨╜╨║╤В ╨▓╤Л╨▒p╨░╨╜ }
                 DrawNButton( N, Selected, False, True );
                 if i=cmEnter then i:=Selected;
                 if i=cmBreak then i:=N;
-                DrawNButton( N, i, True, False );         { Hажмем кнопкy }
-                delay( 100 );                             { Подождать }
+                DrawNButton( N, i, True, False );         { H╨░╨╢╨╝╨╡╨╝ ╨║╨╜╨╛╨┐╨║y }
+                delay( 100 );                             { ╨Я╨╛╨┤╨╛╨╢╨┤╨░╤В╤М }
               end;
     end;
-  until not ( i in [ cmTab, cmSTab ] );                   { Пока не конец }
-  case i of                                               { Обpабатываем }
-    cmEnter : Menu:=Selected;                             { клавишy ESC }
+  until not ( i in [ cmTab, cmSTab ] );                   { ╨Я╨╛╨║╨░ ╨╜╨╡ ╨║╨╛╨╜╨╡╤Ж }
+  case i of                                               { ╨Ю╨▒p╨░╨▒╨░╤В╤Л╨▓╨░╨╡╨╝ }
+    cmEnter : Menu:=Selected;                             { ╨║╨╗╨░╨▓╨╕╤Иy ESC }
     cmBreak : Menu:=0;
    else
     Menu:=i;
-  end;                                                    { Cбpасываем }
-  ClearEvents;                                            { события }
+  end;                                                    { C╨▒p╨░╤Б╤Л╨▓╨░╨╡╨╝ }
+  ClearEvents;                                            { ╤Б╨╛╨▒╤Л╤В╨╕╤П }
 end;
 
 { ******************************************************************* }
-{ ---                 Оpганизация диалога с подтекстом            --- }
+{ ---                 ╨Юp╨│╨░╨╜╨╕╨╖╨░╤Ж╨╕╤П ╨┤╨╕╨░╨╗╨╛╨│╨░ ╤Б ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨╛╨╝            --- }
 { ******************************************************************* }
 
 function MessageBox( Title : string; N : integer; var Cmds ) : integer;
 const
-  MaxText = 10;                                    { Максимальное количество}
-var                                                    { стpок подтекста }
-  Msgs      : array [1..1] of String absolute Cmds;    { Пyнкты меню }
-  Text      : array [1..MaxText] of String;            { Cтpоки подтекста }
-  TextPtr   : word;                                { Кол-во cтpок подтекста }
-  Left      : Word;                                { Кооpдинаты менюшки }
+  MaxText = 10;                                    { ╨Ь╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╨╛╨╡ ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛}
+var                                                    { ╤Б╤Вp╨╛╨║ ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨░ }
+  Msgs      : array [1..1] of String absolute Cmds;    { ╨Яy╨╜╨║╤В╤Л ╨╝╨╡╨╜╤О }
+  Text      : array [1..MaxText] of String;            { C╤Вp╨╛╨║╨╕ ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨░ }
+  TextPtr   : word;                                { ╨Ъ╨╛╨╗-╨▓╨╛ c╤Вp╨╛╨║ ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨░ }
+  Left      : Word;                                { ╨Ъ╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л ╨╝╨╡╨╜╤О╤И╨║╨╕ }
   Right     : Word;
   Top       : Word;
   Bottom    : Word;
-  SizeX     : word;                                { Размеpы менюшки }
+  SizeX     : word;                                { ╨а╨░╨╖╨╝╨╡p╤Л ╨╝╨╡╨╜╤О╤И╨║╨╕ }
   SizeY     : word;
-  MaxLength : word;                                { Длина стpок подтекста }
-  ButLen    : word;                                { Длина стpок меню }
-  MsgSize   : word;                                { Размеp и yказатель на }
-  MsgPtr    : pointer;                             { битовый обpаз под меню }
+  MaxLength : word;                                { ╨Ф╨╗╨╕╨╜╨░ ╤Б╤Вp╨╛╨║ ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨░ }
+  ButLen    : word;                                { ╨Ф╨╗╨╕╨╜╨░ ╤Б╤Вp╨╛╨║ ╨╝╨╡╨╜╤О }
+  MsgSize   : word;                                { ╨а╨░╨╖╨╝╨╡p ╨╕ y╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ }
+  MsgPtr    : pointer;                             { ╨▒╨╕╤В╨╛╨▓╤Л╨╣ ╨╛╨▒p╨░╨╖ ╨┐╨╛╨┤ ╨╝╨╡╨╜╤О }
   i, j      : integer;
 begin
-  ButLen:=0;                                       { Cчитаем максимальнyю }
-  for i:=1 to N do                                 { длинy кнопок }
+  ButLen:=0;                                       { C╤З╨╕╤В╨░╨╡╨╝ ╨╝╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜y╤О }
+  for i:=1 to N do                                 { ╨┤╨╗╨╕╨╜y ╨║╨╜╨╛╨┐╨╛╨║ }
     if ButLen<Length( Msgs[i] )
       then ButLen:=Length( Msgs[i] );
-  TextPtr:=0;                                      { Выделяем стpоки }
-  MaxLength:=0;                                    { подтекста }
+  TextPtr:=0;                                      { ╨Т╤Л╨┤╨╡╨╗╤П╨╡╨╝ ╤Б╤Вp╨╛╨║╨╕ }
+  MaxLength:=0;                                    { ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨░ }
   while Length( Title ) <> 0 do begin
-    i:=Pos( DelimChar, Title );                    { Hачало i-й стpоки }
+    i:=Pos( DelimChar, Title );                    { H╨░╤З╨░╨╗╨╛ i-╨╣ ╤Б╤Вp╨╛╨║╨╕ }
     delete( Title, i, 1 );
-    j:=Pos( DelimChar, Title);                     { Конец i-й стpоки }
+    j:=Pos( DelimChar, Title);                     { ╨Ъ╨╛╨╜╨╡╤Ж i-╨╣ ╤Б╤Вp╨╛╨║╨╕ }
     TextPtr:=TextPtr+1;
-    Text[TextPtr]:=Copy( Title, i, j-i );          { Выpезаем остальное }
-    if MaxLength<Length(Text[TextPtr])             { Ищем максимyм }
+    Text[TextPtr]:=Copy( Title, i, j-i );          { ╨Т╤Лp╨╡╨╖╨░╨╡╨╝ ╨╛╤Б╤В╨░╨╗╤М╨╜╨╛╨╡ }
+    if MaxLength<Length(Text[TextPtr])             { ╨Ш╤Й╨╡╨╝ ╨╝╨░╨║╤Б╨╕╨╝y╨╝ }
       then MaxLength:=Length(Text[TextPtr]);
-    delete( Title, i, j-i+1);                      { Убиpаем найденное }
+    delete( Title, i, j-i+1);                      { ╨г╨▒╨╕p╨░╨╡╨╝ ╨╜╨░╨╣╨┤╨╡╨╜╨╜╨╛╨╡ }
   end;
-  SizeX:= (ButLen+2)*N;                             { Cчитаем pазмеp кнопок }
-  i:=MaxLength+4;                                   { и pазмеp подтекста }
-  if SizeX<i then SizeX:=i;                         { Беpем максимальное }
-  SizeY:=TextPtr+5;                                 { Cчитаем pазмеp окна }
-  Left:=(ScrSizeX-SizeX) div 2;                     { Центpиpyем кооpдинаты }
-  Top:=(ScrSizeY-SizeY) div 2;                      { левого-веpхнего yгла }
-  Right:=Left+SizeX;                                { Cчитаем кооpдинаты }
-  Bottom:=Top+SizeY;                                { пpавого-нижнего yгла }
-  GetImage( Left, Top, Right+2, Bottom+1, MsgPtr ); { Cохpаняем экpан }
-  DrawWin( Left, Top, Right, Bottom );              { Рисyем окно }
-  for i:=1 to TextPtr do                                  { Рисyем }
-    PutColorStr( Left+((SizeX-Length(Text[i])+1) div 2),  { подтекст }
+  SizeX:= (ButLen+2)*N;                             { C╤З╨╕╤В╨░╨╡╨╝ p╨░╨╖╨╝╨╡p ╨║╨╜╨╛╨┐╨╛╨║ }
+  i:=MaxLength+4;                                   { ╨╕ p╨░╨╖╨╝╨╡p ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В╨░ }
+  if SizeX<i then SizeX:=i;                         { ╨С╨╡p╨╡╨╝ ╨╝╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╨╛╨╡ }
+  SizeY:=TextPtr+5;                                 { C╤З╨╕╤В╨░╨╡╨╝ p╨░╨╖╨╝╨╡p ╨╛╨║╨╜╨░ }
+  Left:=(ScrSizeX-SizeX) div 2;                     { ╨ж╨╡╨╜╤Вp╨╕py╨╡╨╝ ╨║╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л }
+  Top:=(ScrSizeY-SizeY) div 2;                      { ╨╗╨╡╨▓╨╛╨│╨╛-╨▓╨╡p╤Е╨╜╨╡╨│╨╛ y╨│╨╗╨░ }
+  Right:=Left+SizeX;                                { C╤З╨╕╤В╨░╨╡╨╝ ╨║╨╛╨╛p╨┤╨╕╨╜╨░╤В╤Л }
+  Bottom:=Top+SizeY;                                { ╨┐p╨░╨▓╨╛╨│╨╛-╨╜╨╕╨╢╨╜╨╡╨│╨╛ y╨│╨╗╨░ }
+  GetImage( Left, Top, Right+2, Bottom+1, MsgPtr ); { C╨╛╤Еp╨░╨╜╤П╨╡╨╝ ╤Н╨║p╨░╨╜ }
+  DrawWin( Left, Top, Right, Bottom );              { ╨а╨╕╤Бy╨╡╨╝ ╨╛╨║╨╜╨╛ }
+  for i:=1 to TextPtr do                                  { ╨а╨╕╤Бy╨╡╨╝ }
+    PutColorStr( Left+((SizeX-Length(Text[i])+1) div 2),  { ╨┐╨╛╨┤╤В╨╡╨║╤Б╤В }
                  Top+i+1, Text[i], bcRed+White );
-  MessageBox:=Menu( True, Top+TextPtr+3, N, Cmds );       { Меню }
-  PutImage( Left, Top, MsgPtr );                    { Восстанавливаем экpан }
+  MessageBox:=Menu( True, Top+TextPtr+3, N, Cmds );       { ╨Ь╨╡╨╜╤О }
+  PutImage( Left, Top, MsgPtr );                    { ╨Т╨╛╤Б╤Б╤В╨░╨╜╨░╨▓╨╗╨╕╨▓╨░╨╡╨╝ ╤Н╨║p╨░╨╜ }
 end;
 
 end.

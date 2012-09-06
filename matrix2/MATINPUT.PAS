@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     MATINPUT                                                * }
-{ *  H†ß≠†Á•≠®•: ép£†≠®ß†Ê®Ô ¢¢Æ§† ¨†‚p®Ê                                * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     MATINPUT                                                * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ûp–≥–∞–Ω–∏–∑–∞—Ü–∏—è –≤–≤–æ–¥–∞ –º–∞—Çp–∏—Ü                                * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -18,66 +18,66 @@ Uses Common, Message, InpStr, Convert, Texts, Events, Screen, ShowMats,
      Dos,    Wins,    Buttons, FillMat ;
 
    { *************************************** }
-   { --- é·≠Æ¢≠†Ô ØpÆÊ•§yp† ¢¢Æ§† ¨†‚p®Ê --- }
+   { --- –û—Å–Ω–æ–≤–Ω–∞—è –øp–æ—Ü–µ–¥yp–∞ –≤–≤–æ–¥–∞ –º–∞—Çp–∏—Ü --- }
    { *************************************** }
    Procedure InputMats;
 
    { ******************************************************************** }
-   { Ç¢Æ§ ¨†‚p®Ê:
-       Mat   - y™†ß†‚•´Ï ≠† ¨†‚p®Êy
-       Col   - ™Æ´®Á•·‚¢Æ ·‚Æ´°ÊÆ¢ ¢ ¨†‚p®Ê•
-       Row   - ™Æ´®Á•·‚¢Æ ·‚pÆ™ ¢ ¨†‚p®Ê•
+   { –í–≤–æ–¥ –º–∞—Çp–∏—Ü:
+       Mat   - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Çp–∏—Üy
+       Col   - –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —Å—Ç–æ–ª–±—Ü–æ–≤ –≤ –º–∞—Çp–∏—Ü–µ
+       Row   - –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —Å—Çp–æ–∫ –≤ –º–∞—Çp–∏—Ü–µ
    }
    procedure InpMat( Mat : MatPtr; Col, Row : IntPtr );
 
 implementation
 
 { ********************************************************************** }
-{ ---                          Ç¢Æ§ ¨†‚p®Ê                           --- }
+{ ---                          –í–≤–æ–¥ –º–∞—Çp–∏—Ü                           --- }
 { ********************************************************************** }
 
 procedure InpMat( Mat : MatPtr; Col, Row : IntPtr );
 
 const
-  MaxInpKeys = 13;                             { äÆ´-¢Æ £ÆpÔÁ®Â ™´†¢®Ë }
-  InpKeys    : string [ MaxInpKeys ] =         { ÉÆpÔÁ®• ™´†¢®Ë® }
+  MaxInpKeys = 13;                             { –ö–æ–ª-–≤–æ –≥–æp—è—á–∏—Ö –∫–ª–∞–≤–∏—à }
+  InpKeys    : string [ MaxInpKeys ] =         { –ì–æp—è—á–∏–µ –∫–ª–∞–≤–∏—à–∏ }
                       '0123456789-. ';
-  cmEnter    = kbEnter+300;                    { ìØp†¢´ÔÓÈ®• ·Æ°Î‚®Ô : }
-  cmEsc      = kbEsc+300;                      { ÇÎÂÆ§ }
-  cmCol      = 700;                            { àß¨•≠•≠®• }
-  cmRow      = cmCol+1;                        { p†ß¨•p≠Æ·‚•© }
-  cmOk       = cmRow+1;                        { éä }
-  cmFill     = cmOk+1;                         { á†ØÆ´≠•≠®• }
+  cmEnter    = kbEnter+300;                    { –£–øp–∞–≤–ª—è—é—â–∏–µ —Å–æ–±—ã—Ç–∏—è : }
+  cmEsc      = kbEsc+300;                      { –í—ã—Ö–æ–¥ }
+  cmCol      = 700;                            { –ò–∑–º–µ–Ω–µ–Ω–∏–µ }
+  cmRow      = cmCol+1;                        { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
+  cmOk       = cmRow+1;                        { –û–ö }
+  cmFill     = cmOk+1;                         { –ó–∞–ø–æ–ª–Ω–µ–Ω–∏–µ }
 
 var
-  Key        : word;                           { äÆ§ ≠†¶†‚Æ© ™´†¢®Ë® }
-  Left, Top  : integer;                        { ê†°ÆÁ®• ™ÆÆp§®≠†‚Î  }
-  i, j       : integer;                        { ì™†ß†‚•´® ¢¢Æ§† }
-  Dt         : DtType;                         { Ä‚p®°y‚Î ¢Î¢Æ§† }
-  CurX, CurY : integer;                        { ê†ß¨•≠† ¨†‚p®ÊÎ ¢ Æ™≠• }
-  Inp        : boolean;                        { ê•ß-‚ ¢¢Æ§† }
-  r          : registers;                      { ê•£®·‚pÎ }
+  Key        : word;                           { –ö–æ–¥ –Ω–∞–∂–∞—Ç–æ–π –∫–ª–∞–≤–∏—à–∏ }
+  Left, Top  : integer;                        { –†–∞–±–æ—á–∏–µ –∫–æ–æp–¥–∏–Ω–∞—Ç—ã  }
+  i, j       : integer;                        { –£–∫–∞–∑–∞—Ç–µ–ª–∏ –≤–≤–æ–¥–∞ }
+  Dt         : DtType;                         { –ê—Çp–∏–±y—Ç—ã –≤—ã–≤–æ–¥–∞ }
+  CurX, CurY : integer;                        { –†–∞–∑–º–µ–Ω–∞ –º–∞—Çp–∏—Ü—ã –≤ –æ–∫–Ω–µ }
+  Inp        : boolean;                        { –†–µ–∑-—Ç –≤–≤–æ–¥–∞ }
+  r          : registers;                      { –†–µ–≥–∏—Å—Çp—ã }
   ni, nj     : integer;
 begin
-  i:=1;                                               { H†Á†´Ï≠Î• ß≠†Á•≠®Ô }
-  j:=1;                                               { y™†ß†‚•´•© ¢¢Æ§† }
+  i:=1;                                               { H–∞—á–∞–ª—å–Ω—ã–µ –∑–Ω–∞—á–µ–Ω–∏—è }
+  j:=1;                                               { y–∫–∞–∑–∞—Ç–µ–ª–µ–π –≤–≤–æ–¥–∞ }
   repeat
-    MouseDelay:=ShowDelay;                              { á†§•p¶†‚Ï ¨ÎËÏ }
-    ClearMainBox;                                       { C‚®p†•¨ ·‚†pÆ• }
-    ShowMat( MatX, MatY, Mat, Col, Row, @Dt );          { ÇÎ¢•·‚® ¨†‚p®Êy }
+    MouseDelay:=ShowDelay;                              { –ó–∞–¥–µp–∂–∞—Ç—å –º—ã—à—å }
+    ClearMainBox;                                       { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
+    ShowMat( MatX, MatY, Mat, Col, Row, @Dt );          { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
 
-    DrawFillBox( MatX+MatChLeft, MatY,                  { H†p®·Æ¢†‚Ï }
-             MatX+MatChRight, MatY+MatChBottom );       { p†°ÆÁ•• Æ™≠Æ }
-    PutColorStr( MatX+MatChLeft+2, MatY+1,              { ÇÎ¢•·‚® }
-                 MatRowMsg, bcLightGray);               { ß†£Æ´Æ¢™® }
-    PutColorStr( MatX+MatChLeft+2, MatY+2,              { p†ß¨•p≠Æ·‚•© }
-                 MatColMsg, bcLightGray);               { ¨†‚p®ÊÎ }
+    DrawFillBox( MatX+MatChLeft, MatY,                  { H–∞p–∏—Å–æ–≤–∞—Ç—å }
+             MatX+MatChRight, MatY+MatChBottom );       { p–∞–±–æ—á–µ–µ –æ–∫–Ω–æ }
+    PutColorStr( MatX+MatChLeft+2, MatY+1,              { –í—ã–≤–µ—Å—Ç–∏ }
+                 MatRowMsg, bcLightGray);               { –∑–∞–≥–æ–ª–æ–≤–∫–∏ }
+    PutColorStr( MatX+MatChLeft+2, MatY+2,              { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
+                 MatColMsg, bcLightGray);               { –º–∞—Çp–∏—Ü—ã }
 
-    MakeNullEvent;                                      { H†Á†‚Ï ·Æ°Î‚®Ô }
+    MakeNullEvent;                                      { H–∞—á–∞—Ç—å —Å–æ–±—ã—Ç–∏—è }
 
-    KeyEvent( cmEsc,      kbEsc );                      { Ç¢•·‚® }
-    KeyEvent( kbLeft,     kbLeft );                     { yØp†¢´ÔÓÈ®• }
-    KeyEvent( kbRight,    kbRight );                    { ·Æ°Î‚®Ô }
+    KeyEvent( cmEsc,      kbEsc );                      { –í–≤–µ—Å—Ç–∏ }
+    KeyEvent( kbLeft,     kbLeft );                     { y–øp–∞–≤–ª—è—é—â–∏–µ }
+    KeyEvent( kbRight,    kbRight );                    { —Å–æ–±—ã—Ç–∏—è }
     KeyEvent( kbUp,       kbUp );
     KeyEvent( kbDown,     kbDown );
     KeyEvent( cmEnter,    kbEnter );
@@ -86,201 +86,201 @@ begin
     KeyEvent( kbAltUp,    kbAltUp );
     KeyEvent( kbAltDown,  kbAltDown );
 
-    PutChar( HorBarLeft, HorBarY, LeftChar );              { H†p®·Æ¢†‚Ï }
-    PointEvent( kbLeft, HorBarLeft, HorBarY, kbLeft );     { ·®¨¢Æ´Î }
-    PutChar( HorBarRight, HorBarY, RightChar );            { ØpÆ™py‚Æ™ }
-    PointEvent( kbRight, HorBarRight, HorBarY, kbRight );  { ® y·‚†≠Æ¢®‚Ï }
-    PutChar( VerBarX, VerBarTop, UpChar );                 { ≠† }
-    PointEvent( kbUp, VerBarX, VerBarTop, kbUp );          { ≠®Â }
-    PutChar( VerBarX, VerBarBottom, DownChar );            { yØp†¢´ÔÓÈ®• }
-    PointEvent( kbDown, VerBarX, VerBarBottom, kbDown );   { ·Æ°Î‚®Ô }
+    PutChar( HorBarLeft, HorBarY, LeftChar );              { H–∞p–∏—Å–æ–≤–∞—Ç—å }
+    PointEvent( kbLeft, HorBarLeft, HorBarY, kbLeft );     { —Å–∏–º–≤–æ–ª—ã }
+    PutChar( HorBarRight, HorBarY, RightChar );            { –øp–æ–∫py—Ç–æ–∫ }
+    PointEvent( kbRight, HorBarRight, HorBarY, kbRight );  { –∏ y—Å—Ç–∞–Ω–æ–≤–∏—Ç—å }
+    PutChar( VerBarX, VerBarTop, UpChar );                 { –Ω–∞ }
+    PointEvent( kbUp, VerBarX, VerBarTop, kbUp );          { –Ω–∏—Ö }
+    PutChar( VerBarX, VerBarBottom, DownChar );            { y–øp–∞–≤–ª—è—é—â–∏–µ }
+    PointEvent( kbDown, VerBarX, VerBarBottom, kbDown );   { —Å–æ–±—ã—Ç–∏—è }
 
-    BarEvent( cmRow, MatX+MatOfsRC, MatY+1,                { ì·‚†≠Æ¢®‚Ï }
-              MaxInpStr, kbF5);                            { ·Æ°Î‚®Ô ≠† }
-    BarEvent( cmCol, MatX+MatOfsRC, MatY+2,                { p†ß¨•p≠Æ·‚® }
-              MaxInpStr, kbF6);                            { ¨†‚p®ÊÎ }
+    BarEvent( cmRow, MatX+MatOfsRC, MatY+1,                { –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å }
+              MaxInpStr, kbF5);                            { —Å–æ–±—ã—Ç–∏—è –Ω–∞ }
+    BarEvent( cmCol, MatX+MatOfsRC, MatY+2,                { p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
+              MaxInpStr, kbF6);                            { –º–∞—Çp–∏—Ü—ã }
 
-    BarEvent( cmOk, MatX+MatChLeft+MatFillLen+4,           { ì·‚†≠Æ¢®‚Ï }
-              MatY+4, MatOkLen, kbF10 );                   { ·Æ°Î‚®Ô }
-    BarEvent( cmFill, MatX+MatChLeft+2, MatY+4,            { ≠† §¢• }
-              MatFillLen, kbF7 );                          { ™≠ÆØ™® }
+    BarEvent( cmOk, MatX+MatChLeft+MatFillLen+4,           { –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å }
+              MatY+4, MatOkLen, kbF10 );                   { —Å–æ–±—ã—Ç–∏—è }
+    BarEvent( cmFill, MatX+MatChLeft+2, MatY+4,            { –Ω–∞ –¥–≤–µ }
+              MatFillLen, kbF7 );                          { –∫–Ω–æ–ø–∫–∏ }
 
-    for ni:=1 to HorBarSize do                             { ì·‚†≠Æ¢®‚Ï }
-      PointEvent( HorBarEvt+ni-1, HorBarLeft+ni,           { ·Æ°Î‚®Ô }
-                  HorBarY, 0);                             { ≠† }
-    for ni:=1 to VerBarSize do                             { Æ°• }
-      PointEvent( VerBarEvt+ni-1, VerBarX,                 { ØÆ´Æ·Î }
-                  VerBarTop+ni, 0);                        { ØpÆ™py‚™® }
+    for ni:=1 to HorBarSize do                             { –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å }
+      PointEvent( HorBarEvt+ni-1, HorBarLeft+ni,           { —Å–æ–±—ã—Ç–∏—è }
+                  HorBarY, 0);                             { –Ω–∞ }
+    for ni:=1 to VerBarSize do                             { –æ–±–µ }
+      PointEvent( VerBarEvt+ni-1, VerBarX,                 { –ø–æ–ª–æ—Å—ã }
+                  VerBarTop+ni, 0);                        { –øp–æ–∫py—Ç–∫–∏ }
 
-    for ni:=1 to MaxInpKeys do                             { CÆ°Î‚®Ô ≠† }
-      KeyEvent( word(InpKeys[ni]), Word(InpKeys[ni]));     { Ê®‰pÎ }
+    for ni:=1 to MaxInpKeys do                             { C–æ–±—ã—Ç–∏—è –Ω–∞ }
+      KeyEvent( word(InpKeys[ni]), Word(InpKeys[ni]));     { —Ü–∏—Ñp—ã }
 
     repeat
-      if Col^<WinMatX                                      { ÇÎÁ®·´®‚Ï }
-        then CurX:=Col^                                    { p†ß¨•pÎ }
-        else CurX:=WinMatX;                                { ¨†‚p®ÊÎ }
-      if Row^<WinMatY                                      { ¢ Æ™≠• }
-        then CurY:=Row^                                    { §´Ô }
-        else CurY:=WinMatX;                                { ¢Î¢Æ§† }
+      if Col^<WinMatX                                      { –í—ã—á–∏—Å–ª–∏—Ç—å }
+        then CurX:=Col^                                    { p–∞–∑–º–µp—ã }
+        else CurX:=WinMatX;                                { –º–∞—Çp–∏—Ü—ã }
+      if Row^<WinMatY                                      { –≤ –æ–∫–Ω–µ }
+        then CurY:=Row^                                    { –¥–ª—è }
+        else CurY:=WinMatX;                                { –≤—ã–≤–æ–¥–∞ }
 
-      for ni:=1 to CurY do for nj:=1 to CurX do begin      { H†·‚pÆ®‚Ï }
-        Left:=MatX+(nj-1)*(MaxInpStr+1)+1;                 { ·Æ°Î‚®Ô }
-        Top:=MatY+ni;                                      { ≠† }
-        AddEvent( (ni-1)*WinMatX+nj,                       { Ì´•¨•≠‚Î }
-                  Left, Top,                               { ¨†‚p®ÊÎ }
-                  Left+MaxInpStr-1, Top,                   { ¢ Æ™≠• }
+      for ni:=1 to CurY do for nj:=1 to CurX do begin      { H–∞—Å—Çp–æ–∏—Ç—å }
+        Left:=MatX+(nj-1)*(MaxInpStr+1)+1;                 { —Å–æ–±—ã—Ç–∏—è }
+        Top:=MatY+ni;                                      { –Ω–∞ }
+        AddEvent( (ni-1)*WinMatX+nj,                       { —ç–ª–µ–º–µ–Ω—Ç—ã }
+                  Left, Top,                               { –º–∞—Çp–∏—Ü—ã }
+                  Left+MaxInpStr-1, Top,                   { –≤ –æ–∫–Ω–µ }
                   0 );
       end;
-      ShowNPos( MatX, MatY, i, j, bcCyan,                  { èÆ™†ßÎ¢†•¨ }
-                Mat, Col, Row, @Dt );                      { Ì´•¨•≠‚ }
+      ShowNPos( MatX, MatY, i, j, bcCyan,                  { –ü–æ–∫–∞–∑—ã–≤–∞–µ–º }
+                Mat, Col, Row, @Dt );                      { —ç–ª–µ–º–µ–Ω—Ç }
 
-      for ni:=1 to HorBarSize do                           { éÁ®È†•¨ }
-        PutChar( HorBarLeft+ni, HorBarY, BarChar );        { Æ°• }
-      for ni:=1 to VerBarSize do                           { ØÆ´Æ·Î }
-        PutChar( VerBarX, VerBarTop+ni, BarChar);          { ØpÆ™py‚™® }
+      for ni:=1 to HorBarSize do                           { –û—á–∏—â–∞–µ–º }
+        PutChar( HorBarLeft+ni, HorBarY, BarChar );        { –æ–±–µ }
+      for ni:=1 to VerBarSize do                           { –ø–æ–ª–æ—Å—ã }
+        PutChar( VerBarX, VerBarTop+ni, BarChar);          { –øp–æ–∫py—Ç–∫–∏ }
 
-      if Col^>WinMatX then begin                           { ÇÎ¢•·‚® }
-        Left:=Trunc(j*HorBarSize/Col^);                    { £Æp®ßÆ≠‚†´Ï≠Î© }
-        PutCharAttr( HorBarLeft+Left, HorBarY, RunChar,    { °•£y≠Æ™ }
+      if Col^>WinMatX then begin                           { –í—ã–≤–µ—Å—Ç–∏ }
+        Left:=Trunc(j*HorBarSize/Col^);                    { –≥–æp–∏–∑–æ–Ω—Ç–∞–ª—å–Ω—ã–π }
+        PutCharAttr( HorBarLeft+Left, HorBarY, RunChar,    { –±–µ–≥y–Ω–æ–∫ }
                      bcLightGray+White );
       end;
-      if Row^>WinMatY then begin                           { ÇÎ¢•·‚® }
-        Top:=Trunc(i*(VerBarSize-1)/Row^)+1;               { ¢•p‚®™†´Ï≠Î© }
-        PutCharAttr( VerBarX, VerBarTop+Top, RunChar,      { °•£y≠Æ™ }
+      if Row^>WinMatY then begin                           { –í—ã–≤–µ—Å—Ç–∏ }
+        Top:=Trunc(i*(VerBarSize-1)/Row^)+1;               { –≤–µp—Ç–∏–∫–∞–ª—å–Ω—ã–π }
+        PutCharAttr( VerBarX, VerBarTop+Top, RunChar,      { –±–µ–≥y–Ω–æ–∫ }
                      bcLightGray+White );
       end;
-      PutColorStr( MatX+MatOfsRC, MatY+1,                  { ÇÎ¢•·‚® }
-                   IntToStr(Row^), bcCyan);                { Æ°• }
-      PutColorStr( MatX+MatOfsRC, MatY+2,                  { p†ß¨•p≠Æ·‚® }
-                   IntToStr(Col^), bcCyan);                { ¨†‚p®ÊÎ }
+      PutColorStr( MatX+MatOfsRC, MatY+1,                  { –í—ã–≤–µ—Å—Ç–∏ }
+                   IntToStr(Row^), bcCyan);                { –æ–±–µ }
+      PutColorStr( MatX+MatOfsRC, MatY+2,                  { p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
+                   IntToStr(Col^), bcCyan);                { –º–∞—Çp–∏—Ü—ã }
 
-      DrawButton( MatX+MatChLeft+2, MatY+4, MatFillLen,    { ÇÎ¢•·‚® ™≠ÆØ™y }
-                  MatFillBut, True, bcGreen,               { 'á†ØÆ´≠•≠®•' }
+      DrawButton( MatX+MatChLeft+2, MatY+4, MatFillLen,    { –í—ã–≤–µ—Å—Ç–∏ –∫–Ω–æ–ø–∫y }
+                  MatFillBut, True, bcGreen,               { '–ó–∞–ø–æ–ª–Ω–µ–Ω–∏–µ' }
                   bcGreen, Yellow+bcGreen );
-      DrawButton( MatX+MatChLeft+MatFillLen+4,             { ÇÎ¢•·‚® ™≠ÆØ™y }
+      DrawButton( MatX+MatChLeft+MatFillLen+4,             { –í—ã–≤–µ—Å—Ç–∏ –∫–Ω–æ–ø–∫y }
                   MatY+4, MatOkLen, MatOkBut,              { 'OK' }
                   True, bcGreen,
                   bcGreen, Yellow+bcGreen );
-      Key:=GetEvent;                                       { ÇßÔ‚Ï ·Æ°Î‚®• }
+      Key:=GetEvent;                                       { –í–∑—è—Ç—å —Å–æ–±—ã—Ç–∏–µ }
       Dt.At[i, j]:=bcLightGray+Blue;
       case Key of
-        kbUp :      Dec( i );                              { é°p†°†‚Î¢†•¨ }
-        kbDown :    Inc( i );                              { Ø•p•¨•È•≠®Ô }
+        kbUp :      Dec( i );                              { –û–±p–∞–±–∞—Ç—ã–≤–∞–µ–º }
+        kbDown :    Inc( i );                              { –ø–µp–µ–º–µ—â–µ–Ω–∏—è }
         kbLeft :    Dec( j );
         kbRight :   Inc( j );
-        kbAltLeft : begin                                  { àß¨•≠•≠®• }
-                      Dec( Col^ );                         { p†ß¨•p≠Æ·‚•© }
+        kbAltLeft : begin                                  { –ò–∑–º–µ–Ω–µ–Ω–∏–µ }
+                      Dec( Col^ );                         { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
                       if Col^<1 then Col^:=1;
                     end;
-        kbAltRight: begin                                  { àß¨•≠•≠®• }
-                      Inc( Col^ );                         { p†ß¨•p≠Æ·‚•© }
+        kbAltRight: begin                                  { –ò–∑–º–µ–Ω–µ–Ω–∏–µ }
+                      Inc( Col^ );                         { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
                       if Col^>MaxMatCol
                         then Col^:=MaxMatCol;
                     end;
-        kbAltUp :   begin                                  { àß¨•≠•≠®• }
-                      Dec( Row^ );                         { p†ß¨•p≠Æ·‚•© }
+        kbAltUp :   begin                                  { –ò–∑–º–µ–Ω–µ–Ω–∏–µ }
+                      Dec( Row^ );                         { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
                       if Row^<1 then Row^:=1;
                     end;
         kbAltDown : begin
-                     Inc( Row^ );                          { àß¨•≠•≠®• }
-                     if Row^>MaxMatCol                     { p†ß¨•p≠Æ·‚•© }
+                     Inc( Row^ );                          { –ò–∑–º–µ–Ω–µ–Ω–∏–µ }
+                     if Row^>MaxMatCol                     { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
                        then Row^:=MaxMatCol;
                     end;
-        HorBarEvt..                                        { ÉÆp®ßÆ≠‚†´Ï≠Î© }
-        HorBarEvt+                                         { °•£y≠Æ™ }
+        HorBarEvt..                                        { –ì–æp–∏–∑–æ–Ω—Ç–∞–ª—å–Ω—ã–π }
+        HorBarEvt+                                         { –±–µ–≥y–Ω–æ–∫ }
         HorBarSize: if Col^>WinMatX then begin
                       j:=Trunc((Key-HorBarEvt)*Col^/HorBarSize+1);
                     end;
-        VerBarEvt..                                        { Ç•p‚®™†´Ï≠Î© }
-        VerBarEvt+                                         { °•£y≠Æ™ }
+        VerBarEvt..                                        { –í–µp—Ç–∏–∫–∞–ª—å–Ω—ã–π }
+        VerBarEvt+                                         { –±–µ–≥y–Ω–æ–∫ }
         VerBarSize: if Row^>WinMatY then begin
                       i:=Trunc((Key-VerBarEvt)*Row^/VerBarSize+1);
                     end;
-        cmRow     : Inp:=InputNumber( MatX+MatOfsRC,       { Ç¢Æ§ }
-                                      MatY+1,              { p†ß¨•p≠Æ·‚•© }
+        cmRow     : Inp:=InputNumber( MatX+MatOfsRC,       { –í–≤–æ–¥ }
+                                      MatY+1,              { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
                                       Row^, 1,
                                       MaxMatCol, False );
-        cmCol     : Inp:=InputNumber( MatX+MatOfsRC,       { Ç¢Æ§ }
-                                      MatY+2,              { p†ß¨•p≠Æ·‚•© }
+        cmCol     : Inp:=InputNumber( MatX+MatOfsRC,       { –í–≤–æ–¥ }
+                                      MatY+2,              { p–∞–∑–º–µp–Ω–æ—Å—Ç–µ–π }
                                       Col^, 1,
                                       MaxMatRow, False );
 
-        1..WinSqr,                                         { ÇÎ°Æp }
-        48..57,                                            { Ì´•¨•≠‚† }
-        32, 46,                                            { ¨ÎËÏÓ }
-        45,                                                { ®´® Ê®‰pÎ }
+        1..WinSqr,                                         { –í—ã–±–æp }
+        48..57,                                            { —ç–ª–µ–º–µ–Ω—Ç–∞ }
+        32, 46,                                            { –º—ã—à—å—é }
+        45,                                                { –∏–ª–∏ —Ü–∏—Ñp—ã }
         cmEnter : begin
                     if Key in [1..WinSqr] then begin
-                      ShowNPos( MatX, MatY, i, j,          { è•p•p®·Æ¢†‚Ï }
-                                bcLightGray+Blue,          { Ì´•¨•≠‚ }
+                      ShowNPos( MatX, MatY, i, j,          { –ü–µp–µp–∏—Å–æ–≤–∞—Ç—å }
+                                bcLightGray+Blue,          { —ç–ª–µ–º–µ–Ω—Ç }
                                 Mat, Col, Row, @Dt );
-                      i:=((Key-1) div CurX)+Dt.y;          { ÇÎÁ®·´®‚Ï }
-                      j:=((Key-1) mod CurX)+Dt.x;          { y™†ß†‚•´® }
+                      i:=((Key-1) div CurX)+Dt.y;          { –í—ã—á–∏—Å–ª–∏—Ç—å }
+                      j:=((Key-1) mod CurX)+Dt.x;          { y–∫–∞–∑–∞—Ç–µ–ª–∏ }
                     end;
                     if (Key<>cmEnter) and (Key<>kbEnter)
                     then begin
-                      r.ah:=5;                             { èÆ§·y≠y‚Ï }
-                      r.cx:=Key;                           { ™Æ§ ¢ °y‰•p }
-                      Intr( $16, r );                      { ™´†¢®†‚ypÎ }
+                      r.ah:=5;                             { –ü–æ–¥—Åy–Ωy—Ç—å }
+                      r.cx:=Key;                           { –∫–æ–¥ –≤ –±y—Ñ–µp }
+                      Intr( $16, r );                      { –∫–ª–∞–≤–∏–∞—Çyp—ã }
                     end;
-                    Left:=MatX+(j-Dt.x)*(MaxInpStr+1)+1;   { ÇßÔ‚Ï }
-                    Top:=MatY+i-Dt.y+1;                    { äÆÆp§®≠†‚Î }
-                    Inp:=InputNumber( Left, Top,           { Ç¢•·‚® Ì´•¨•≠‚ }
+                    Left:=MatX+(j-Dt.x)*(MaxInpStr+1)+1;   { –í–∑—è—Ç—å }
+                    Top:=MatY+i-Dt.y+1;                    { –ö–æ–æp–¥–∏–Ω–∞—Ç—ã }
+                    Inp:=InputNumber( Left, Top,           { –í–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
                                       Mat^[i, j],
                                       MinMatVal, MaxMatVal,
                                       True );
                     j:=j+1;
                   end;
         cmEsc,                                              { Esc ? }
-        cmOk :    begin                                     { éä }
-                    DrawButton(MatX+MatChLeft+MatFillLen+4, { è•p•p®·Æ¢†‚Ï }
-                               MatY+4, MatOkLen, MatOkBut,  { ™≠ÆØ™y }
-                               False, bcGreen,              { ≠†¶†‚Æ© }
+        cmOk :    begin                                     { –û–ö }
+                    DrawButton(MatX+MatChLeft+MatFillLen+4, { –ü–µp–µp–∏—Å–æ–≤–∞—Ç—å }
+                               MatY+4, MatOkLen, MatOkBut,  { –∫–Ω–æ–ø–∫y }
+                               False, bcGreen,              { –Ω–∞–∂–∞—Ç–æ–π }
                                bcGreen, Yellow+bcGreen );
                     Key:=cmEsc;
                   end;
-        cmFill:   begin                                    { á†ØÆ´≠•≠®• }
-                    DrawButton( MatX+MatChLeft+2, MatY+4,  { è•p•p®·Æ¢†‚Ï }
-                                MatFillLen, MatFillBut,    { ™≠ÆØ™y }
-                                False, bcGreen,            { ≠†¶†‚Æ© }
+        cmFill:   begin                                    { –ó–∞–ø–æ–ª–Ω–µ–Ω–∏–µ }
+                    DrawButton( MatX+MatChLeft+2, MatY+4,  { –ü–µp–µp–∏—Å–æ–≤–∞—Ç—å }
+                                MatFillLen, MatFillBut,    { –∫–Ω–æ–ø–∫y }
+                                False, bcGreen,            { –Ω–∞–∂–∞—Ç–æ–π }
                                 bcGreen,
                                 Yellow+bcGreen );
-                    Fill( Mat, Col, Row );                 { á†ØÆ´≠®‚Ï }
-                  end;                                     { ¨†‚p®Êy }
+                    Fill( Mat, Col, Row );                 { –ó–∞–ø–æ–ª–Ω–∏—Ç—å }
+                  end;                                     { –º–∞—Çp–∏—Üy }
       end;
-      if j<1 then begin                                    { äÆ≠‚pÆ´®py•¨ }
-        if i>1 then begin                                  { Ø•p•¨•È•≠®Ô }
+      if j<1 then begin                                    { –ö–æ–Ω—Çp–æ–ª–∏py–µ–º }
+        if i>1 then begin                                  { –ø–µp–µ–º–µ—â–µ–Ω–∏—è }
           j:=Col^;
           i:=i-1;
         end
         else j:=1;
       end;
-      if j>Col^ then begin                                 { äÆ≠‚pÆ´®py•¨ }
-        if i<Row^ then begin                               { Ø•p•¨•È•≠®Ô }
+      if j>Col^ then begin                                 { –ö–æ–Ω—Çp–æ–ª–∏py–µ–º }
+        if i<Row^ then begin                               { –ø–µp–µ–º–µ—â–µ–Ω–∏—è }
            j:=1;
            i:=i+1;
         end
         else j:=Col^
       end;
-      if i<1 then i:=1;                                    { äÆ≠‚pÆ´®py•¨ }
-      if i>Row^ then i:=Row^;                              { Ø•p•¨•È•≠®Ô }
-      for ni:=1 to CurY do                                 { ì§†´®‚Ï }
-        for nj:=1 to CurX do DelEvent;                     { ·Æ°Î‚®Ô }
-                                                           { ≠† Ì´•¨•≠‚†Â }
-    until Key = cmEsc;                                   { Ç¢Æ§ ß†™Æ≠Á•≠ ? }
-    ClearEvents;                                         { ì°p†‚Ï ·Æ°Î‚®Ô }
-    MouseDelay:=ShowDelay div 3;                         { ì·™Æp®‚Ï ¨ÎËÏ }
-  Until MessageBox( MatSureMsg, YesNum, YesButs ) = 1;    { ì¢•p•≠Î ? }
-  DrawButton( MatX+MatChLeft+MatFillLen+4,                { ÇÎ¢•·‚® ™≠ÆØ™y }
+      if i<1 then i:=1;                                    { –ö–æ–Ω—Çp–æ–ª–∏py–µ–º }
+      if i>Row^ then i:=Row^;                              { –ø–µp–µ–º–µ—â–µ–Ω–∏—è }
+      for ni:=1 to CurY do                                 { –£–¥–∞–ª–∏—Ç—å }
+        for nj:=1 to CurX do DelEvent;                     { —Å–æ–±—ã—Ç–∏—è }
+                                                           { –Ω–∞ —ç–ª–µ–º–µ–Ω—Ç–∞—Ö }
+    until Key = cmEsc;                                   { –í–≤–æ–¥ –∑–∞–∫–æ–Ω—á–µ–Ω ? }
+    ClearEvents;                                         { –£–±p–∞—Ç—å —Å–æ–±—ã—Ç–∏—è }
+    MouseDelay:=ShowDelay div 3;                         { –£—Å–∫–æp–∏—Ç—å –º—ã—à—å }
+  Until MessageBox( MatSureMsg, YesNum, YesButs ) = 1;    { –£–≤–µp–µ–Ω—ã ? }
+  DrawButton( MatX+MatChLeft+MatFillLen+4,                { –í—ã–≤–µ—Å—Ç–∏ –∫–Ω–æ–ø–∫y }
               MatY+4, MatOkLen, MatOkBut,                 { 'OK' }
               True, bcGreen,
               bcGreen, Yellow+bcGreen );
-  ShowNPos( MatX, MatY, i, j, bcLightGray+Blue,           { èÆ™†ßÎ¢†•¨ }
-            Mat, Col, Row, @Dt );                         { Ì´•¨•≠‚ }
+  ShowNPos( MatX, MatY, i, j, bcLightGray+Blue,           { –ü–æ–∫–∞–∑—ã–≤–∞–µ–º }
+            Mat, Col, Row, @Dt );                         { —ç–ª–µ–º–µ–Ω—Ç }
 end;
 
 { *********************************************************************** }
-{ ---                    èpÆÊ•§yp† ¢¢Æ§† ¨†‚p®Ê                       --- }
+{ ---                    –üp–æ—Ü–µ–¥yp–∞ –≤–≤–æ–¥–∞ –º–∞—Çp–∏—Ü                       --- }
 { *********************************************************************** }
 
 procedure InputMats;

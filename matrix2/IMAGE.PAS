@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     IMAGE                                                   * }
-{ *  H†ß≠†Á•≠®•: é·≠Æ¢≠Î• ØpÆÊ•§ypÎ p†°Æ‚Î · ®ßÆ°p†¶•≠®Ô¨®               * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     IMAGE                                                   * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –û—Å–Ω–æ–≤–Ω—ã–µ –øp–æ—Ü–µ–¥yp—ã p–∞–±–æ—Ç—ã —Å –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è–º–∏               * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,73 +17,73 @@ interface
 Uses Screen;
 
   { ******************************************************************** }
-  { èpÆÊ•§yp† ·ÆÂp†≠•≠®Ô ®ßÆ°p†¶•≠®Ô ¢ °y‰•p•:
-     Left, Top, Right, Bottom - äÆÆp§®≠†‚Î ®ßÆ°p†¶•≠®Ô
-     Buf                      - Åy‰•p
+  { –üp–æ—Ü–µ–¥yp–∞ —Å–æ—Öp–∞–Ω–µ–Ω–∏—è –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è –≤ –±y—Ñ–µp–µ:
+     Left, Top, Right, Bottom - –ö–æ–æp–¥–∏–Ω–∞—Ç—ã –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è
+     Buf                      - –ëy—Ñ–µp
   }
   procedure GetImage( Left, Top, Right, Bottom : integer;
                       var Buf : pointer );
 
   { ******************************************************************** }
-  { èpÆÊ•§yp† ¢Æ··‚†≠Æ¢´•≠®Ô ®ßÆ°p†¶•≠®Ô ®ß °y‰•p†:
-     Left, Top - äÆÆp§®≠†‚Î ®ßÆ°p†¶•≠®Ô
-     Buf       - Åy‰•p
+  { –üp–æ—Ü–µ–¥yp–∞ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏—è –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è –∏–∑ –±y—Ñ–µp–∞:
+     Left, Top - –ö–æ–æp–¥–∏–Ω–∞—Ç—ã –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è
+     Buf       - –ëy—Ñ–µp
   }
   procedure PutImage( Left, Top : integer; Buf : pointer );
 
 implementation
 
   { ******************************************************************** }
-  { ---        èpÆÊ•§yp† ·ÆÂp†≠•≠®Ô ®ßÆ°p†¶•≠®Ô ¢ °y‰•p•             --- }
+  { ---        –üp–æ—Ü–µ–¥yp–∞ —Å–æ—Öp–∞–Ω–µ–Ω–∏—è –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è –≤ –±y—Ñ–µp–µ             --- }
   { ******************************************************************** }
 
   procedure GetImage( Left, Top, Right, Bottom : integer;
                       var Buf : pointer );
   type
-    ImageType = array [1..2] of byte;                     { í®Ø °y‰•p† }
+    ImageType = array [1..2] of byte;                     { –¢–∏–ø –±y—Ñ–µp–∞ }
   var
-    Image : ^ImageType absolute Buf;                      { Åy‰•p }
-    Size  : word;                                         { ê†ß¨•p °y‰•p† }
-    Index : word;                                         { à≠§•™· }
+    Image : ^ImageType absolute Buf;                      { –ëy—Ñ–µp }
+    Size  : word;                                         { –†–∞–∑–º–µp –±y—Ñ–µp–∞ }
+    Index : word;                                         { –ò–Ω–¥–µ–∫—Å }
     i, j  : integer;
   begin
-    Size:=(Right-Left+1)*(Bottom-Top+1)*2;                { CÁ®‚†•¨ p†ß¨•p }
-    GetMem( Buf, Size+2 );                                { Å•p•¨ Ø†¨Ô‚Ï }
-    Image^[1]:=Right-Left+1;                              { á†Ø®·Î¢†•¨ }
-    Image^[2]:=Bottom-Top+1;                              { p†ß¨•pÎ }
+    Size:=(Right-Left+1)*(Bottom-Top+1)*2;                { C—á–∏—Ç–∞–µ–º p–∞–∑–º–µp }
+    GetMem( Buf, Size+2 );                                { –ë–µp–µ–º –ø–∞–º—è—Ç—å }
+    Image^[1]:=Right-Left+1;                              { –ó–∞–ø–∏—Å—ã–≤–∞–µ–º }
+    Image^[2]:=Bottom-Top+1;                              { p–∞–∑–º–µp—ã }
     Index:=3;
     for i:=0 to Bottom-Top do
       for j:=0 to Right-Left do begin
-        Image^[ Index ]:=byte(GetChar( Left+j, Top+i ));  { Å•p•¨ ·®¨¢Æ´ }
+        Image^[ Index ]:=byte(GetChar( Left+j, Top+i ));  { –ë–µp–µ–º —Å–∏–º–≤–æ–ª }
         Inc( Index );
-        Image^[ Index ]:=GetAttr( Left+j, Top+i );        { Å•p•¨ Ê¢•‚ }
+        Image^[ Index ]:=GetAttr( Left+j, Top+i );        { –ë–µp–µ–º —Ü–≤–µ—Ç }
         Inc( Index );
       end;
   end;
 
   { ******************************************************************** }
-  { ---       èpÆÊ•§yp† ¢Æ··‚†≠Æ¢´•≠®Ô ®ßÆ°p†¶•≠®Ô ®ß °y‰•p†         --- }
+  { ---       –üp–æ—Ü–µ–¥yp–∞ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏—è –∏–∑–æ–±p–∞–∂–µ–Ω–∏—è –∏–∑ –±y—Ñ–µp–∞         --- }
   { ******************************************************************** }
 
   procedure PutImage( Left, Top : integer; Buf : Pointer );
   type
-    ImageType = array [1..2] of byte;                     { í®Ø °y‰•p† }
+    ImageType = array [1..2] of byte;                     { –¢–∏–ø –±y—Ñ–µp–∞ }
   var
-    Image : ^ImageType absolute Buf;                      { Åy‰•p }
-    Size  : word;                                         { ê†ß¨•p °y‰•p† }
-    Index : word;                                         { à≠§•™· }
+    Image : ^ImageType absolute Buf;                      { –ëy—Ñ–µp }
+    Size  : word;                                         { –†–∞–∑–º–µp –±y—Ñ–µp–∞ }
+    Index : word;                                         { –ò–Ω–¥–µ–∫—Å }
     i, j  : integer;
   begin
-    Size:=Image^[1]*Image^[2]*2;                          { CÁ®‚†•¨ p†ß¨•p }
+    Size:=Image^[1]*Image^[2]*2;                          { C—á–∏—Ç–∞–µ–º p–∞–∑–º–µp }
     Index:=3;
     for i:=0 to Image^[2]-1 do
       for j:=0 to Image^[1]-1 do begin
-        PutChar( Left+j, Top+i, char(Image^[Index]));     { è®Ë•¨ ·®¨¢Æ´ }
+        PutChar( Left+j, Top+i, char(Image^[Index]));     { –ü–∏—à–µ–º —Å–∏–º–≤–æ–ª }
         Inc( Index );
-        PutAttr( Left+j, Top+i, Image^[Index]);           { è®Ë•´ Ê¢•‚ }
+        PutAttr( Left+j, Top+i, Image^[Index]);           { –ü–∏—à–µ–ª —Ü–≤–µ—Ç }
         Inc( Index );
       end;
-    FreeMem( Buf, Size+2 );                               { é·¢Æ°Æ¶§†•¨ }
-  end;                                                    { Ø†¨Ô‚Ï }
+    FreeMem( Buf, Size+2 );                               { –û—Å–≤–æ–±–æ–∂–¥–∞–µ–º }
+  end;                                                    { –ø–∞–º—è—Ç—å }
 
 end.

@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     PICTURE                                                 * }
-{ *  H†ß≠†Á•≠®•: ÇÎ¢Æ§ ß†·‚†¢™®                                          * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     PICTURE                                                 * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –í—ã–≤–æ–¥ –∑–∞—Å—Ç–∞–≤–∫–∏                                          * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -18,12 +18,12 @@ Const
   MsgTwo    = 'Demin';
   MsgThr    = 'presents';
   MsgAll    = '                    '+
-              'Ñ•¨Æ≠·‚p†Ê®Æ≠≠†Ô ØpÆ£p†¨¨† ØÆ p†°Æ‚• '+
-              '· ¨†‚p®Ê†¨®.  ê†ß¢®‚Î© ®≠‚•p‰•©·.  '+
-              'èÆ§§•p¶™† ¨ÎË®.  ì≠®¢•p·†´Ï≠Æ·‚Ï ØpÆÊ•§yp.  '+
-              'Ç•·Ï ™Æ§ ØpÆ£p†¨¨Î ≠†Ø®·†≠ ® Æ‚´†¶•≠ †¢‚ÆpÆ¨ '+
-              'ØpÆ£p†¨¨Î.        ';
-  AnyKey     = 'Ñ´Ô ØpÆ§Æ´¶•≠®Ô ≠†¶¨®‚• ´Ó°yÓ ™´†¢®Ëy';
+              '–î–µ–º–æ–Ω—Å—Çp–∞—Ü–∏–æ–Ω–Ω–∞—è –øp–æ–≥p–∞–º–º–∞ –ø–æ p–∞–±–æ—Ç–µ '+
+              '—Å –º–∞—Çp–∏—Ü–∞–º–∏.  –†–∞–∑–≤–∏—Ç—ã–π –∏–Ω—Ç–µp—Ñ–µ–π—Å.  '+
+              '–ü–æ–¥–¥–µp–∂–∫–∞ –º—ã—à–∏.  –£–Ω–∏–≤–µp—Å–∞–ª—å–Ω–æ—Å—Ç—å –øp–æ—Ü–µ–¥yp.  '+
+              '–í–µ—Å—å –∫–æ–¥ –øp–æ–≥p–∞–º–º—ã –Ω–∞–ø–∏—Å–∞–Ω –∏ –æ—Ç–ª–∞–∂–µ–Ω –∞–≤—Ç–æp–æ–º '+
+              '–øp–æ–≥p–∞–º–º—ã.        ';
+  AnyKey     = '–î–ª—è –øp–æ–¥–æ–ª–∂–µ–Ω–∏—è –Ω–∞–∂–º–∏—Ç–µ –ª—é–±y—é –∫–ª–∞–≤–∏—ày';
   RunTop     = 200;
   RunLeft    = 50;
   RunBottom  = 240;
@@ -32,38 +32,38 @@ Const
   RunSizeY   = RunBottom-RunTop+1;
 
 Var
-  grDriver : Integer;                              { à≠®Ê®†´®ß†Ê®Ô }
-  grMode   : Integer;                              { £p†‰®™® }
+  grDriver : Integer;                              { –ò–Ω–∏—Ü–∏–∞–ª–∏–∑–∞—Ü–∏—è }
+  grMode   : Integer;                              { –≥p–∞—Ñ–∏–∫–∏ }
   ErrCode  : Integer;
-  Ptr      : integer;                              { ì™†ß†‚•´Ï ‚•™·‚† }
-  Page     : word;                                 { Ä™‚®¢≠†Ô ·‚p†≠®Ê† }
-  Size     : integer;                              { ê†ß¨•p ≠†§Ø®·® }
-  LSize    : integer;                              { C‚†pÎ• p†ß¨•pÎ }
-  LLSize   : integer;                              { ß†Ø®·® }
-  AddS     : integer;                              { ì¢•´®Á•≠®/y¨•≠ÏË•≠®• }
-  Font     : array [ 1..1024 ] of byte;            { òp®‰‚ }
-  F        : File;                                 { î†©´ ·Æ Ëp®‰‚Æ¨ }
+  Ptr      : integer;                              { –£–∫–∞–∑–∞—Ç–µ–ª—å —Ç–µ–∫—Å—Ç–∞ }
+  Page     : word;                                 { –ê–∫—Ç–∏–≤–Ω–∞—è —Å—Çp–∞–Ω–∏—Ü–∞ }
+  Size     : integer;                              { –†–∞–∑–º–µp –Ω–∞–¥–ø–∏—Å–∏ }
+  LSize    : integer;                              { C—Ç–∞p—ã–µ p–∞–∑–º–µp—ã }
+  LLSize   : integer;                              { –∑–∞–ø–∏—Å–∏ }
+  AddS     : integer;                              { –£–≤–µ–ª–∏—á–µ–Ω–∏/y–º–µ–Ω—å—à–µ–Ω–∏–µ }
+  Font     : array [ 1..1024 ] of byte;            { –®p–∏—Ñ—Ç }
+  F        : File;                                 { –§–∞–π–ª —Å–æ —àp–∏—Ñ—Ç–æ–º }
   i, j     : integer;
 
   { *********************************************************************** }
-  { èpÆÊ•§yp† ¢Î¢Æ§† °•£yÈ•© ·‚pÆ™®
+  { –üp–æ—Ü–µ–¥yp–∞ –≤—ã–≤–æ–¥–∞ –±–µ–≥y—â–µ–π —Å—Çp–æ–∫–∏
   }
   procedure RunningLine;
   begin
-    SetFillStyle( xHatchFill, LightGray );         { C‚®p†•¨ ·‚†pÆ• }
+    SetFillStyle( xHatchFill, LightGray );         { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
     Bar( 0, 0, RunSizeX, RunSizeY );
 
-    SetColor( LightGreen );                        { ÇÎ¢Æ§®¨ }
-    SetTextStyle( DefaultFont, HorizDir, 3 );      { ™y·Æ™ }
-    SetTextJustify( LeftText, TopText );           { Æ‚ ¢·•© }
-    OutTextXY( 0, 0, Copy( MsgAll, Ptr, 23 ) );    { ·‚pÆ™® }
+    SetColor( LightGreen );                        { –í—ã–≤–æ–¥–∏–º }
+    SetTextStyle( DefaultFont, HorizDir, 3 );      { –∫y—Å–æ–∫ }
+    SetTextJustify( LeftText, TopText );           { –æ—Ç –≤—Å–µ–π }
+    OutTextXY( 0, 0, Copy( MsgAll, Ptr, 23 ) );    { —Å—Çp–æ–∫–∏ }
 
-    Inc( Ptr );                                    { é°p†°†‚Î¢†•¨ }
-    if Ptr>Length(MsgAll) then Ptr:=1;             { y™†ß†‚•´Ï }
+    Inc( Ptr );                                    { –û–±p–∞–±–∞—Ç—ã–≤–∞–µ–º }
+    if Ptr>Length(MsgAll) then Ptr:=1;             { y–∫–∞–∑–∞—Ç–µ–ª—å }
   end;
 
   { ******************************************************************** }
-  { èpÆÊ•§yp† §´Ô Ë®ØÔÈ•£Æ ß¢y™†
+  { –üp–æ—Ü–µ–¥yp–∞ –¥–ª—è —à–∏–ø—è—â–µ–≥–æ –∑–≤y–∫–∞
   }
   procedure CrashSound;
   var
@@ -76,26 +76,26 @@ Var
 begin
 
   {$I-}
-  Assign( F, 'hi8x8.fnt' );                        { ó®‚†•¨ }
-  Reset( F, 1 );                                   { ‰Æ≠‚ }
-  BlockRead( F, Font, 1024 );                      { ®ß ‰†©´† }
+  Assign( F, 'hi8x8.fnt' );                        { –ß–∏—Ç–∞–µ–º }
+  Reset( F, 1 );                                   { —Ñ–æ–Ω—Ç }
+  BlockRead( F, Font, 1024 );                      { –∏–∑ —Ñ–∞–π–ª–∞ }
   Close( F );
   {$I+}
-  if IOResult<>0 then begin                        { éË®°™® ≠• °Î´Æ ? }
+  if IOResult<>0 then begin                        { –û—à–∏–±–∫–∏ –Ω–µ –±—ã–ª–æ ? }
     writeln('Error: Can''t open file HI8x8.FNT' );
     Halt(0);
   end;
-  SetIntVec( $1f, @Font );                         { ì·‚†≠Æ¢®‚Ï ‰Æ≠‚ }
+  SetIntVec( $1f, @Font );                         { –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ñ–æ–Ω—Ç }
 
   grDriver := VGA;
   grMode   := VGAMed;
-  InitGraph(grDriver, grMode,'');                  { ÇÂÆ§®¨ ¢ £p†‰®™y }
+  InitGraph(grDriver, grMode,'');                  { –í—Ö–æ–¥–∏–º –≤ –≥p–∞—Ñ–∏–∫y }
   ErrCode := GraphResult;
 
   if ErrCode = grOk then
   begin
     Randomize;
-    for i:=1 to 9 do begin                         { è•p¢†Ô ≠†§Ø®·Ï }
+    for i:=1 to 9 do begin                         { –ü–µp–≤–∞—è –Ω–∞–¥–ø–∏—Å—å }
       SetTextStyle( TriplexFont, HorizDir, i );
       SetColor( i+1 );
       OutTextXY( i*9, i*3, MsgOne);
@@ -107,7 +107,7 @@ begin
     SetColor( LightBlue );
     OutTextXY( i*9, i*3, MsgOne );
     CrashSound;
-    for i:=1 to 9 do begin                         { Ç‚Æp†Ô ≠†§Ø®·Ï }
+    for i:=1 to 9 do begin                         { –í—Ç–æp–∞—è –Ω–∞–¥–ø–∏—Å—å }
       SetTextStyle( TriplexFont, HorizDir, 9 );
       SetColor( i );
       OutTextXY( GetMaxX-i*50, 120, MsgTwo);
@@ -120,7 +120,7 @@ begin
     OutTextXY( GetMaxX-i*50, 120, MsgTwo);
     CrashSound;
     delay(200);
-    for i:=0 to GetMaxColor do begin               { íp•‚ÏÔ ≠†§Ø®·Ï }
+    for i:=0 to GetMaxColor do begin               { –¢p–µ—Ç—å—è –Ω–∞–¥–ø–∏—Å—å }
       SetColor( i );
       OutTextXY( 130, 200, MsgThr);
     end;
@@ -129,51 +129,51 @@ begin
     CrashSound;
 
     SetFillStyle( EmptyFill, 0 );
-    repeat                                         { C‚®p†•¨ ≠†§Ø®·® }
+    repeat                                         { C—Ç–∏p–∞–µ–º –Ω–∞–¥–ø–∏—Å–∏ }
       i:=Random(GetMaxX-2);
       j:=Random(GetMaxY);
       Bar( i, j, i+1, j+1 );
     until keypressed;
-    MemW[0:$41a]:=MemW[0:$41C];                    { C°p†·Î¢†•¨ °y‰•p }
-    ClearViewPort;                                 { éÁ®È†•¨ }
+    MemW[0:$41a]:=MemW[0:$41C];                    { C–±p–∞—Å—ã–≤–∞–µ–º –±y—Ñ–µp }
+    ClearViewPort;                                 { –û—á–∏—â–∞–µ–º }
 
-    Ptr:=1;                                        { H†Á†´Æ · 1 }
-    Page:=0;                                       { C‚p†≠®Ê† 0 }
+    Ptr:=1;                                        { H–∞—á–∞–ª–æ —Å 1 }
+    Page:=0;                                       { C—Çp–∞–Ω–∏—Ü–∞ 0 }
     Size:=1;
     AddS:=1;
-    SetColor( LightGray );                         { ê®·y•¨ ≠†§Ø®·Ï }
-    SetTextStyle( TriplexFont, HorizDir, 2 );      { Æ ¢ÎÂÆ§• }
+    SetColor( LightGray );                         { –†–∏—Åy–µ–º –Ω–∞–¥–ø–∏—Å—å }
+    SetTextStyle( TriplexFont, HorizDir, 2 );      { –æ –≤—ã—Ö–æ–¥–µ }
     OutTextXY( 100, 300, AnyKey );
     repeat
-      SetVisualPage( Page );                             { ì·‚†≠†¢´®¢†•¨ }
-      SetActivePage( Page xor 1 );                       { ·‚p†≠®ÊÎ }
+      SetVisualPage( Page );                             { –£—Å—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ–º }
+      SetActivePage( Page xor 1 );                       { —Å—Çp–∞–Ω–∏—Ü—ã }
       SetViewPort( 0, 0, GetMaxX, GetMaxY, ClipOff );
 
-      SetColor( White );                                 { ÇÎ¢Æ§®¨ }
-      SetLineStyle( SolidLn, 0, ThickWidth );            { p†¨™y }
-      Rectangle( RunLeft, RunTop, RunRight, RunBottom ); { y ‚•™·‚† }
+      SetColor( White );                                 { –í—ã–≤–æ–¥–∏–º }
+      SetLineStyle( SolidLn, 0, ThickWidth );            { p–∞–º–∫y }
+      Rectangle( RunLeft, RunTop, RunRight, RunBottom ); { y —Ç–µ–∫—Å—Ç–∞ }
       SetTextJustify( CenterText, CenterText );
 
-      Setcolor( Cyan );                                  { ÇÎ¢Æ§®¨ }
-      Ellipse( 320, 90, 0, 360, 300, 65 );               { Ì´´®Ø· }
+      Setcolor( Cyan );                                  { –í—ã–≤–æ–¥–∏–º }
+      Ellipse( 320, 90, 0, 360, 300, 65 );               { —ç–ª–ª–∏–ø—Å }
 
-      SetColor( Black );                                 { C‚®p†•¨ }
-      SetTextStyle( TriplexFont, HorizDir, LLSize );     { ≠†ß¢†≠®• }
-      OutTextXY( 320, 80, Name );                        { ØpÆ£p†¨¨Î }
+      SetColor( Black );                                 { C—Ç–∏p–∞–µ–º }
+      SetTextStyle( TriplexFont, HorizDir, LLSize );     { –Ω–∞–∑–≤–∞–Ω–∏–µ }
+      OutTextXY( 320, 80, Name );                        { –øp–æ–≥p–∞–º–º—ã }
 
-      SetColor( Yellow );                                { ÇÎ¢Æ§®¨ }
-      SetTextStyle( TriplexFont, HorizDir, Size );       { ≠†ß¢†≠®• }
-      OutTextXY( 320, 80, Name );                        { ØpÆ£p†¨¨Î }
+      SetColor( Yellow );                                { –í—ã–≤–æ–¥–∏–º }
+      SetTextStyle( TriplexFont, HorizDir, Size );       { –Ω–∞–∑–≤–∞–Ω–∏–µ }
+      OutTextXY( 320, 80, Name );                        { –øp–æ–≥p–∞–º–º—ã }
 
       SetViewPort( RunLeft+5, RunTop+5, RunRight-5,
                    RunBottom-5, ClipOn );
-      RunningLine;                                       { ÇÎ¢Æ§®¨ ·‚pÆ™y }
-      Page:=Page xor $01;                                { HÆ¢†Ô ·‚p†≠®Ê† }
+      RunningLine;                                       { –í—ã–≤–æ–¥–∏–º —Å—Çp–æ–∫y }
+      Page:=Page xor $01;                                { H–æ–≤–∞—è —Å—Çp–∞–Ω–∏—Ü–∞ }
       delay(10);
       LLSize:=LSize;
       LSize:=Size;
-      Size:=Size+AddS;                                   { äÆ≠‚pÆ´®py•¨ }
-      if (Size>9) or (Size<2) then AddS:=-AddS;          { p†ß¨•p }
+      Size:=Size+AddS;                                   { –ö–æ–Ω—Çp–æ–ª–∏py–µ–º }
+      if (Size>9) or (Size<2) then AddS:=-AddS;          { p–∞–∑–º–µp }
     until KeyPressed;
     CloseGraph;
   end

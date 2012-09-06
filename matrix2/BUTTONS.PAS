@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     BUTTONS                                                 * }
-{ *  H†ß≠†Á•≠®•: é°ÍÔ¢´•≠®• ¢·•Â ‚•™·‚Æ¢ÎÂ ·ÆÆ°È•≠®©                     * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     BUTTONS                                                 * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –û–±—ä—è–≤–ª–µ–Ω–∏–µ –≤—Å–µ—Ö —Ç–µ–∫—Å—Ç–æ–≤—ã—Ö —Å–æ–æ–±—â–µ–Ω–∏–π                     * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -15,24 +15,24 @@ Unit Buttons;
 interface
 
   { ******************************************************************* }
-  { èpÆÊ•§yp† ØpÆp®·Æ¢™® ‚•™·‚† ≠† ™≠ÆØ™•
-      x, y     - äÆÆp§®≠†‚Î
-      Text     - í•™·‚
-      HotColor - ñ¢•‚ "£ÆpÔÁ®Â" ™´†¢®Ë
-      TxColor  - ñ¢•‚ ·®¨¢Æ´Æ¢
+  { –üp–æ—Ü–µ–¥yp–∞ –øp–æp–∏—Å–æ–≤–∫–∏ —Ç–µ–∫—Å—Ç–∞ –Ω–∞ –∫–Ω–æ–ø–∫–µ
+      x, y     - –ö–æ–æp–¥–∏–Ω–∞—Ç—ã
+      Text     - –¢–µ–∫—Å—Ç
+      HotColor - –¶–≤–µ—Ç "–≥–æp—è—á–∏—Ö" –∫–ª–∞–≤–∏—à
+      TxColor  - –¶–≤–µ—Ç —Å–∏–º–≤–æ–ª–æ–≤
   }
   procedure DrawText( x, y : integer; Text : String;
                       HotColor, TxColor : byte );
 
   { ******************************************************************* }
-  { èpÆÊ•§yp† ØpÆp®·Æ¢™® ™≠ÆØ™®
-      x, y     - äÆÆp§®≠†‚Î
-      Size     - Ñ´®≠† ™≠ÆØ™®
-      Text     - í•™·‚
-      Status   - True - Æ‚¶†‚†, False - ≠†¶†‚†
-      Color    - ñ¢•‚ ™≠ÆØ™®
-      HotColor - ñ¢•‚ "£ÆpÔÁ®Â" ™´†¢®Ë
-      TxColor  - ñ¢•‚ ·®¨¢Æ´Æ¢
+  { –üp–æ—Ü–µ–¥yp–∞ –øp–æp–∏—Å–æ–≤–∫–∏ –∫–Ω–æ–ø–∫–∏
+      x, y     - –ö–æ–æp–¥–∏–Ω–∞—Ç—ã
+      Size     - –î–ª–∏–Ω–∞ –∫–Ω–æ–ø–∫–∏
+      Text     - –¢–µ–∫—Å—Ç
+      Status   - True - –æ—Ç–∂–∞—Ç–∞, False - –Ω–∞–∂–∞—Ç–∞
+      Color    - –¶–≤–µ—Ç –∫–Ω–æ–ø–∫–∏
+      HotColor - –¶–≤–µ—Ç "–≥–æp—è—á–∏—Ö" –∫–ª–∞–≤–∏—à
+      TxColor  - –¶–≤–µ—Ç —Å–∏–º–≤–æ–ª–æ–≤
   }
   procedure DrawButton( x, y, Size : integer; Text : string;
                         Status : boolean;
@@ -43,62 +43,62 @@ implementation
 Uses Screen, Texts;
 
 { ************************************************************************ }
-{ ---                   èpÆp®·Æ¢™† ‚•™·‚† ≠† ™≠ÆØ™•                    --- }
+{ ---                   –üp–æp–∏—Å–æ–≤–∫–∞ —Ç–µ–∫—Å—Ç–∞ –Ω–∞ –∫–Ω–æ–ø–∫–µ                    --- }
 { ************************************************************************ }
 
 procedure DrawText( x, y : integer; Text : String;
                     HotColor, TxColor : byte );
 var
-  flag  : boolean;                                   { î´†¶Æ™ Ê¢•‚† }
-  Color : byte;                                      { í•™yÈ®© Ê¢•‚ }
-  Index : integer;                                   { èÆß®Ê®Ô ≠† Ì™p†≠• }
-  i     : integer;                                   { èÆß®Ê®Ô ¢ ·‚pÆ™• }
+  flag  : boolean;                                   { –§–ª–∞–∂–æ–∫ —Ü–≤–µ—Ç–∞ }
+  Color : byte;                                      { –¢–µ–∫y—â–∏–π —Ü–≤–µ—Ç }
+  Index : integer;                                   { –ü–æ–∑–∏—Ü–∏—è –Ω–∞ —ç–∫p–∞–Ω–µ }
+  i     : integer;                                   { –ü–æ–∑–∏—Ü–∏—è –≤ —Å—Çp–æ–∫–µ }
 begin
   flag:=true;
-  Index:=1;                                          { H†Á®≠†•¨ }
+  Index:=1;                                          { H–∞—á–∏–Ω–∞–µ–º }
   Color:=TxColor;
   for i:=1 to Length( Text ) do begin
-    if Text[i]=SuperChar then begin                  { H†Á†´Æ "£ÆpÔÁ®Â" }
-      if flag                                        { ·®¨¢Æ´Æ¢ ? }
-        then Color:=HotColor                         { C¨•≠®‚Ï Ê¢•‚ }
-        else Color:=TxColor;                         { •·´® Ì‚Æ ≠•Æ°ÂÆ§®¨Æ }
+    if Text[i]=SuperChar then begin                  { H–∞—á–∞–ª–æ "–≥–æp—è—á–∏—Ö" }
+      if flag                                        { —Å–∏–º–≤–æ–ª–æ–≤ ? }
+        then Color:=HotColor                         { C–º–µ–Ω–∏—Ç—å —Ü–≤–µ—Ç }
+        else Color:=TxColor;                         { –µ—Å–ª–∏ —ç—Ç–æ –Ω–µ–æ–±—Ö–æ–¥–∏–º–æ }
       flag:=not flag;
     end
     else begin
-      PutCharAttr( x+Index-1, y, Text[i], Color );   { ÇÎ¢•·‚® ·®¨¢Æ´ }
+      PutCharAttr( x+Index-1, y, Text[i], Color );   { –í—ã–≤–µ—Å—Ç–∏ —Å–∏–º–≤–æ–ª }
       Inc( Index );
     end;
   end;
 end;
 
 { ********************************************************************* }
-{ ---            èpÆp®·Æ¢™† ™≠ÆØ™® · ‚•™·‚Æ¨ c ‚•≠Ô¨®               --- }
+{ ---            –üp–æp–∏—Å–æ–≤–∫–∞ –∫–Ω–æ–ø–∫–∏ —Å —Ç–µ–∫—Å—Ç–æ–º c —Ç–µ–Ω—è–º–∏               --- }
 { ********************************************************************* }
 
 procedure DrawButton( x, y, Size : integer; Text : string;
                       Status : boolean;
                       Color, TxColor, HotColor : byte );
 Const
-  ShUp   = 'ﬂ';                                         { C®¨¢Æ´Î }
-  ShDown = '‹';                                         { ‚•≠•© }
+  ShUp   = '‚ñÄ';                                         { C–∏–º–≤–æ–ª—ã }
+  ShDown = '‚ñÑ';                                         { —Ç–µ–Ω–µ–π }
 var
-  Ofs   : integer;                                      { C¨•È•≠®• }
+  Ofs   : integer;                                      { C–º–µ—â–µ–Ω–∏–µ }
   i     : integer;
 begin
-  PutBox( x, y, x+Size, y+1, ' ', GetAttr( x, y+1 ));   { C‚®p†•¨ ·‚†pÆ• }
-  if not Status then inc( x );                          { H†¶†‚† }
-  for i:=x to x+Size-1 do                               { ê®·y•¨ }
-    PutCharAttr( i, y, ' ', Color );                    { ™≠ÆØ™y }
-  if Status then begin                                  { Ö·´® ≠†§Æ, ‚Æ }
-    for i:=x+1 to x+Size do                             { p®·y•¨ }
-      PutCharAttr( i, y+1, ShUp,                        { ‚•≠Ï }
+  PutBox( x, y, x+Size, y+1, ' ', GetAttr( x, y+1 ));   { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
+  if not Status then inc( x );                          { H–∞–∂–∞—Ç–∞ }
+  for i:=x to x+Size-1 do                               { –†–∏—Åy–µ–º }
+    PutCharAttr( i, y, ' ', Color );                    { –∫–Ω–æ–ø–∫y }
+  if Status then begin                                  { –ï—Å–ª–∏ –Ω–∞–¥–æ, —Ç–æ }
+    for i:=x+1 to x+Size do                             { p–∏—Åy–µ–º }
+      PutCharAttr( i, y+1, ShUp,                        { —Ç–µ–Ω—å }
                    GetAttr( x, y+1 ) and $f0 );
     PutCharAttr( x+Size, y, ShDown,
                  GetAttr( x+Size, y ) and $f0 );
   end;
-  Ofs:=( Size-Length(Text) ) div 2 + 1;                 { ñ•≠‚p®py•¨ ‚•™·‚ }
-  if Pos(SuperChar, Text)=0 then Ofs:=Ofs-2;            { ìÁ•·‚Ï ~~ }
-  DrawText( x+Ofs, y, Text, HotColor, TxColor );        { ê®·y•¨ ‚•™·‚ }
+  Ofs:=( Size-Length(Text) ) div 2 + 1;                 { –¶–µ–Ω—Çp–∏py–µ–º —Ç–µ–∫—Å—Ç }
+  if Pos(SuperChar, Text)=0 then Ofs:=Ofs-2;            { –£—á–µ—Å—Ç—å ~~ }
+  DrawText( x+Ofs, y, Text, HotColor, TxColor );        { –†–∏—Åy–µ–º —Ç–µ–∫—Å—Ç }
 end;
 
 

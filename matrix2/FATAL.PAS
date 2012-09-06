@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  ���y��:     EVENTS                                                  * }
-{ *  H����祭��: ��p���⪠ �p���᪨� ��y�権                          * }
-{ *  ��p��:     2.0                                                     * }
-{ *  ���p:      ����ᠭ�p �����, ���, ���. 302, 1995                    * }
-{ *  ���:       Turbo Pascal 5.5                                        * }
+{ *  Модyль:     EVENTS                                                  * }
+{ *  Hазначение: Обpаботка кpитический ситyаций                          * }
+{ *  Веpсия:     2.0                                                     * }
+{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
+{ *  Язык:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -18,33 +18,33 @@ Uses Screen;
 
 Const
 
-  FatalSizeX = 31;                                       { �����p� }
-  FatalSizeY = 8;                                        { ���� }
-  FatalStr   = 4;                                        { C�p���-������ }
-  FatalMsg   : array [1..FatalSizeY] of                  { C��� ���� }
+  FatalSizeX = 31;                                       { Размеpы }
+  FatalSizeY = 8;                                        { окна }
+  FatalStr   = 4;                                        { Cтpока-замена }
+  FatalMsg   : array [1..FatalSizeY] of                  { Cамо окно }
                      string [FatalSizeX] =
-               ( '�����������������������������ͻ',
-                 '�       Internal error        �',
-                 '�����������������������������Ķ',
-                 '�                             �',
-                 '�����������������������������Ķ',
-                 '�     Please,  contact to     �',
-                 '�       Alexander Demin       �',
-                 '�����������������������������ͼ' );
-  FatalX     = (ScrSizeX-FatalSizeX+1) div 2 + 1;        { ���p������ }
-  FatalY     = (ScrSizeY-FatalSizeY+1) div 2 ;           { ���� }
+               ( '╔═════════════════════════════╗',
+                 '║       Internal error        ║',
+                 '╟─────────────────────────────╢',
+                 '║                             ║',
+                 '╟─────────────────────────────╢',
+                 '║     Please,  contact to     ║',
+                 '║       Alexander Demin       ║',
+                 '╚═════════════════════════════╝' );
+  FatalX     = (ScrSizeX-FatalSizeX+1) div 2 + 1;        { Кооpдинаты }
+  FatalY     = (ScrSizeY-FatalSizeY+1) div 2 ;           { окна }
 
   { ********************************************************************* }
-  { �p�楤yp� ���p������ ����p襭�� �p��p����:
-     Msg  - C���饭�� �p� �⮬
-     Code - ERRORLEVEL ��� ��室�
+  { Пpоцедypа аваpийного завеpшения пpогpаммы:
+     Msg  - Cообщения пpи этом
+     Code - ERRORLEVEL для выхода
   }
   procedure FatalError( Msg : string; Code : integer );
 
 implementation
 
   { ********************************************************************* }
-  { ---       �p�楤yp� ���p������ ����p襭�� �p��p����               --- }
+  { ---       Пpоцедypа аваpийного завеpшения пpогpаммы               --- }
   { ********************************************************************* }
 
   procedure FatalError( Msg : string; Code : integer );
@@ -52,14 +52,14 @@ implementation
     Ofs : integer;
     i   : integer;
   begin
-    Write(#7);                                              { ��頫�� }
-    Ofs := (FatalSizeX-Length(Msg)+1) div 2 -1 ;            { ����p�py�� }
-    for i:=1 to Length(Msg) do                              { � �����뢠�� }
-      FatalMsg[FatalStr][Ofs+i]:=Msg[i];                    { ᮮ�饭�� }
-    for i:=1 to FatalSizeY do                               { �뢮��� �� }
-      PutColorStr( FatalX, FatalY+i-1,                      { ���� }
-                   FatalMsg[i], White+bcRed );              { �� ��p�� }
-    Halt( Code );                                           { ��室 }
+    Write(#7);                                              { Пищалка }
+    Ofs := (FatalSizeX-Length(Msg)+1) div 2 -1 ;            { Центpиpyем }
+    for i:=1 to Length(Msg) do                              { и записываем }
+      FatalMsg[FatalStr][Ofs+i]:=Msg[i];                    { сообщение }
+    for i:=1 to FatalSizeY do                               { Выводим все }
+      PutColorStr( FatalX, FatalY+i-1,                      { окно }
+                   FatalMsg[i], White+bcRed );              { на экpан }
+    Halt( Code );                                           { Выход }
   end;
 
 end.

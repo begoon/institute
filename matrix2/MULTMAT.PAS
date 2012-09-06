@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     MULTMAT                                                 * }
-{ *  H†ß≠†Á•≠®•: ép£†≠®ß†Ê®Ô y¨≠Æ¶•≠®Ô ¨†‚p®Ê                            * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     MULTMAT                                                 * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ûp–≥–∞–Ω–∏–∑–∞—Ü–∏—è y–º–Ω–æ–∂–µ–Ω–∏—è –º–∞—Çp–∏—Ü                            * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,11 +17,11 @@ interface
 uses Common, Message, Crt, ShowMats, Texts, Wins, Screen;
 
   { ****************************************************************** }
-  { èpÆÊ•§yp† y¨≠Æ¶•≠®Ô ¨†‚p®Ê:
-      MatA       - y™†ß†‚•´Ï ≠† Ø•p¢yÓ ¨†‚p®Êy
-      ColA, RowA - y™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ Ä
-      MatB       - y™†ß†‚•´Ï ≠† ¢‚ÆpyÓ ¨†‚p®Êy
-      ColB, RowB - y™†ß†‚•´® ≠† p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ B
+  { –üp–æ—Ü–µ–¥yp–∞ y–º–Ω–æ–∂–µ–Ω–∏—è –º–∞—Çp–∏—Ü:
+      MatA       - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –ø–µp–≤y—é –º–∞—Çp–∏—Üy
+      ColA, RowA - y–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã –ê
+      MatB       - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –≤—Ç–æpy—é –º–∞—Çp–∏—Üy
+      ColB, RowB - y–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã B
   }
   procedure MultMats( MatA : MatPtr; ColA, RowA : IntPtr;
                       MatB : MatPtr; ColB, RowB : IntPtr );
@@ -29,65 +29,65 @@ uses Common, Message, Crt, ShowMats, Texts, Wins, Screen;
 implementation
 
   { ****************************************************************** }
-  { ---                èpÆÊ•§yp† y¨≠Æ¶•≠®Ô ¨†‚p®Ê                  --- }
+  { ---                –üp–æ—Ü–µ–¥yp–∞ y–º–Ω–æ–∂–µ–Ω–∏—è –º–∞—Çp–∏—Ü                  --- }
   { ****************************************************************** }
 
   procedure MultMats( MatA : MatPtr; ColA, RowA : IntPtr;
                       MatB : MatPtr; ColB, RowB : IntPtr );
   var
-    New      : MatType;                                { ê•ßy´Ï‚†‚ }
-    DtA      : DtType;                                 { Ä‚p®°y‚Î }
-    DtB      : DtType;                                 { ¨†‚p®Ê }
+    New      : MatType;                                { –†–µ–∑y–ª—å—Ç–∞—Ç }
+    DtA      : DtType;                                 { –ê—Çp–∏–±y—Ç—ã }
+    DtB      : DtType;                                 { –º–∞—Çp–∏—Ü }
     DtC      : DtType;
-    Sum      : real;                                   { Cy¨¨† ·‚pÆ™ }
+    Sum      : real;                                   { Cy–º–º–∞ —Å—Çp–æ–∫ }
     i, j, k  : integer;
   begin
-    ClearMainBox;                                      { C‚®p†•¨ ·‚†pÆ• }
-    i:=MessageBox( MultMatInfo, OkNum, OkButs );       { à≠‰Æp¨†Ê®Ô }
+    ClearMainBox;                                      { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
+    i:=MessageBox( MultMatInfo, OkNum, OkButs );       { –ò–Ω—Ñ–æp–º–∞—Ü–∏—è }
 
-    ShowMat( ThrAX, ThrAY, MatA, ColA, RowA, @DtA);    { èÆ™†ß†‚Ï ¨†‚p®ÊÎ }
-    ShowColRow( ThrAX, ThrAY, ColA, RowA );            { ≠† }
-    ShowMat( ThrBX, ThrBY, MatB, ColB, RowB, @DtB);    { Ì™p†≠• }
+    ShowMat( ThrAX, ThrAY, MatA, ColA, RowA, @DtA);    { –ü–æ–∫–∞–∑–∞—Ç—å –º–∞—Çp–∏—Ü—ã }
+    ShowColRow( ThrAX, ThrAY, ColA, RowA );            { –Ω–∞ }
+    ShowMat( ThrBX, ThrBY, MatB, ColB, RowB, @DtB);    { —ç–∫p–∞–Ω–µ }
     ShowColRow( ThrBX, ThrBY, ColB, RowB );
 
-    if ColA^=RowB^ then begin                          { C¢•p®¨ p†ß¨•p≠Æ·‚® }
+    if ColA^=RowB^ then begin                          { C–≤–µp–∏–º p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
 
-      for i:=1 to RowA^ do                             { à≠®Ê®†´®ß®py•¨ }
-        for j:=1 to ColB^ do                           { ê•ßy´Ï‚†‚ }
+      for i:=1 to RowA^ do                             { –ò–Ω–∏—Ü–∏–∞–ª–∏–∑–∏py–µ–º }
+        for j:=1 to ColB^ do                           { –†–µ–∑y–ª—å—Ç–∞—Ç }
           New[j, i]:=0;
 
-      ShowMat( ThrCX, ThrCY, @New, ColB, RowA, @DtC);  { ÇÎ¢Æ§®¨ p•ßy´Ï‚†‚ }
+      ShowMat( ThrCX, ThrCY, @New, ColB, RowA, @DtC);  { –í—ã–≤–æ–¥–∏–º p–µ–∑y–ª—å—Ç–∞—Ç }
       ShowColRow( ThrCX, ThrCY, ColB, RowA );
-      for i:=1 to RowA^ do for j:=1 to ColB^ do begin  { ñ®™´ ØÆ ¨†‚p®Ê†¨ }
-        Sum:=0;                                        { Cy¨¨®py•¨ ·‚pÆ™® }
+      for i:=1 to RowA^ do for j:=1 to ColB^ do begin  { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–∞–º }
+        Sum:=0;                                        { Cy–º–º–∏py–µ–º —Å—Çp–æ–∫–∏ }
         for k:=1 to ColA^ do begin
-          Sum:=Sum+MatA^[i, k]*MatB^[k, j];                   { Cy¨¨®py•¨ }
-          ShowNPos( ThrAX, ThrAY, i, k,                       { ÇÎ¢Æ§®¨ }
+          Sum:=Sum+MatA^[i, k]*MatB^[k, j];                   { Cy–º–º–∏py–µ–º }
+          ShowNPos( ThrAX, ThrAY, i, k,                       { –í—ã–≤–æ–¥–∏–º }
                     Yellow+bcLightGray, MatA,
                     ColA, RowA, @DtA );
-          ShowNPos( ThrBX, ThrBY, k, j,                       { Ì´•¨•≠‚Î }
+          ShowNPos( ThrBX, ThrBY, k, j,                       { —ç–ª–µ–º–µ–Ω—Ç—ã }
                     Yellow+bcLightGray, MatB,
                     ColB, RowB, @DtB );
-          delay( ShowDelay );                                 { Ü§•¨ }
+          delay( ShowDelay );                                 { –ñ–¥–µ–º }
         end;
-        for k:=1 to ColA^ do begin                        { C‚®p†•¨ }
-          DtA.At[i,k]:=Blue+bcLightGray;                  { ØÆ§·¢•‚™y }
-          DtB.At[k,j]:=Blue+bcLightGray;                  { ·‚pÆ™ }
+        for k:=1 to ColA^ do begin                        { C—Ç–∏p–∞–µ–º }
+          DtA.At[i,k]:=Blue+bcLightGray;                  { –ø–æ–¥—Å–≤–µ—Ç–∫y }
+          DtB.At[k,j]:=Blue+bcLightGray;                  { —Å—Çp–æ–∫ }
         end;
-        New[i, j]:=Sum;                                   { Cy¨¨† ·‚pÆ™ }
-        ShowNPos( ThrCX, ThrCY, i, j,                     { ê•ßy´Ï‚®pyÓÈ®© }
-                  Red+bcLightGray, @New,                  { Ì´•¨•≠‚ }
-                  ColB, RowA, @DtC );                     { ≠† Ì™p†≠ }
+        New[i, j]:=Sum;                                   { Cy–º–º–∞ —Å—Çp–æ–∫ }
+        ShowNPos( ThrCX, ThrCY, i, j,                     { –†–µ–∑y–ª—å—Ç–∏py—é—â–∏–π }
+                  Red+bcLightGray, @New,                  { —ç–ª–µ–º–µ–Ω—Ç }
+                  ColB, RowA, @DtC );                     { –Ω–∞ —ç–∫p–∞–Ω }
       end;
       ColA^:=ColB^;
       RowA^:=RowA^;
-      for i:=1 to RowA^ do                                { äÆØ®py•¨ }
-        for j:=1 to ColA^ do                              { p•ßy´Ï‚†‚ }
-          MatA^[i, j]:=New[i, j];                         { ® ¢Î¢Æ§®¨ }
+      for i:=1 to RowA^ do                                { –ö–æ–ø–∏py–µ–º }
+        for j:=1 to ColA^ do                              { p–µ–∑y–ª—å—Ç–∞—Ç }
+          MatA^[i, j]:=New[i, j];                         { –∏ –≤—ã–≤–æ–¥–∏–º }
     end
     else begin
-      Beep;                                               { "è´ÆÂ®•" }
-      i:=MessageBox( MultDifMsg, OkNum, OkButs );         { ê†ß¨•p≠Æ·‚® }
+      Beep;                                               { "–ü–ª–æ—Ö–∏–µ" }
+      i:=MessageBox( MultDifMsg, OkNum, OkButs );         { –†–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
     end;
   end;
 end.

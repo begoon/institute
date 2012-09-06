@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     TRANS                                                   * }
-{ *  H†ß≠†Á•≠®•: ép£†≠®ß†Ê®Ô ‚p†≠·ØÆ≠®pÆ¢†≠®Ô ¨†‚p®ÊÎ                    * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     TRANS                                                   * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ûp–≥–∞–Ω–∏–∑–∞—Ü–∏—è —Çp–∞–Ω—Å–ø–æ–Ω–∏p–æ–≤–∞–Ω–∏—è –º–∞—Çp–∏—Ü—ã                    * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,55 +17,55 @@ interface
 Uses Common, Texts, Message, Crt, Wins, Screen, ShowMats;
 
   { ******************************************************************** }
-  { èpÆÊ•§yp† ‚p†≠·ØÆ≠®pÆ¢†≠®Ô ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
+  { –üp–æ—Ü–µ–¥yp–∞ —Çp–∞–Ω—Å–ø–æ–Ω–∏p–æ–≤–∞–Ω–∏—è –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
   }
   procedure Transpon( Mat : MatPtr; MatCol, MatRow : IntPtr );
 
 implementation
 
   { ******************************************************************** }
-  { ---             èpÆÊ•§yp† ‚p†≠·ØÆ≠®pÆ¢†≠®Ô ¨†‚p®ÊÎ               --- }
+  { ---             –üp–æ—Ü–µ–¥yp–∞ —Çp–∞–Ω—Å–ø–æ–Ω–∏p–æ–≤–∞–Ω–∏—è –º–∞—Çp–∏—Ü—ã               --- }
   { ******************************************************************** }
 
   procedure Transpon( Mat : MatPtr; MatCol, MatRow : IntPtr );
   var
-    New    : MatType;                                   { å†‚p®Ê†-™ÆØ®Ô }
-    DtA    : DtType;                                    { Ä‚p®°y‚Î }
-    DtB    : DtType;                                    { ¨†‚p®Ê }
+    New    : MatType;                                   { –ú–∞—Çp–∏—Ü–∞-–∫–æ–ø–∏—è }
+    DtA    : DtType;                                    { –ê—Çp–∏–±y—Ç—ã }
+    DtB    : DtType;                                    { –º–∞—Çp–∏—Ü }
     i, j   : integer;
   begin
-    ClearMainBox;                                       { C‚®p†•¨ ·‚†pÆ• }
+    ClearMainBox;                                       { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
 
-    for i:=1 to MatRow^ do                              { à≠®Ê®†´®ß®py•¨ }
-      for j:=1 to MatCol^ do                            { ê•ßy´Ï‚†‚ }
-        New[j, i]:=0;                                   { ≠y´Ô¨® }
+    for i:=1 to MatRow^ do                              { –ò–Ω–∏—Ü–∏–∞–ª–∏–∑–∏py–µ–º }
+      for j:=1 to MatCol^ do                            { –†–µ–∑y–ª—å—Ç–∞—Ç }
+        New[j, i]:=0;                                   { –Ωy–ª—è–º–∏ }
 
-    ShowMat( TwoAX, TwoAY, Mat, MatCol, MatRow, @DtA);  { èÆ™†ß†‚Ï }
-    ShowColRow( TwoAX, TwoAY, MatCol, MatRow );         { ¨†‚p®ÊÎ }
-    ShowMat( TwoBX, TwoBY, @New, MatRow, MatCol, @DtB); { èÆ™†ß†‚Ï °y§yÈ®© }
-    ShowColRow( TwoBX, TwoBY, MatRow, MatCol );         { p•ßy´Ï‚†‚ }
+    ShowMat( TwoAX, TwoAY, Mat, MatCol, MatRow, @DtA);  { –ü–æ–∫–∞–∑–∞—Ç—å }
+    ShowColRow( TwoAX, TwoAY, MatCol, MatRow );         { –º–∞—Çp–∏—Ü—ã }
+    ShowMat( TwoBX, TwoBY, @New, MatRow, MatCol, @DtB); { –ü–æ–∫–∞–∑–∞—Ç—å –±y–¥y—â–∏–π }
+    ShowColRow( TwoBX, TwoBY, MatRow, MatCol );         { p–µ–∑y–ª—å—Ç–∞—Ç }
 
-    i:=MessageBox( TransInf, OkNum, OkButs );           { à≠‰Æp¨†Ê®Ô }
+    i:=MessageBox( TransInf, OkNum, OkButs );           { –ò–Ω—Ñ–æp–º–∞—Ü–∏—è }
     for i:=1 to MatRow^ do
-      for j:=1 to MatCol^ do begin                      { íp†≠·ØÆ≠®py•¨ }
+      for j:=1 to MatCol^ do begin                      { –¢p–∞–Ω—Å–ø–æ–Ω–∏py–µ–º }
         New[j, i]:=Mat^[i, j];
-        ShowNPos( TwoAX, TwoAY, i, j,                   { ÇÎ¢Æ§®¨ ‚•™yÈ®• }
+        ShowNPos( TwoAX, TwoAY, i, j,                   { –í—ã–≤–æ–¥–∏–º —Ç–µ–∫y—â–∏–µ }
                   Yellow+bcLightGray, Mat,
                   MatCol, MatRow, @DtA );
-        ShowNPos( TwoBX, TwoBY, j, i,                   { ØÆß®Ê®® }
+        ShowNPos( TwoBX, TwoBY, j, i,                   { –ø–æ–∑–∏—Ü–∏–∏ }
                   Yellow+bcLightGray, @New,
                   MatRow, MatCol, @DtB );
-        Delay( ShowDelay );                             { Ü§•¨ }
+        Delay( ShowDelay );                             { –ñ–¥–µ–º }
       end;
-    i:=MatRow^;                                         { å•≠Ô•¨ }
-    MatRow^:=MatCol^;                                   { p†ß¨•p≠Æ·‚® }
+    i:=MatRow^;                                         { –ú–µ–Ω—è–µ–º }
+    MatRow^:=MatCol^;                                   { p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ }
     MatCol^:=i;
     for i:=1 to MatRow^ do
-      for j:=1 to MatCol^ do                            { ê•ßy´Ï‚†‚ ... }
+      for j:=1 to MatCol^ do                            { –†–µ–∑y–ª—å—Ç–∞—Ç ... }
         Mat^[i, j]:=New[i, j];
-    LocalMsg( TransMsg );                               { CÆÆ°È•≠®•   }
+    LocalMsg( TransMsg );                               { C–æ–æ–±—â–µ–Ω–∏–µ   }
   end;
 
 end.

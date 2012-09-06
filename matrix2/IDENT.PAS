@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  åÆ§y´Ï:     IDENT                                                   * }
-{ *  H†ß≠†Á•≠®•: à§•≠‚®‰®™†Ê®Ô ‚®Ø† ¨†‚p®ÊÎ                              * }
-{ *  Ç•p·®Ô:     2.0                                                     * }
-{ *  Ä¢‚Æp:      Ä´•™·†≠§p Ñ•¨®≠, åÄà, ™†‰. 302, 1995                    * }
-{ *  üßÎ™:       Turbo Pascal 5.5                                        * }
+{ *  –ú–æ–¥y–ª—å:     IDENT                                                   * }
+{ *  H–∞–∑–Ω–∞—á–µ–Ω–∏–µ: –ò–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ü–∏—è —Ç–∏–ø–∞ –º–∞—Çp–∏—Ü—ã                              * }
+{ *  –í–µp—Å–∏—è:     2.0                                                     * }
+{ *  –ê–≤—Ç–æp:      –ê–ª–µ–∫—Å–∞–Ω–¥p –î–µ–º–∏–Ω, –ú–ê–ò, –∫–∞—Ñ. 302, 1995                    * }
+{ *  –Ø–∑—ã–∫:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,38 +17,38 @@ interface
 Uses Common, Message, ShowMats, Texts, Crt, Events, Determ, Wins, Screen;
 
   { ********************************************************************** }
-  { èpÆÊ•§yp† ®§•≠‚®‰®™†Ê®® ‚®Ø† ¨†‚p®ÊÎ:
-      MatA           - y™†ß†‚•´Ï ≠† ¨†‚p®Êy
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
+  { –üp–æ—Ü–µ–¥yp–∞ –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ü–∏–∏ —Ç–∏–ø–∞ –º–∞—Çp–∏—Ü—ã:
+      MatA           - y–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –º–∞—Çp–∏—Üy
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
   }
   procedure CheckType( Mat : MatPtr; MatCol, MatRow : IntPtr );
 
   { ********************************************************************** }
-  { èpÆ¢•p™† ¨†‚p®ÊÎ ≠† ™¢†§p†‚≠Æ·‚Ï ® ¢Î¢Æ§ ·ÆÆ°È•≠®Ô Æ° Ì‚Æ¨:
-      Col, Row  - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      Title     - ·ÆÆ°È•≠®• Øp® ØpÆ¢•p™•
-      ê•ßy´Ï‚†‚ - True - ™¢†§p†‚≠†Ô, False - ≠•‚
+  { –üp–æ–≤–µp–∫–∞ –º–∞—Çp–∏—Ü—ã –Ω–∞ –∫–≤–∞–¥p–∞—Ç–Ω–æ—Å—Ç—å –∏ –≤—ã–≤–æ–¥ —Å–æ–æ–±—â–µ–Ω–∏—è –æ–± —ç—Ç–æ–º:
+      Col, Row  - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      Title     - —Å–æ–æ–±—â–µ–Ω–∏–µ –øp–∏ –øp–æ–≤–µp–∫–µ
+      –†–µ–∑y–ª—å—Ç–∞—Ç - True - –∫–≤–∞–¥p–∞—Ç–Ω–∞—è, False - –Ω–µ—Ç
   }
   function TestSqrMat( Col, Row : integer; Title : string ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® ≠y´Ï-¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True - ≠y´Ï-¨†‚p®Ê†, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –Ωy–ª—å-–º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True - –Ωy–ª—å-–º–∞—Çp–∏—Ü–∞, False - –Ω–µ—Ç
   }
   function NullMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® •§®≠®Á≠Æ© ® §®†£Æ≠†´Ï≠Æ© ¨†‚p®Ê:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      Local          - ·ÆÆ°È•≠®• Æ p†°Æ‚•
-      Idn            - ®§•≠‚®‰®™†‚Æp ¨†‚p®ÊÎ
-      Yes, No        - ·ÆÆ°È•≠®Ô Æ p†ß≠ÎÂ p•ßy´Ï‚†‚†Â
-      YesMsg, NoMsg  - Æ™≠† Æ p†ß≠ÎÂ p•ßy´Ï‚†‚†Â
-      What           - True - ØpÆ¢•pÔ•¨ §®†£Æ≠†´Ï≠Æ·‚Ï, False - •§®≠®Á≠Æ·‚Ï
-      ê•ßy´Ï‚†‚      - True - §®†£Æ≠†´Ï≠†Ô ®´® •§®≠®Á≠†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –µ–¥–∏–Ω–∏—á–Ω–æ–π –∏ –¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–æ–π –º–∞—Çp–∏—Ü:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      Local          - —Å–æ–æ–±—â–µ–Ω–∏–µ –æ p–∞–±–æ—Ç–µ
+      Idn            - –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æp –º–∞—Çp–∏—Ü—ã
+      Yes, No        - —Å–æ–æ–±—â–µ–Ω–∏—è –æ p–∞–∑–Ω—ã—Ö p–µ–∑y–ª—å—Ç–∞—Ç–∞—Ö
+      YesMsg, NoMsg  - –æ–∫–Ω–∞ –æ p–∞–∑–Ω—ã—Ö p–µ–∑y–ª—å—Ç–∞—Ç–∞—Ö
+      What           - True - –øp–æ–≤–µp—è–µ–º –¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–æ—Å—Ç—å, False - –µ–¥–∏–Ω–∏—á–Ω–æ—Å—Ç—å
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True - –¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–∞—è –∏–ª–∏ –µ–¥–∏–Ω–∏—á–Ω–∞—è, False - –Ω–µ—Ç
   }
   function SingleDiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
                           Local, Idn, Yes, No, YesMsg, NoMsg : string;
@@ -56,18 +56,18 @@ Uses Common, Message, ShowMats, Texts, Crt, Events, Determ, Wins, Screen;
                          ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® ·®¨¨•‚p®Á≠Æ© ® ™Æ·Æ·®¨¨•‚p®Á≠Æ© ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      Local          - ·ÆÆ°È•≠®• Æ p†°Æ‚•
-      Idn            - ®§•≠‚®‰®™†‚Æp ¨†‚p®ÊÎ
-      Yes, No        - ·ÆÆ°È•≠®Ô Æ p†ß≠ÎÂ p•ßy´Ï‚†‚†Â
-      YesMsg, NoMsg  - Æ™≠† Æ p†ß≠ÎÂ p•ßy´Ï‚†‚†Â
-      N              - 0  - ØpÆ¢•pÔ•¨ ‚p•y£Æ´Ï≠Æ·‚Ï
-                       1  - ØpÆ¢•pÔ•¨ ·®¨¨•‚p®Á≠Æ·‚Ï
-                       -1 - ØpÆ¢•pÔ•¨ ™Æ·Æ·®¨¨•‚p®Á≠Æ·‚Ï
-      ê•ßy´Ï‚†‚      - True - ‚p•y£Æ´Ï≠†Ô ®´® ™Æ·Æ/·®¨¨•‚p®Á•·™†Ô
-                       False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ —Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –∏ –∫–æ—Å–æ—Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      Local          - —Å–æ–æ–±—â–µ–Ω–∏–µ –æ p–∞–±–æ—Ç–µ
+      Idn            - –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æp –º–∞—Çp–∏—Ü—ã
+      Yes, No        - —Å–æ–æ–±—â–µ–Ω–∏—è –æ p–∞–∑–Ω—ã—Ö p–µ–∑y–ª—å—Ç–∞—Ç–∞—Ö
+      YesMsg, NoMsg  - –æ–∫–Ω–∞ –æ p–∞–∑–Ω—ã—Ö p–µ–∑y–ª—å—Ç–∞—Ç–∞—Ö
+      N              - 0  - –øp–æ–≤–µp—è–µ–º —Çp–µy–≥–æ–ª—å–Ω–æ—Å—Ç—å
+                       1  - –øp–æ–≤–µp—è–µ–º —Å–∏–º–º–µ—Çp–∏—á–Ω–æ—Å—Ç—å
+                       -1 - –øp–æ–≤–µp—è–µ–º –∫–æ—Å–æ—Å–∏–º–º–µ—Çp–∏—á–Ω–æ—Å—Ç—å
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True - —Çp–µy–≥–æ–ª—å–Ω–∞—è –∏–ª–∏ –∫–æ—Å–æ/—Å–∏–º–º–µ—Çp–∏—á–µ—Å–∫–∞—è
+                       False - –Ω–µ—Ç
   }
   function SymmSlantTriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
                              Local, Idn, Yes, No, YesMsg, NoMsg : string;
@@ -75,110 +75,110 @@ Uses Common, Message, ShowMats, Texts, Crt, Events, Determ, Wins, Screen;
                            ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® §®†£Æ≠†´Ï≠Æ© ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True-§®†£Æ≠†´Ï≠†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–æ–π –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True-–¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–∞—è, False - –Ω–µ—Ç
   }
   function DiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® •§®≠®Á≠Æ© ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True-•§®≠®Á≠†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –µ–¥–∏–Ω–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True-–µ–¥–∏–Ω–∏—á–Ω–∞—è, False - –Ω–µ—Ç
   }
   function SingleMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® ·®¨¨•‚p®Á≠Æ© ¨†‚p®ÊÎ ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True-·®¨¨•‚p®Á•·™†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ —Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True-—Å–∏–º–º–µ—Çp–∏—á–µ—Å–∫–∞—è, False - –Ω–µ—Ç
   }
   function SymmMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® ™Æ·Æ·®¨¨•‚p®Á≠Æ© ¨†‚p®ÊÎ ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True-™Æ·Æ·®¨¨•‚p®Á•·™†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –∫–æ—Å–æ—Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True-–∫–æ—Å–æ—Å–∏–º–º–µ—Çp–∏—á–µ—Å–∫–∞—è, False - –Ω–µ—Ç
   }
   function SlantMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® ‚p•y£Æ´Ï≠Æ© ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True-‚p•y£Æ´Ï≠†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ —Çp–µy–≥–æ–ª—å–Ω–æ–π –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True-—Çp–µy–≥–æ–ª—å–Ω–∞—è, False - –Ω–µ—Ç
   }
   function TriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
   { ********************************************************************** }
-  { îy≠™Ê®Ô ØpÆ¢•p™® ¢ÎpÆ¶§•≠≠Æ© ¨†‚p®ÊÎ:
-      Mat            - ¨†‚p®Ê†
-      MatCol, MatRow - p†ß¨•p≠Æ·‚® ¨†‚p®ÊÎ
-      ê•ßy´Ï‚†‚      - True-¢ÎpÆ¶§•≠≠†Ô, False - ≠•‚
+  { –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –≤—ãp–æ–∂–¥–µ–Ω–Ω–æ–π –º–∞—Çp–∏—Ü—ã:
+      Mat            - –º–∞—Çp–∏—Ü–∞
+      MatCol, MatRow - p–∞–∑–º–µp–Ω–æ—Å—Ç–∏ –º–∞—Çp–∏—Ü—ã
+      –†–µ–∑y–ª—å—Ç–∞—Ç      - True-–≤—ãp–æ–∂–¥–µ–Ω–Ω–∞—è, False - –Ω–µ—Ç
   }
   function DegenMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
 
 implementation
 
   { ****************************************************************** }
-  { --- èpÆ¢•p™† ¨†‚p®ÊÎ ≠† ™¢†§p†‚≠Æ·‚Ï ® ¢Î¢Æ§ ·ÆÆ°È•≠®Ô Æ° Ì‚Æ¨ --- }
+  { --- –üp–æ–≤–µp–∫–∞ –º–∞—Çp–∏—Ü—ã –Ω–∞ –∫–≤–∞–¥p–∞—Ç–Ω–æ—Å—Ç—å –∏ –≤—ã–≤–æ–¥ —Å–æ–æ–±—â–µ–Ω–∏—è –æ–± —ç—Ç–æ–º --- }
   { ****************************************************************** }
 
   function TestSqrMat( Col, Row : integer; Title : string ) : boolean;
   var
     i : integer;
   begin
-    if Col<>Row then begin                              { é≠† ™¢†§p†‚≠†Ô ? }
+    if Col<>Row then begin                              { –û–Ω–∞ –∫–≤–∞–¥p–∞—Ç–Ω–∞—è ? }
       Beep;
-      i:=MessageBox( SqrOneMsg+Title+SqrTwoMsg,         { H•‚ - ÆË®°™† }
+      i:=MessageBox( SqrOneMsg+Title+SqrTwoMsg,         { H–µ—Ç - –æ—à–∏–±–∫–∞ }
                      OkNum, OkButs );
       LocalMsg( NotSqrMsg );
-      TestSqrMat:=false;                                { é‚¢•‚ - ≠•‚ }
-    end else TestSqrMat:=true;                          { é‚¢•‚ - §†  }
+      TestSqrMat:=false;                                { –û—Ç–≤–µ—Ç - –Ω–µ—Ç }
+    end else TestSqrMat:=true;                          { –û—Ç–≤–µ—Ç - –¥–∞  }
   end;
 
   { ********************************************************************* }
-  { ---                 îy≠™Ê®Ô ØpÆ¢•p™® ≠y´Ï-¨†‚p®ÊÎ                 --- }
+  { ---                 –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –Ωy–ª—å-–º–∞—Çp–∏—Ü—ã                 --- }
   { ********************************************************************* }
 
   function NullMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
   var
-    Dt   : DtType;                                     { Ä‚p®°y‚Î ¨†‚p®ÊÎ }
-    Flag : boolean;                                    { î´†¶Æ™ p•ßy´Ï‚†‚† }
+    Dt   : DtType;                                     { –ê—Çp–∏–±y—Ç—ã –º–∞—Çp–∏—Ü—ã }
+    Flag : boolean;                                    { –§–ª–∞–∂–æ–∫ p–µ–∑y–ª—å—Ç–∞—Ç–∞ }
     i, j : integer;
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );   { ÇÎ¢•·‚® ¨†‚p®Êy }
-    ShowColRow( IdnX, IdnY, MatCol, MatRow );          { ≠† Ì™p†≠ }
-    LocalMsg( NullTestMsg );                           { CÆÆ°È•≠®• Æ p†°Æ‚• }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );   { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
+    ShowColRow( IdnX, IdnY, MatCol, MatRow );          { –Ω–∞ —ç–∫p–∞–Ω }
+    LocalMsg( NullTestMsg );                           { C–æ–æ–±—â–µ–Ω–∏–µ –æ p–∞–±–æ—Ç–µ }
     Flag:=true;
-    for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin  { ñ®™´ ØÆ ¨†‚p®Ê• }
-      ShowNPos( IdnX, IdnY, i, j, Yellow+bcLightGray,    { ÇÎ¢•·‚® Ì´•¨•≠‚ }
+    for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin  { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–µ }
+      ShowNPos( IdnX, IdnY, i, j, Yellow+bcLightGray,    { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
                 Mat, MatCol, MatRow, @Dt );
-      Delay( ShowDelay );                                { èÆ§Æ¶§†‚Ï }
-      if Mat^[i,j]<>0 then begin                         { ù‚Æ ≠• 0 ? }
-        ShowNPos( IdnX, IdnY, i, j, Red+bcLightGray,     { ÇÎ¢•·‚® Ì´•¨•≠‚ }
+      Delay( ShowDelay );                                { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
+      if Mat^[i,j]<>0 then begin                         { –≠—Ç–æ –Ω–µ 0 ? }
+        ShowNPos( IdnX, IdnY, i, j, Red+bcLightGray,     { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
                   Mat, MatCol, MatRow, @Dt );
-        Delay( ShowDelay );                              { èÆ§Æ¶§†‚Ï }
+        Delay( ShowDelay );                              { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
         Flag:=False;
       end;
     end;
-    LocalMsg( AnyKeyMsg );                               { Ü§•¨ ≠†¶†‚®Ô }
+    LocalMsg( AnyKeyMsg );                               { –ñ–¥–µ–º –Ω–∞–∂–∞—Ç–∏—è }
     if Flag then begin
-      LocalMsg( NullTitle );                             { Hy´•¢†Ô }
+      LocalMsg( NullTitle );                             { Hy–ª–µ–≤–∞—è }
       i:=MessageBox( NullMsg, OkNum, OkButs );
     end else begin
-      LocalMsg( NullNoTitle );                           { H• ≠y´•¢†Ô }
+      LocalMsg( NullNoTitle );                           { H–µ –Ωy–ª–µ–≤–∞—è }
       i:=MessageBox( NullNoMsg, OkNum, OkButs );
     end;
-    NullMat:=Flag;                                       { ê•ßy´Ï‚†‚ }
+    NullMat:=Flag;                                       { –†–µ–∑y–ª—å—Ç–∞—Ç }
   end;
 
   { ********************************************************************* }
-  { ---        îy≠™Ê®Ô ØpÆ¢•p™® •§®≠®Á≠Æ© ® §®†£Æ≠†´Ï≠Æ© ¨†‚p®Ê       --- }
+  { ---        –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –µ–¥–∏–Ω–∏—á–Ω–æ–π –∏ –¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–æ–π –º–∞—Çp–∏—Ü       --- }
   { ********************************************************************* }
 
   function SingleDiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
@@ -186,61 +186,61 @@ implementation
                           what : boolean
                          ) : boolean;
   var
-    Flag : boolean;                                      { ê•ßy´Ï‚†‚ }
-    Dt   : DtType;                                       { Ä‚p®°y‚Î }
+    Flag : boolean;                                      { –†–µ–∑y–ª—å—Ç–∞—Ç }
+    Dt   : DtType;                                       { –ê—Çp–∏–±y—Ç—ã }
     i, j : integer;
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );     { ÇÎ¢•·‚® ¨†‚p®Êy }
-    ShowColRow( IdnX, IdnY, MatCol, MatRow );            { ≠† Ì™p†≠ }
-    LocalMsg( Local );                                   { CÆÆ°È•≠®• }
-    flag:=false;                                         { Æ p†°Æ‚• }
-    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin     { é≠† ™¢†§p†‚≠†Ô ? }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );     { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
+    ShowColRow( IdnX, IdnY, MatCol, MatRow );            { –Ω–∞ —ç–∫p–∞–Ω }
+    LocalMsg( Local );                                   { C–æ–æ–±—â–µ–Ω–∏–µ }
+    flag:=false;                                         { –æ p–∞–±–æ—Ç–µ }
+    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin     { –û–Ω–∞ –∫–≤–∞–¥p–∞—Ç–Ω–∞—è ? }
       flag:=true;
-      for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin { ñ®™´ ØÆ ¨†‚p®Ê• }
+      for i:=1 to MatRow^ do for j:=1 to MatCol^ do begin { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–µ }
 
-        ShowNPos( IdnX, IdnY, i, j, Yellow+bcLightGray,   { ÇÎ¢•·‚® Ì´•¨•≠‚ }
-                  Mat, MatCol, MatRow, @Dt );             { H† Ì™p†≠ }
-        Delay( ShowDelay );                               { èÆ§Æ¶§†‚Ï }
+        ShowNPos( IdnX, IdnY, i, j, Yellow+bcLightGray,   { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
+                  Mat, MatCol, MatRow, @Dt );             { H–∞ —ç–∫p–∞–Ω }
+        Delay( ShowDelay );                               { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
 
-        if i=j then begin                                 { H† §®†£Æ≠†´® ? }
+        if i=j then begin                                 { H–∞ –¥–∏–∞–≥–æ–Ω–∞–ª–∏ ? }
 
-          ShowNPos( IdnX, IdnY, i, j, Green+bcLightGray,  { ÇÎ¢•·‚® Ì´•¨•≠‚ }
+          ShowNPos( IdnX, IdnY, i, j, Green+bcLightGray,  { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
                     Mat, MatCol, MatRow, @Dt );
-          if What and (Mat^[i,j]=0) then begin            { èÆ™†ß†‚Ï ÆË®°™y }
-            ShowNPos( IdnX, IdnY, i, j,                   { ÇÎ¢•·‚® Ì´•¨•≠‚ }
-                      Red+bcLightGray, Mat,               { ¨†‚p®ÊÎ }
+          if What and (Mat^[i,j]=0) then begin            { –ü–æ–∫–∞–∑–∞—Ç—å –æ—à–∏–±–∫y }
+            ShowNPos( IdnX, IdnY, i, j,                   { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
+                      Red+bcLightGray, Mat,               { –º–∞—Çp–∏—Ü—ã }
                       MatCol, MatRow, @Dt );
             Flag:=False;
           end;
-          if (not What) and (Mat^[i,j]<>1) then begin     { èÆ™†ß†‚Ï ÆË®°™y }
-            ShowNPos( IdnX, IdnY, i, j,                   { y •§®≠®Á≠Æ© }
-                      Red+bcLightGray, Mat,               { ¨†‚p®ÊÎ }
+          if (not What) and (Mat^[i,j]<>1) then begin     { –ü–æ–∫–∞–∑–∞—Ç—å –æ—à–∏–±–∫y }
+            ShowNPos( IdnX, IdnY, i, j,                   { y –µ–¥–∏–Ω–∏—á–Ω–æ–π }
+                      Red+bcLightGray, Mat,               { –º–∞—Çp–∏—Ü—ã }
                       MatCol, MatRow, @Dt );
             Flag:=False;
           end;
         end;
-        if (i<>j) and (Mat^[i, j]<>0) then begin          { èÆ™†ß†‚Ï ÆË®°™y }
-          ShowNPos( IdnX, IdnY, i, j,                     { y Æ°Æ®Â }
-                    Red+bcLightGray, Mat,                 { ¨†‚p®Ê }
+        if (i<>j) and (Mat^[i, j]<>0) then begin          { –ü–æ–∫–∞–∑–∞—Ç—å –æ—à–∏–±–∫y }
+          ShowNPos( IdnX, IdnY, i, j,                     { y –æ–±–æ–∏—Ö }
+                    Red+bcLightGray, Mat,                 { –º–∞—Çp–∏—Ü }
                     MatCol, MatRow, @Dt );
           Flag:=False;
         end;
-        Delay( ShowDelay );                               { èÆ§Æ¶§†‚Ï }
+        Delay( ShowDelay );                               { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
       end;
-      LocalMsg( AnyKeyMsg );                              { Ü§•¨ ≠†¶†‚®Ô }
+      LocalMsg( AnyKeyMsg );                              { –ñ–¥–µ–º –Ω–∞–∂–∞—Ç–∏—è }
       if Flag then begin
-        LocalMsg( Yes );                                  { é‚¢•‚ §† }
+        LocalMsg( Yes );                                  { –û—Ç–≤–µ—Ç –¥–∞ }
         i:=MessageBox( YesMsg, OkNum, OkButs );
       end else begin
-        LocalMsg( No );                                   { é‚¢•‚ ≠•‚ }
+        LocalMsg( No );                                   { –û—Ç–≤–µ—Ç –Ω–µ—Ç }
         i:=MessageBox( NoMsg, OkNum, OkButs );
       end;
     end;
-    SingleDiagMat:=flag;                                  { ê•ßy´Ï‚†‚ }
+    SingleDiagMat:=flag;                                  { –†–µ–∑y–ª—å—Ç–∞—Ç }
   end;
 
   { ********************************************************************** }
-  { --     îy≠™Ê®Ô ØpÆ¢•p™® ·®¨¨•‚p®Á≠Æ© ® ™Æ·Æ·®¨¨•‚p®Á≠Æ© ¨†‚p®ÊÎ     -- }
+  { --     –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ —Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –∏ –∫–æ—Å–æ—Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã     -- }
   { ********************************************************************** }
 
   function SymmSlantTriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr;
@@ -248,64 +248,64 @@ implementation
                              N : integer
                            ) : boolean;
   var
-    Flag : boolean;                                     { ê•ßy´Ï‚†‚ }
-    Dt   : DtType;                                      { Ä‚p®°y‚Î }
+    Flag : boolean;                                     { –†–µ–∑y–ª—å—Ç–∞—Ç }
+    Dt   : DtType;                                      { –ê—Çp–∏–±y—Ç—ã }
     i, j : integer;
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );    { ÇÎ¢•·‚® ¨†‚p®Êy }
-    ShowColRow( IdnX, IdnY, MatCol, MatRow );           { ≠† Ì™p†≠ }
-    LocalMsg( Local );                                  { CÆÆ°È•≠®• }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );    { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
+    ShowColRow( IdnX, IdnY, MatCol, MatRow );           { –Ω–∞ —ç–∫p–∞–Ω }
+    LocalMsg( Local );                                  { C–æ–æ–±—â–µ–Ω–∏–µ }
     flag:=false;
-    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin    { é≠† ™¢†§p†‚≠†Ô ? }
+    if TestSqrMat(MatCol^, MatRow^, Idn ) then begin    { –û–Ω–∞ –∫–≤–∞–¥p–∞—Ç–Ω–∞—è ? }
       flag:=true;
-      if MatCol^<>1 then begin                          { é≠† °Æ´•• Á•¨ }
-                                                        { ØpÆ·‚Æ Á®·´Æ ? }
+      if MatCol^<>1 then begin                          { –û–Ω–∞ –±–æ–ª–µ–µ —á–µ–º }
+                                                        { –øp–æ—Å—Ç–æ —á–∏—Å–ª–æ ? }
 
-        for i:=2 to MatRow^ do for j:=1 to i-1 do begin { ñ®™´ ØÆ ¨†‚p®Ê• }
-          ShowNPos( IdnX, IdnY, i, j,                   { ÇÎ¢•·‚® Ì´•¨•≠‚ }
-                    Yellow+bcLightGray, Mat,            { ¨†‚p®ÊÎ }
+        for i:=2 to MatRow^ do for j:=1 to i-1 do begin { –¶–∏–∫–ª –ø–æ –º–∞—Çp–∏—Ü–µ }
+          ShowNPos( IdnX, IdnY, i, j,                   { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
+                    Yellow+bcLightGray, Mat,            { –º–∞—Çp–∏—Ü—ã }
                     MatCol, MatRow, @Dt );
-          if N=0 then begin                             { èpÆ¢•pÔ•¨ }
-                                                        { ‚p•y£Æ´Ï≠Æ·‚Ï ? }
-            Delay( ShowDelay );                         { èÆ§Æ¶§†‚Ï }
-            if Mat^[i,j]<>0 then begin                  { èÆ™†ß†‚Ï    }
-              ShowNPos( IdnX, IdnY, i, j,               { ÆË®°™y ¢    }
-                        Red+bcLightGray, Mat,           { ‚p•y£Æ´Ï≠Æ© }
-                        MatCol, MatRow, @Dt );          { ¨†‚p®Ê•     }
+          if N=0 then begin                             { –üp–æ–≤–µp—è–µ–º }
+                                                        { —Çp–µy–≥–æ–ª—å–Ω–æ—Å—Ç—å ? }
+            Delay( ShowDelay );                         { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
+            if Mat^[i,j]<>0 then begin                  { –ü–æ–∫–∞–∑–∞—Ç—å    }
+              ShowNPos( IdnX, IdnY, i, j,               { –æ—à–∏–±–∫y –≤    }
+                        Red+bcLightGray, Mat,           { —Çp–µy–≥–æ–ª—å–Ω–æ–π }
+                        MatCol, MatRow, @Dt );          { –º–∞—Çp–∏—Ü–µ     }
               Flag:=False;
             end;
           end else begin
-            ShowNPos( IdnX, IdnY, j, i,                 { ÇÎ¢•·‚® Ì´•¨•≠‚ }
-                      Yellow+bcLightGray, Mat,          { ¨†‚p®ÊÎ }
+            ShowNPos( IdnX, IdnY, j, i,                 { –í—ã–≤–µ—Å—Ç–∏ —ç–ª–µ–º–µ–Ω—Ç }
+                      Yellow+bcLightGray, Mat,          { –º–∞—Çp–∏—Ü—ã }
                       MatCol, MatRow, @Dt );
-            Delay( ShowDelay );                         { èÆ§Æ¶§†‚Ï }
-            if Mat^[i,j]<>Mat^[j,i]*N then begin        { èÆ™†ß†‚Ï   }
-              ShowNPos( IdnX, IdnY, j, i,               { ÆË®°™y     }
-                        Red+bcLightGray, Mat,           { ¢ ™Æ·Æ/    }
-                        MatCol, MatRow, @Dt );          { ·®¨¨•‚p-©  }
-              ShowNPos( IdnX, IdnY, i, j,               { ¨†‚p®Ê•    }
+            Delay( ShowDelay );                         { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
+            if Mat^[i,j]<>Mat^[j,i]*N then begin        { –ü–æ–∫–∞–∑–∞—Ç—å   }
+              ShowNPos( IdnX, IdnY, j, i,               { –æ—à–∏–±–∫y     }
+                        Red+bcLightGray, Mat,           { –≤ –∫–æ—Å–æ/    }
+                        MatCol, MatRow, @Dt );          { —Å–∏–º–º–µ—Çp-–π  }
+              ShowNPos( IdnX, IdnY, i, j,               { –º–∞—Çp–∏—Ü–µ    }
                         Red+bcLightGray, Mat,
                         MatCol, MatRow, @Dt );
               Flag:=False;
             end;
           end;
-          Delay( ShowDelay );                           { èÆ§Æ¶§†‚Ï }
+          Delay( ShowDelay );                           { –ü–æ–¥–æ–∂–¥–∞—Ç—å }
         end;
-        LocalMsg( AnyKeyMsg );                          { Ü§•¨ ≠†¶†‚®Ô }
+        LocalMsg( AnyKeyMsg );                          { –ñ–¥–µ–º –Ω–∞–∂–∞—Ç–∏—è }
         if Flag then begin
-          LocalMsg( Yes );                              { é‚¢•‚ §† }
+          LocalMsg( Yes );                              { –û—Ç–≤–µ—Ç –¥–∞ }
           i:=MessageBox( YesMsg, OkNum, OkButs );
         end else begin
-          LocalMsg( No );                               { é‚¢•‚ ≠•‚ }
+          LocalMsg( No );                               { –û—Ç–≤–µ—Ç –Ω–µ—Ç }
           i:=MessageBox( NoMsg, OkNum, OkButs );
         end;
-      end else LocalMsg( Yes );                         { Ü§•¨ ≠†¶†‚®Ô }
+      end else LocalMsg( Yes );                         { –ñ–¥–µ–º –Ω–∞–∂–∞—Ç–∏—è }
     end;
-    SymmSlantTriaMat:=flag;                             { ê•ßy´Ï‚†‚ }
+    SymmSlantTriaMat:=flag;                             { –†–µ–∑y–ª—å—Ç–∞—Ç }
   end;
 
   { ********************************************************************** }
-  { ---              îy≠™Ê®Ô ØpÆ¢•p™® §®†£Æ≠†´Ï≠Æ© ¨†‚p®ÊÎ             --- }
+  { ---              –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –¥–∏–∞–≥–æ–Ω–∞–ª—å–Ω–æ–π –º–∞—Çp–∏—Ü—ã             --- }
   { ********************************************************************** }
 
   function DiagMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -316,7 +316,7 @@ implementation
   end;
 
   { ********************************************************************** }
-  { ---               îy≠™Ê®Ô ØpÆ¢•p™® •§®≠®Á≠Æ© ¨†‚p®ÊÎ               --- }
+  { ---               –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –µ–¥–∏–Ω–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã               --- }
   { ********************************************************************** }
 
   function SingleMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -327,7 +327,7 @@ implementation
   end;
 
   { ********************************************************************** }
-  { --           îy≠™Ê®Ô ØpÆ¢•p™® ·®¨¨•‚p®Á≠Æ© ¨†‚p®ÊÎ ¨†‚p®ÊÎ          -- }
+  { --           –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ —Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã –º–∞—Çp–∏—Ü—ã          -- }
   { ********************************************************************** }
 
   function SymmMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -338,7 +338,7 @@ implementation
   end;
 
   { ********************************************************************** }
-  { --         îy≠™Ê®Ô ØpÆ¢•p™® ™Æ·Æ·®¨¨•‚p®Á≠Æ© ¨†‚p®ÊÎ ¨†‚p®ÊÎ        -- }
+  { --         –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –∫–æ—Å–æ—Å–∏–º–º–µ—Çp–∏—á–Ω–æ–π –º–∞—Çp–∏—Ü—ã –º–∞—Çp–∏—Ü—ã        -- }
   { ********************************************************************** }
 
   function SlantMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -349,7 +349,7 @@ implementation
   end;
 
   { ********************************************************************** }
-  { ---              îy≠™Ê®Ô ØpÆ¢•p™® ‚p•y£Æ´Ï≠Æ© ¨†‚p®ÊÎ              --- }
+  { ---              –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ —Çp–µy–≥–æ–ª—å–Ω–æ–π –º–∞—Çp–∏—Ü—ã              --- }
   { ********************************************************************** }
 
   function TriaMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
@@ -360,71 +360,71 @@ implementation
   end;
 
   { ********************************************************************** }
-  { ---                îy≠™Ê®Ô ØpÆ¢•p™® ¢ÎpÆ¶§•≠≠Æ© ¨†‚p®ÊÎ            --- }
+  { ---                –§y–Ω–∫—Ü–∏—è –øp–æ–≤–µp–∫–∏ –≤—ãp–æ–∂–¥–µ–Ω–Ω–æ–π –º–∞—Çp–∏—Ü—ã            --- }
   { ********************************************************************** }
 
   function DegenMat( Mat : MatPtr; MatCol, MatRow : IntPtr ) : boolean;
   var
-    Det    : real;                                      { éØp•§•´®‚•´Ï }
-    DetStr : string;                                    { C‚pÆ™† Det }
-    Depend : boolean;                                   { î´†£ ß†¢®·®¨Æ·‚® }
-    Dt     : DtType;                                    { Ä‚p®°y‚Î }
+    Det    : real;                                      { –û–øp–µ–¥–µ–ª–∏—Ç–µ–ª—å }
+    DetStr : string;                                    { C—Çp–æ–∫–∞ Det }
+    Depend : boolean;                                   { –§–ª–∞–≥ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ }
+    Dt     : DtType;                                    { –ê—Çp–∏–±y—Ç—ã }
     i      : integer;
   begin
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );    { ÇÎ¢•·‚® ¨†‚p®Êy }
-    ShowColRow( IdnX, IdnY, MatCol, MatRow );           { ≠† Ì™p†≠ }
-    LocalMsg( DegenTestMsg );                           { CÆÆ°È•≠®• }
-    if MatCol^=MatRow^ then begin                       { ä¢†§p†‚≠†Ô ? }
-      Det:=Determinate( Mat, MatCol^ );                 { éØp•§•´®‚•´Ï }
-      Depend:=Det=0;                                    { á†¢®·®¨Æ·‚Ï }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );    { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
+    ShowColRow( IdnX, IdnY, MatCol, MatRow );           { –Ω–∞ —ç–∫p–∞–Ω }
+    LocalMsg( DegenTestMsg );                           { C–æ–æ–±—â–µ–Ω–∏–µ }
+    if MatCol^=MatRow^ then begin                       { –ö–≤–∞–¥p–∞—Ç–Ω–∞—è ? }
+      Det:=Determinate( Mat, MatCol^ );                 { –û–øp–µ–¥–µ–ª–∏—Ç–µ–ª—å }
+      Depend:=Det=0;                                    { –ó–∞–≤–∏—Å–∏–º–æ—Å—Ç—å }
       if Depend then begin
-        LocalMsg( DegenTitle );                         { é‚¢•‚ - §† }
+        LocalMsg( DegenTitle );                         { –û—Ç–≤–µ—Ç - –¥–∞ }
         i:=MessageBox( DegenMsg, OkNum, OkButs );
       end else begin
-        Str( Det:5:1, DetStr );                         { é‚¢•‚ - ≠•‚ }
+        Str( Det:5:1, DetStr );                         { –û—Ç–≤–µ—Ç - –Ω–µ—Ç }
         LocalMsg( DegenNoTitle+DetStr+' ' );
         i:=MessageBox( DegenNoMsg, OkNum, OkButs );
       end;
-    end else begin                                      { ù‚Æ ≠• }
-      Beep;                                             { ™¢†§p†‚≠†Ô }
-      i:=MessageBox( DegenSqrMsg, OkNum, OkButs );      { ¨†‚p®Ê† }
-      LocalMsg( NotSqrMsg );                            { CÆÆ°È•≠®• Æ° }
-      Depend:=false;                                    { Ì‚Æ¨ }
+    end else begin                                      { –≠—Ç–æ –Ω–µ }
+      Beep;                                             { –∫–≤–∞–¥p–∞—Ç–Ω–∞—è }
+      i:=MessageBox( DegenSqrMsg, OkNum, OkButs );      { –º–∞—Çp–∏—Ü–∞ }
+      LocalMsg( NotSqrMsg );                            { C–æ–æ–±—â–µ–Ω–∏–µ –æ–± }
+      Depend:=false;                                    { —ç—Ç–æ–º }
     end;
-    DegenMat:=Depend;                                   { ê•ßy´Ï‚†‚ }
+    DegenMat:=Depend;                                   { –†–µ–∑y–ª—å—Ç–∞—Ç }
   end;
 
   { ********************************************************************** }
-  { ---                èpÆÊ•§yp† ®§•≠‚®‰®™†Ê®® ‚®Ø† ¨†‚p®ÊÎ            --- }
+  { ---                –üp–æ—Ü–µ–¥yp–∞ –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ü–∏–∏ —Ç–∏–ø–∞ –º–∞—Çp–∏—Ü—ã            --- }
   { ********************************************************************** }
 
   procedure CheckType( Mat : MatPtr; MatCol, MatRow : IntPtr );
 
   var
-    i    : integer;                                     { ÇÎ°Æp ¨•≠Ó }
-    flag : boolean;                                     { ê•ßy´Ï‚†‚ }
-    Dt   : DtType;                                      { Ä‚p®°y‚Î }
+    i    : integer;                                     { –í—ã–±–æp –º–µ–Ω—é }
+    flag : boolean;                                     { –†–µ–∑y–ª—å—Ç–∞—Ç }
+    Dt   : DtType;                                      { –ê—Çp–∏–±y—Ç—ã }
   begin
-    ClearMainBox;                                       { C‚®p†•¨ ·‚†pÆ• }
-    PutBox( 1, 1, MainBackX-2, ScrBottom-1,             { C‚®p†•¨ ¨•≠Ó }
+    ClearMainBox;                                       { C—Ç–∏p–∞–µ–º —Å—Ç–∞p–æ–µ }
+    PutBox( 1, 1, MainBackX-2, ScrBottom-1,             { C—Ç–∏p–∞–µ–º –º–µ–Ω—é }
             ' ', bcLightBlue );
-    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );    { ÇÎ¢•·‚® ¨†‚p®Êy }
-    ShowColRow( IdnX, IdnY, MatCol, MatRow );           { H† Ì™p†≠ }
-    Delay( ShowDelay );                                 { Ü§•¨ }
+    ShowMat( IdnX, IdnY, Mat, MatCol, MatRow, @Dt );    { –í—ã–≤–µ—Å—Ç–∏ –º–∞—Çp–∏—Üy }
+    ShowColRow( IdnX, IdnY, MatCol, MatRow );           { H–∞ —ç–∫p–∞–Ω }
+    Delay( ShowDelay );                                 { –ñ–¥–µ–º }
     repeat
-      i:=Menu( False, 0, CheckNum, CheckButs );         { ó‚Æ §•´†‚Ï ? }
+      i:=Menu( False, 0, CheckNum, CheckButs );         { –ß—Ç–æ –¥–µ–ª–∞—Ç—å ? }
       if not ( i in [ 0, 8 ] ) then begin
-        case i of                                       { èpÆ¢•p™®: }
-          1 : Flag:=NullMat( Mat, MatCol, MatRow );     { Hy´•¢Æ© }
-          2 : Flag:=DiagMat( Mat, MatCol, MatRow );     { Ñ®†£Æ≠†´Ï≠Æ©   }
-          3 : Flag:=SingleMat( Mat, MatCol, MatRow );   { Ö§®≠®Á≠Æ©      }
-          4 : Flag:=SymmMat( Mat, MatCol, MatRow );     { C®¨¨•‚p®Á•·™Æ© }
-          5 : Flag:=SlantMat( Mat, MatCol, MatRow );    { äÆ¨ÆC®¨¨•‚p-©  }
-          6 : Flag:=TriaMat( Mat, MatCol, MatRow );     { íp•y£Æ´Ï≠Æ©    }
-          7 : Flag:=DegenMat( Mat, MatCol, MatRow );    { ÇÎpÆ¶§•≠≠Æ©    }
+        case i of                                       { –üp–æ–≤–µp–∫–∏: }
+          1 : Flag:=NullMat( Mat, MatCol, MatRow );     { Hy–ª–µ–≤–æ–π }
+          2 : Flag:=DiagMat( Mat, MatCol, MatRow );     { –î–∏–∞–≥–æ–Ω–∞–ª—å–Ω–æ–π   }
+          3 : Flag:=SingleMat( Mat, MatCol, MatRow );   { –ï–¥–∏–Ω–∏—á–Ω–æ–π      }
+          4 : Flag:=SymmMat( Mat, MatCol, MatRow );     { C–∏–º–º–µ—Çp–∏—á–µ—Å–∫–æ–π }
+          5 : Flag:=SlantMat( Mat, MatCol, MatRow );    { –ö–æ–º–æC–∏–º–º–µ—Çp-–π  }
+          6 : Flag:=TriaMat( Mat, MatCol, MatRow );     { –¢p–µy–≥–æ–ª—å–Ω–æ–π    }
+          7 : Flag:=DegenMat( Mat, MatCol, MatRow );    { –í—ãp–æ–∂–¥–µ–Ω–Ω–æ–π    }
         end;
       end;
-    until i in [ 0, 8 ];                                { èÆ™† ≠• ™Æ≠•Ê }
+    until i in [ 0, 8 ];                                { –ü–æ–∫–∞ –Ω–µ –∫–æ–Ω–µ—Ü }
   end;
 
 end.
