@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     MOUSE                                                   * }
-{ *  Hазначение: Оpганизация интеpфейса с мышью                          * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  РњРѕРґyР»СЊ:     MOUSE                                                   * }
+{ *  HР°Р·РЅР°С‡РµРЅРёРµ: РћpРіР°РЅРёР·Р°С†РёСЏ РёРЅС‚РµpС„РµР№СЃР° СЃ РјС‹С€СЊСЋ                          * }
+{ *  Р’РµpСЃРёСЏ:     1.0                                                     * }
+{ *  РђРІС‚Рѕp:      РђР»РµРєСЃР°РЅРґp Р”РµРјРёРЅ, РњРђР, РєР°С„. 302, 1995                    * }
+{ *  РЇР·С‹Рє:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -18,42 +18,42 @@ uses Dos, Common;
 
 const
 
-  MouseInt = $33;                      { Пpеpывание дpайвеpа мыши }
+  MouseInt = $33;                      { РџpРµpС‹РІР°РЅРёРµ РґpР°Р№РІРµpР° РјС‹С€Рё }
 
 var
 
-  MousePresent : boolean;              { Флаг наличия мыши }
+  MousePresent : boolean;              { Р¤Р»Р°Рі РЅР°Р»РёС‡РёСЏ РјС‹С€Рё }
 
-  { Инициализация мыши }
+  { РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјС‹С€Рё }
   function  MouseInit : boolean;
 
-  { Показать кypсоp мыши }
+  { РџРѕРєР°Р·Р°С‚СЊ РєypСЃРѕp РјС‹С€Рё }
   procedure ShowCursor;
 
-  { Убpать кypсоp мыши }
+  { РЈР±pР°С‚СЊ РєypСЃРѕp РјС‹С€Рё }
   procedure HideCursor;
 
-  { Пеpеместить мышь в точкy X, Y }
+  { РџРµpРµРјРµСЃС‚РёС‚СЊ РјС‹С€СЊ РІ С‚РѕС‡Рєy X, Y }
   procedure MovePointer( x, y : word );
 
-  { Установить гpаницы пеpемещения мыши }
+  { РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РіpР°РЅРёС†С‹ РїРµpРµРјРµС‰РµРЅРёСЏ РјС‹С€Рё }
   procedure SetMaxMinXY( MinX, MinY, MaxX, MaxY : word );
 
-  { Пpочитать состояние мыши:
-     Point     - кооpдинаты мыши
-     LButton   - состояние левой кнопки
-     RButton   - состояние пpавой кнопки
+  { РџpРѕС‡РёС‚Р°С‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ РјС‹С€Рё:
+     Point     - РєРѕРѕpРґРёРЅР°С‚С‹ РјС‹С€Рё
+     LButton   - СЃРѕСЃС‚РѕСЏРЅРёРµ Р»РµРІРѕР№ РєРЅРѕРїРєРё
+     RButton   - СЃРѕСЃС‚РѕСЏРЅРёРµ РїpР°РІРѕР№ РєРЅРѕРїРєРё
   }
   procedure GetMInfo( var Point : TPoint; var LButton, RButton : boolean );
 
-  { Запyск мыши }
+  { Р—Р°РїyСЃРє РјС‹С€Рё }
   procedure MouseStart;
 
 implementation
 
   uses Graph;
 
-   { --- Инициализация мыши --- }
+   { --- РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјС‹С€Рё --- }
 
   function MouseInit : boolean;
   var
@@ -64,7 +64,7 @@ implementation
     MouseInit:=r.ax=$ffff;
   end;
 
-  { --- Показать кypсоp мыши --- }
+  { --- РџРѕРєР°Р·Р°С‚СЊ РєypСЃРѕp РјС‹С€Рё --- }
 
   procedure ShowCursor;
   var
@@ -76,7 +76,7 @@ implementation
     end;
   end;
 
-  { --- Убpать кypсоp мыши --- }
+  { --- РЈР±pР°С‚СЊ РєypСЃРѕp РјС‹С€Рё --- }
 
   procedure HideCursor;
   var
@@ -88,7 +88,7 @@ implementation
     end;
   end;
 
-  { --- Пеpеместить мышь в точкy X, Y --- }
+  { --- РџРµpРµРјРµСЃС‚РёС‚СЊ РјС‹С€СЊ РІ С‚РѕС‡Рєy X, Y --- }
 
   procedure MovePointer( x, y : word );
   var
@@ -104,7 +104,7 @@ implementation
     end;
   end;
 
-  { --- Установить гpаницы пеpемещения мыши --- }
+  { --- РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РіpР°РЅРёС†С‹ РїРµpРµРјРµС‰РµРЅРёСЏ РјС‹С€Рё --- }
 
   procedure SetMaxMinXY( MinX, MinY, MaxX, MaxY : word );
   var
@@ -126,7 +126,7 @@ implementation
     end;
   end;
 
-  { --- Пpочитать состояние мыши --- }
+  { --- РџpРѕС‡РёС‚Р°С‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ РјС‹С€Рё --- }
 
   procedure GetMInfo( var Point : TPoint; var LButton, RButton : boolean );
   var
@@ -149,14 +149,14 @@ implementation
     end;
   end;
 
-  { --- Запyск мыши --- }
+  { --- Р—Р°РїyСЃРє РјС‹С€Рё --- }
 
   procedure MouseStart;
   begin
     ShowCursor;
   end;
 
-{ ---- Инициализация модyля для мыши ---- }
+{ ---- РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјРѕРґyР»СЏ РґР»СЏ РјС‹С€Рё ---- }
 
 begin
   MousePresent:=MouseInit;

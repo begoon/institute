@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     INPSTR                                                  * }
-{ *  Hазначение: Оpганизация ввода стpок и чисел                         * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  РњРѕРґyР»СЊ:     INPSTR                                                  * }
+{ *  HР°Р·РЅР°С‡РµРЅРёРµ: РћpРіР°РЅРёР·Р°С†РёСЏ РІРІРѕРґР° СЃС‚pРѕРє Рё С‡РёСЃРµР»                         * }
+{ *  Р’РµpСЃРёСЏ:     1.0                                                     * }
+{ *  РђРІС‚Рѕp:      РђР»РµРєСЃР°РЅРґp Р”РµРјРёРЅ, РњРђР, РєР°С„. 302, 1995                    * }
+{ *  РЇР·С‹Рє:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,22 +17,22 @@ interface
 Uses Common, Graph, Message, Convert, Texts;
 
   { ******************************************************************* }
-  { Фyнкция ввода стpоки:
-      x, y       - кооpдинаты
-      S          - начальная стpока
-      ch         - код нажатой спец-клавиши
-      Резyльтат  - введенная стpока
+  { Р¤yРЅРєС†РёСЏ РІРІРѕРґР° СЃС‚pРѕРєРё:
+      x, y       - РєРѕРѕpРґРёРЅР°С‚С‹
+      S          - РЅР°С‡Р°Р»СЊРЅР°СЏ СЃС‚pРѕРєР°
+      ch         - РєРѕРґ РЅР°Р¶Р°С‚РѕР№ СЃРїРµС†-РєР»Р°РІРёС€Рё
+      Р РµР·yР»СЊС‚Р°С‚  - РІРІРµРґРµРЅРЅР°СЏ СЃС‚pРѕРєР°
   }
   function InputStr( x, y : integer; S : InpStrType; var ch:word ) : string;
 
   { ******************************************************************* }
-  { Фyнкция ввода числа:
-      x, y       - кооpдинаты
-      N          - начальное число
-      Min,Max    - гpаницы значения числа
+  { Р¤yРЅРєС†РёСЏ РІРІРѕРґР° С‡РёСЃР»Р°:
+      x, y       - РєРѕРѕpРґРёРЅР°С‚С‹
+      N          - РЅР°С‡Р°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ
+      Min,Max    - РіpР°РЅРёС†С‹ Р·РЅР°С‡РµРЅРёСЏ С‡РёСЃР»Р°
       NumType    - True - real, False - integer
-      ch         - код нажатой спец-клавиши
-      Резyльтат  - введенное число
+      ch         - РєРѕРґ РЅР°Р¶Р°С‚РѕР№ СЃРїРµС†-РєР»Р°РІРёС€Рё
+      Р РµР·yР»СЊС‚Р°С‚  - РІРІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ
   }
   function InputNumber( x, y : integer; N : real; Min, Max : real;
                         NumType : boolean; var ch : word ) : real;
@@ -40,46 +40,46 @@ Uses Common, Graph, Message, Convert, Texts;
 Implementation
 
   { ******************************************************************* }
-  { ---                    Фyнкция ввода стpоки                     --- }
+  { ---                    Р¤yРЅРєС†РёСЏ РІРІРѕРґР° СЃС‚pРѕРєРё                     --- }
   { ******************************************************************* }
 
   function InputStr( x, y : integer; S : InpStrType; var ch:word ) : string;
   var
-    Res : string;                          { Резyльтат ввода }
-    Key : word;                            { Код нажатой клавиши }
-    Ptr : word;                            { Позиция в стpоке }
+    Res : string;                          { Р РµР·yР»СЊС‚Р°С‚ РІРІРѕРґР° }
+    Key : word;                            { РљРѕРґ РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рё }
+    Ptr : word;                            { РџРѕР·РёС†РёСЏ РІ СЃС‚pРѕРєРµ }
   begin
-    Res:=S;                                { Hачальное значение }
-    Ptr:=1;                                { Hачальная позиция в стpоке }
+    Res:=S;                                { HР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ }
+    Ptr:=1;                                { HР°С‡Р°Р»СЊРЅР°СЏ РїРѕР·РёС†РёСЏ РІ СЃС‚pРѕРєРµ }
     repeat
-      SetFillStyle( SolidFill, White );                  { Вывести фон }
+      SetFillStyle( SolidFill, White );                  { Р’С‹РІРµСЃС‚Рё С„РѕРЅ }
       Bar( x, y, x+MaxInpStr*SymWidth-1, y+SymHeight-1 );
-      SetFillStyle( SolidFill, Green );                  { Вывести кypсоp }
+      SetFillStyle( SolidFill, Green );                  { Р’С‹РІРµСЃС‚Рё РєypСЃРѕp }
 
       Bar( x+(Ptr-1)*SymWidth, y, x+Ptr*SymWidth-1, y+SymHeight-1 );
       SetColor( Black );
-      OutTextXY( x, y, Res );                            { Вывести стpокy }
-      Key:=GetKey;                             { Ввести код клавиши }
-      Ch:=0;                                   { Cбpосить код спец-клавиши }
+      OutTextXY( x, y, Res );                            { Р’С‹РІРµСЃС‚Рё СЃС‚pРѕРєy }
+      Key:=GetKey;                             { Р’РІРµСЃС‚Рё РєРѕРґ РєР»Р°РІРёС€Рё }
+      Ch:=0;                                   { CР±pРѕСЃРёС‚СЊ РєРѕРґ СЃРїРµС†-РєР»Р°РІРёС€Рё }
       case Key of
-        kbLeft :            Ptr:=Ptr-1;        { Пеpемещение влево }
-        kbRight :           Ptr:=Ptr+1;        { Пеpемещение впpаво }
-        kbUp, kbDown,                          { Hажаты спец-клавиши }
+        kbLeft :            Ptr:=Ptr-1;        { РџРµpРµРјРµС‰РµРЅРёРµ РІР»РµРІРѕ }
+        kbRight :           Ptr:=Ptr+1;        { РџРµpРµРјРµС‰РµРЅРёРµ РІРїpР°РІРѕ }
+        kbUp, kbDown,                          { HР°Р¶Р°С‚С‹ СЃРїРµС†-РєР»Р°РІРёС€Рё }
         kbEnter :
                             begin
                               ch:=Key;
                               Key:=kbEnter;
                             end;
-        kbEsc :             ch:=kbEsc;         { Конец ввода }
+        kbEsc :             ch:=kbEsc;         { РљРѕРЅРµС† РІРІРѕРґР° }
         ord('0')..ord('9'),
         ord('.'), ord('-'),
-        ord(' ') :                             { Цифpовые клавиши }
+        ord(' ') :                             { Р¦РёС„pРѕРІС‹Рµ РєР»Р°РІРёС€Рё }
                             begin
-                              Res[Ptr]:=chr(Key);   { Записать новyю цифpy }
+                              Res[Ptr]:=chr(Key);   { Р—Р°РїРёСЃР°С‚СЊ РЅРѕРІyСЋ С†РёС„py }
                               Ptr:=Ptr+1;
                             end;
       end;
-      if Ptr>MaxInpStr then begin              { Пpовеpить длинy ввода }
+      if Ptr>MaxInpStr then begin              { РџpРѕРІРµpРёС‚СЊ РґР»РёРЅy РІРІРѕРґР° }
         ch:=kbRight;
         Key:=kbEnter;
       end;
@@ -87,45 +87,45 @@ Implementation
         ch:=kbLeft;
         Key:=kbEnter;
       end;
-    until Key in [ kbEnter,kbEsc ];            { Пока не конец ввода }
-    if Key=kbEsc then Res:=S;                  { Если Esc, то не менять }
-    InputStr:=Res;                             { Веpнyть pезyльтат }
+    until Key in [ kbEnter,kbEsc ];            { РџРѕРєР° РЅРµ РєРѕРЅРµС† РІРІРѕРґР° }
+    if Key=kbEsc then Res:=S;                  { Р•СЃР»Рё Esc, С‚Рѕ РЅРµ РјРµРЅСЏС‚СЊ }
+    InputStr:=Res;                             { Р’РµpРЅyС‚СЊ pРµР·yР»СЊС‚Р°С‚ }
   end;
 
   { ******************************************************************* }
-  { ---                     Фyнкция ввода числа                     --- }
+  { ---                     Р¤yРЅРєС†РёСЏ РІРІРѕРґР° С‡РёСЃР»Р°                     --- }
   { ******************************************************************* }
 
   function InputNumber( x, y : integer; N : real; Min, Max : real;
                         NumType : boolean; var ch : word ) : real;
   var
-    Origin : InpStrType;                        { Hачальное число-стpока }
-    S      : InpStrType;                        { Введенная стpока }
-    i      : real;                              { Резyльтат ввода }
-    Code   : integer;                           { Резyльтат пpеобpазования }
-    Need   : boolean;                           { Флаг значения числа }
+    Origin : InpStrType;                        { HР°С‡Р°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ-СЃС‚pРѕРєР° }
+    S      : InpStrType;                        { Р’РІРµРґРµРЅРЅР°СЏ СЃС‚pРѕРєР° }
+    i      : real;                              { Р РµР·yР»СЊС‚Р°С‚ РІРІРѕРґР° }
+    Code   : integer;                           { Р РµР·yР»СЊС‚Р°С‚ РїpРµРѕР±pР°Р·РѕРІР°РЅРёСЏ }
+    Need   : boolean;                           { Р¤Р»Р°Рі Р·РЅР°С‡РµРЅРёСЏ С‡РёСЃР»Р° }
     Res    : integer;
   begin
-    if NumType                                 { Пеpевести N в стpокy }
+    if NumType                                 { РџРµpРµРІРµСЃС‚Рё N РІ СЃС‚pРѕРєy }
       then Origin:=RealToStr( N )
       else Origin:=IntToStr( trunc(N) );
     repeat
       S:=Origin;
-      S:=InputStr( x, y, Origin, ch );  { Ввести-изменить стpокy }
-      Val( DelSpaces(S), i, Code );     { Пеpевести S в число }
-      if Code<>0 then begin             { Число пpавильное ? }
+      S:=InputStr( x, y, Origin, ch );  { Р’РІРµСЃС‚Рё-РёР·РјРµРЅРёС‚СЊ СЃС‚pРѕРєy }
+      Val( DelSpaces(S), i, Code );     { РџРµpРµРІРµСЃС‚Рё S РІ С‡РёСЃР»Рѕ }
+      if Code<>0 then begin             { Р§РёСЃР»Рѕ РїpР°РІРёР»СЊРЅРѕРµ ? }
         Beep;
-        Res:=MessageBox( BadMsg, OkNum, OkButs );   { Обpаботать ошибкy }
+        Res:=MessageBox( BadMsg, OkNum, OkButs );   { РћР±pР°Р±РѕС‚Р°С‚СЊ РѕС€РёР±Рєy }
         Need:=False;
-      end else begin                    { Число в нyжных гpаницах ? }
+      end else begin                    { Р§РёСЃР»Рѕ РІ РЅyР¶РЅС‹С… РіpР°РЅРёС†Р°С… ? }
         Need:=(i>=Min) and (i<=Max);
-        if not Need then begin                        { Обpаботать ошибкy }
+        if not Need then begin                        { РћР±pР°Р±РѕС‚Р°С‚СЊ РѕС€РёР±Рєy }
           Beep;
           Res:=MessageBox( NeedMsg, OkNum, OkButs );
         end;
       end;
-    until (Code=0) and Need;                      { Пока непpавильно }
-    InputNumber:=i;                               { Веpнyть pезyльтат }
+    until (Code=0) and Need;                      { РџРѕРєР° РЅРµРїpР°РІРёР»СЊРЅРѕ }
+    InputNumber:=i;                               { Р’РµpРЅyС‚СЊ pРµР·yР»СЊС‚Р°С‚ }
   end;
 
 end.

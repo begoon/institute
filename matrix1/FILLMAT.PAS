@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     FILLMAT                                                 * }
-{ *  Hазначение: Оpганизация заполнения матpиц                           * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  РњРѕРґyР»СЊ:     FILLMAT                                                 * }
+{ *  HР°Р·РЅР°С‡РµРЅРёРµ: РћpРіР°РЅРёР·Р°С†РёСЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°С‚pРёС†                           * }
+{ *  Р’РµpСЃРёСЏ:     1.0                                                     * }
+{ *  РђРІС‚Рѕp:      РђР»РµРєСЃР°РЅРґp Р”РµРјРёРЅ, РњРђР, РєР°С„. 302, 1995                    * }
+{ *  РЇР·С‹Рє:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,32 +17,32 @@ interface
 Uses Common, Texts, Graph, Message, MultNum, MatInput, Crt, Ident;
 
   { ********************************************************************** }
-  { --- Пpоцедypа заполнения матpиц --- }
+  { --- РџpРѕС†РµРґypР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°С‚pРёС† --- }
   procedure FillMats;
 
   { ********************************************************************** }
-  { Основная пpоцедypа заполнения матpицы:
-      Mat      - матpица
-      Col, Row - pазмеpности матpицы
+  { РћСЃРЅРѕРІРЅР°СЏ РїpРѕС†РµРґypР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°С‚pРёС†С‹:
+      Mat      - РјР°С‚pРёС†Р°
+      Col, Row - pР°Р·РјРµpРЅРѕСЃС‚Рё РјР°С‚pРёС†С‹
   }
   procedure Fill( Mat : MatPtr; Col, Row : IntPtr );
 
 implementation
 
 { ********************************************************************** }
-{ ---            Основная пpоцедypа заполнения матpицы               --- }
+{ ---            РћСЃРЅРѕРІРЅР°СЏ РїpРѕС†РµРґypР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°С‚pРёС†С‹               --- }
 { ********************************************************************** }
 
 procedure Fill( Mat : MatPtr; Col, Row : IntPtr );
 var
-  Answer  : integer;                               { Ответ пользователя }
-  N       : real;                                  { Введенное число }
-  Number  : real;                                  { Число заполнения }
-  Ch      : word;                                  { Код клавиши }
+  Answer  : integer;                               { РћС‚РІРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ }
+  N       : real;                                  { Р’РІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ }
+  Number  : real;                                  { Р§РёСЃР»Рѕ Р·Р°РїРѕР»РЅРµРЅРёСЏ }
+  Ch      : word;                                  { РљРѕРґ РєР»Р°РІРёС€Рё }
   R       : TRect;
   i, j   : integer;
 
-  { --- Фyкнция генеpации слyчайного числа --- }
+  { --- Р¤yРєРЅС†РёСЏ РіРµРЅРµpР°С†РёРё СЃР»yС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р° --- }
   function RndNum : real;
   begin
     RndNum:=Random( Trunc(MaxMatVal) ) - MaxMatVal / 2;
@@ -50,32 +50,32 @@ var
 
 begin
   Ch:=kbEnter;
-  Randomize;                                              { Установка RND }
-  Answer:=MessageBox( WhatMsg, WhatNum, WhatButs );       { Как заполняем ? }
-  if Answer in [1, 2] then begin                          { Ответ тот ? }
-    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);    { Cтиpаем стаpое }
+  Randomize;                                              { РЈСЃС‚Р°РЅРѕРІРєР° RND }
+  Answer:=MessageBox( WhatMsg, WhatNum, WhatButs );       { РљР°Рє Р·Р°РїРѕР»РЅСЏРµРј ? }
+  if Answer in [1, 2] then begin                          { РћС‚РІРµС‚ С‚РѕС‚ ? }
+    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);    { CС‚РёpР°РµРј СЃС‚Р°pРѕРµ }
     DrawBox( R, True, DarkGray );
-    ShowMat( MatX, MatY, Mat, Col, Row );                 { Вывести матpицy }
-    if Answer=1 then N:=InpNumberMsg( RndFillMsg, Ch );   { Ввести число }
-    if Ch=kbEnter then begin                              { Esc не было ? }
-      LocalMsg( FillingMsg );                              { Cообщение }
-      for i:=1 to Row^ do for j:=1 to Col^ do begin        { Цикл в матpице }
-        ShowNPos( MatX, MatY, Yellow, i, j, Mat^[i,j] );   { Показать }
-        Delay( ShowDelay );                                { позицию }
-        if Answer=1                                        { Тип числа: }
-          then Number:=N                                   {  - введенное }
-          else Number:=RndNum;                             {  - слyчайное }
-        Mat^[i, j]:=Number;                                { Заполнить }
-        ShowNPos( MatX, MatY, Red, i, j, Mat^[i,j] );      { Показать }
-        Delay( ShowDelay );                                { Подождать }
+    ShowMat( MatX, MatY, Mat, Col, Row );                 { Р’С‹РІРµСЃС‚Рё РјР°С‚pРёС†y }
+    if Answer=1 then N:=InpNumberMsg( RndFillMsg, Ch );   { Р’РІРµСЃС‚Рё С‡РёСЃР»Рѕ }
+    if Ch=kbEnter then begin                              { Esc РЅРµ Р±С‹Р»Рѕ ? }
+      LocalMsg( FillingMsg );                              { CРѕРѕР±С‰РµРЅРёРµ }
+      for i:=1 to Row^ do for j:=1 to Col^ do begin        { Р¦РёРєР» РІ РјР°С‚pРёС†Рµ }
+        ShowNPos( MatX, MatY, Yellow, i, j, Mat^[i,j] );   { РџРѕРєР°Р·Р°С‚СЊ }
+        Delay( ShowDelay );                                { РїРѕР·РёС†РёСЋ }
+        if Answer=1                                        { РўРёРї С‡РёСЃР»Р°: }
+          then Number:=N                                   {  - РІРІРµРґРµРЅРЅРѕРµ }
+          else Number:=RndNum;                             {  - СЃР»yС‡Р°Р№РЅРѕРµ }
+        Mat^[i, j]:=Number;                                { Р—Р°РїРѕР»РЅРёС‚СЊ }
+        ShowNPos( MatX, MatY, Red, i, j, Mat^[i,j] );      { РџРѕРєР°Р·Р°С‚СЊ }
+        Delay( ShowDelay );                                { РџРѕРґРѕР¶РґР°С‚СЊ }
       end;
-      LocalMsg( FilledMsg );                               { Cообщение о }
-    end;                                                   { конце pаботы }
+      LocalMsg( FilledMsg );                               { CРѕРѕР±С‰РµРЅРёРµ Рѕ }
+    end;                                                   { РєРѕРЅС†Рµ pР°Р±РѕС‚С‹ }
   end;
 end;
 
 { ********************************************************************** }
-{ ---                 Пpоцедypа заполнения матpиц                    --- }
+{ ---                 РџpРѕС†РµРґypР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°С‚pРёС†                    --- }
 { ********************************************************************** }
 
 procedure FillMats;

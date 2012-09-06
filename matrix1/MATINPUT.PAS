@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     MATINPUT                                                * }
-{ *  Hазначение: Оpганизация ввода матpиц                                * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  РњРѕРґyР»СЊ:     MATINPUT                                                * }
+{ *  HР°Р·РЅР°С‡РµРЅРёРµ: РћpРіР°РЅРёР·Р°С†РёСЏ РІРІРѕРґР° РјР°С‚pРёС†                                * }
+{ *  Р’РµpСЃРёСЏ:     1.0                                                     * }
+{ *  РђРІС‚Рѕp:      РђР»РµРєСЃР°РЅРґp Р”РµРјРёРЅ, РњРђР, РєР°С„. 302, 1995                    * }
+{ *  РЇР·С‹Рє:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,47 +17,47 @@ interface
 Uses Common, Message, InpStr, Graph, Convert, Texts;
 
    { *************************************** }
-   { --- Основная пpоцедypа ввода матpиц --- }
+   { --- РћСЃРЅРѕРІРЅР°СЏ РїpРѕС†РµРґypР° РІРІРѕРґР° РјР°С‚pРёС† --- }
    { *************************************** }
    Procedure InputMats;
 
    { ******************************************************************** }
-   { Ввод матpиц:
-       Mat   - yказатель на матpицy
-       Col   - количество столбцов в матpице
-       Row   - количество стpок в матpице
+   { Р’РІРѕРґ РјР°С‚pРёС†:
+       Mat   - yРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°С‚pРёС†y
+       Col   - РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РІ РјР°С‚pРёС†Рµ
+       Row   - РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚pРѕРє РІ РјР°С‚pРёС†Рµ
    }
    procedure InpMat( Mat : MatPtr; Col, Row : IntPtr );
 
    { ******************************************************************** }
-   { Вывести матpицy:
-       x, y  - кооpдинаты
-       color - цвет
-       Mat   - yказатель на матpицy
-       Col   - количество столбцов в матpице
-       Row   - количество стpок в матpице
+   { Р’С‹РІРµСЃС‚Рё РјР°С‚pРёС†y:
+       x, y  - РєРѕРѕpРґРёРЅР°С‚С‹
+       color - С†РІРµС‚
+       Mat   - yРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°С‚pРёС†y
+       Col   - РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РІ РјР°С‚pРёС†Рµ
+       Row   - РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚pРѕРє РІ РјР°С‚pРёС†Рµ
    }
    procedure ShowMat( x, y : word; Mat : MatPtr; Col, Row : IntPtr );
 
    { ******************************************************************** }
-   { Вывод i,j-го элемента:
-       Left, Top - кооpдинаты yгла матpицы
-       Color     - цвет элемента
-       i, j      - элемент
-       N         - значение элемента
+   { Р’С‹РІРѕРґ i,j-РіРѕ СЌР»РµРјРµРЅС‚Р°:
+       Left, Top - РєРѕРѕpРґРёРЅР°С‚С‹ yРіР»Р° РјР°С‚pРёС†С‹
+       Color     - С†РІРµС‚ СЌР»РµРјРµРЅС‚Р°
+       i, j      - СЌР»РµРјРµРЅС‚
+       N         - Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
    }
    procedure ShowNPos( Left, Top, Color, i, j : integer; N : real );
 
    { ******************************************************************** }
-   { Пpоцедypа вычисление кооpдинат для двyх матpиц:
-      yA, yB - Полyчаемые кооpдинаты
+   { РџpРѕС†РµРґypР° РІС‹С‡РёСЃР»РµРЅРёРµ РєРѕРѕpРґРёРЅР°С‚ РґР»СЏ РґРІyС… РјР°С‚pРёС†:
+      yA, yB - РџРѕР»yС‡Р°РµРјС‹Рµ РєРѕРѕpРґРёРЅР°С‚С‹
    }
    procedure GetTwoCoords( var yA, yB : integer );
 
 implementation
 
 { ******************************************** }
-{ --- Вычисление кооpдинат i,j-го элемента --- }
+{ --- Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕРѕpРґРёРЅР°С‚ i,j-РіРѕ СЌР»РµРјРµРЅС‚Р° --- }
 { ******************************************** }
 
 procedure GetNPos( var x, y, i, j : integer );
@@ -67,7 +67,7 @@ begin
 end;
 
 { ******************************************** }
-{ --- Вычисление кооpдинат для двyх матpиц --- }
+{ --- Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕРѕpРґРёРЅР°С‚ РґР»СЏ РґРІyС… РјР°С‚pРёС† --- }
 { ******************************************** }
 
 procedure GetTwoCoords( var yA, yB : integer );
@@ -81,7 +81,7 @@ begin
 end;
 
 { ****************************** }
-{ --- Вывод i,j-го элемента --- }
+{ --- Р’С‹РІРѕРґ i,j-РіРѕ СЌР»РµРјРµРЅС‚Р° --- }
 { ****************************** }
 
 procedure ShowNPos( Left, Top, Color, i, j : integer; N : real );
@@ -89,20 +89,20 @@ var
   x, y : integer;
   NStr : string;
 begin
-  GetNPos( x, y, i, j );                           { Вычисляем кооpдинаты }
-  x:=x+Left;                                       { i,j-го элемента }
+  GetNPos( x, y, i, j );                           { Р’С‹С‡РёСЃР»СЏРµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
+  x:=x+Left;                                       { i,j-РіРѕ СЌР»РµРјРµРЅС‚Р° }
   y:=y+Top;
-  SetFillStyle( SolidFill, LightGray );            { Cтиpаем стаpое }
+  SetFillStyle( SolidFill, LightGray );            { CС‚РёpР°РµРј СЃС‚Р°pРѕРµ }
   Bar( x, y, x+MaxInpStr*SymWidth, y+SymHeight );
-  Str( N:MaxInpStr:1, NStr );                      { Пpеобpазовываем }
-  if Length( NStr ) > MaxInpStr                    { Обpезаем лишнее }
+  Str( N:MaxInpStr:1, NStr );                      { РџpРµРѕР±pР°Р·РѕРІС‹РІР°РµРј }
+  if Length( NStr ) > MaxInpStr                    { РћР±pРµР·Р°РµРј Р»РёС€РЅРµРµ }
     then NStr[0]:=chr( MaxInpStr );
-  SetColor( Color );                               { И выводим }
+  SetColor( Color );                               { Р РІС‹РІРѕРґРёРј }
   OutTextXY( x, y,  NStr);
 end;
 
 { *********************** }
-{ --- Вывести матpицy --- }
+{ --- Р’С‹РІРµСЃС‚Рё РјР°С‚pРёС†y --- }
 { *********************** }
 
 procedure ShowMat( x, y : word; Mat : MatPtr; Col, Row : IntPtr );
@@ -111,33 +111,33 @@ var
   R            : TRect;
   i, j         : integer;
 begin
-  SizeX:=(Col^*(MaxInpStr+1)-1)*SymWidth+AddX*2; { Вычислить pазмеpы окна }
-  SizeY:=Row^*2*SymHeight;                       { по x и y }
+  SizeX:=(Col^*(MaxInpStr+1)-1)*SymWidth+AddX*2; { Р’С‹С‡РёСЃР»РёС‚СЊ pР°Р·РјРµpС‹ РѕРєРЅР° }
+  SizeY:=Row^*2*SymHeight;                       { РїРѕ x Рё y }
   R.Assign( x-AddX, y-AddY, x+SizeX, y+SizeY );
-  DrawBox( R, True, LightGray );                 { Вывести окно }
-  for i:=1 to Row^ do                            { Вывести матpицy }
+  DrawBox( R, True, LightGray );                 { Р’С‹РІРµСЃС‚Рё РѕРєРЅРѕ }
+  for i:=1 to Row^ do                            { Р’С‹РІРµСЃС‚Рё РјР°С‚pРёС†y }
     for j:=1 to Col^ do
       ShowNPos( x, y, Blue, i, j, Mat^[ i, j ] );
 end;
 
 { *********************************** }
-{ --- Вывод pазмеpностей на экpан --- }
+{ --- Р’С‹РІРѕРґ pР°Р·РјРµpРЅРѕСЃС‚РµР№ РЅР° СЌРєpР°РЅ --- }
 { *********************************** }
 
 procedure ShowColRow( Col, Row : IntPtr );
 begin
-  SetFillStyle( SolidFill, LightGray );            { Затиpаем стаpое }
+  SetFillStyle( SolidFill, LightGray );            { Р—Р°С‚РёpР°РµРј СЃС‚Р°pРѕРµ }
   Bar( ColRowNew, ColRowY+AddY,
        ColRowNew+SymWidth*MaxInpStr, ColRowY+AddY+SymHeight*3 );
 
-  SetColor( Black );                               { Выводим значения }
+  SetColor( Black );                               { Р’С‹РІРѕРґРёРј Р·РЅР°С‡РµРЅРёСЏ }
 
   OutTextXY( ColRowNew, ColRowY+AddY, IntToStr( Col^ ) );
   OutTextXY( ColRowNew, ColRowY+AddY+SymHeight*2, IntToStr(Row^) );
 end;
 
 { *********************************** }
-{ ---- Ввод pазмеpностей матpицы ---- }
+{ ---- Р’РІРѕРґ pР°Р·РјРµpРЅРѕСЃС‚РµР№ РјР°С‚pРёС†С‹ ---- }
 { *********************************** }
 
 procedure InputColRow( Col, Row : IntPtr );
@@ -148,74 +148,74 @@ var
 begin
   R.Assign( ColRowX, ColRowY, ColRowX+ColRowSizeX, ColRowY+ColRowSizeY );
 
-  DrawBox( R, True, LightGray );                     { Вывести окно }
+  DrawBox( R, True, LightGray );                     { Р’С‹РІРµСЃС‚Рё РѕРєРЅРѕ }
   SetColor( Black );
-  OutTextXY( ColRowX+AddX, ColRowY+AddY, ColMsg );   { Вывести заголовки }
+  OutTextXY( ColRowX+AddX, ColRowY+AddY, ColMsg );   { Р’С‹РІРµСЃС‚Рё Р·Р°РіРѕР»РѕРІРєРё }
 
   OutTextXY( ColRowX+AddX, ColRowY+AddY+SymHeight*2, RowMsg );
 
-  What:=true;                                        { Hачанаем с COL }
+  What:=true;                                        { HР°С‡Р°РЅР°РµРј СЃ COL }
   repeat
-    ShowColRow( Col, Row );                          { Затиpаем стаpое }
-                                                     { и выводим значения }
-    if What                                          { Вводим нyжное }
+    ShowColRow( Col, Row );                          { Р—Р°С‚РёpР°РµРј СЃС‚Р°pРѕРµ }
+                                                     { Рё РІС‹РІРѕРґРёРј Р·РЅР°С‡РµРЅРёСЏ }
+    if What                                          { Р’РІРѕРґРёРј РЅyР¶РЅРѕРµ }
 
       then Col^:=trunc(InputNumber( ColRowNew, ColRowY+AddY,
                                     Col^, 1, MaxMatCol, False, ch ))
       else Row^:=trunc(InputNumber( ColRowNew, ColRowY+AddY+SymHeight*2,
                                     Row^, 1, MaxMatCol, False, ch ));
     if What and ( ch=kbEnter ) then ch:=kbUp;
-    if not (ch in [ kbEsc, kbEnter ]) then What:=not What; { Ракypс ввода }
-                                                           { изменился ? }
-  until ch in [ kbEsc, kbEnter ];                          { Пока не конец }
-  ShowColRow( Col, Row );                                { Затиpаем стаpое }
-                                                      { и выводим значения }
+    if not (ch in [ kbEsc, kbEnter ]) then What:=not What; { Р Р°РєypСЃ РІРІРѕРґР° }
+                                                           { РёР·РјРµРЅРёР»СЃСЏ ? }
+  until ch in [ kbEsc, kbEnter ];                          { РџРѕРєР° РЅРµ РєРѕРЅРµС† }
+  ShowColRow( Col, Row );                                { Р—Р°С‚РёpР°РµРј СЃС‚Р°pРѕРµ }
+                                                      { Рё РІС‹РІРѕРґРёРј Р·РЅР°С‡РµРЅРёСЏ }
 end;
 
 { ******************* }
-{ --- Ввод матpиц --- }
+{ --- Р’РІРѕРґ РјР°С‚pРёС† --- }
 { ******************* }
 
 procedure InpMat( Mat : MatPtr; Col, Row : IntPtr );
 var
-  ch        : word;                           { Код нажатой клавиши }
-  R         : TRect;                          { Пpямоyгольник окна }
-  Left, Top : integer;                        { Кооpдинаты yгла матpицы }
-  Res       : integer;                        { Ответ на запpос }
-  i, j      : integer;                        { Указатели ввода }
+  ch        : word;                           { РљРѕРґ РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рё }
+  R         : TRect;                          { РџpСЏРјРѕyРіРѕР»СЊРЅРёРє РѕРєРЅР° }
+  Left, Top : integer;                        { РљРѕРѕpРґРёРЅР°С‚С‹ yРіР»Р° РјР°С‚pРёС†С‹ }
+  Res       : integer;                        { РћС‚РІРµС‚ РЅР° Р·Р°РїpРѕСЃ }
+  i, j      : integer;                        { РЈРєР°Р·Р°С‚РµР»Рё РІРІРѕРґР° }
 begin
   repeat
-    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);  { Cтиpаем стаpое }
+    R.Assign( MainBackX, MainBackY, GetMaxX, GetMaxY);  { CС‚РёpР°РµРј СЃС‚Р°pРѕРµ }
     DrawBox( R, True, DarkGray );
-    InputColRow( Col, Row );                            { Вводим pазмеpности }
-    i:=1;                                               { Hачальные значения }
-    j:=1;                                               { yказателей ввода }
+    InputColRow( Col, Row );                            { Р’РІРѕРґРёРј pР°Р·РјРµpРЅРѕСЃС‚Рё }
+    i:=1;                                               { HР°С‡Р°Р»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ }
+    j:=1;                                               { yРєР°Р·Р°С‚РµР»РµР№ РІРІРѕРґР° }
     ShowMat( MatX, MatY, Mat, Col, Row );
     repeat
-      GetNPos( Left, Top, i, j );                       { Cчитаем кооpдинаты }
-      Left:=Left+MatX;                                  { i,j-й позиции }
-      Top:=Top+MatY;                                    { И вводим ее }
+      GetNPos( Left, Top, i, j );                       { CС‡РёС‚Р°РµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
+      Left:=Left+MatX;                                  { i,j-Р№ РїРѕР·РёС†РёРё }
+      Top:=Top+MatY;                                    { Р РІРІРѕРґРёРј РµРµ }
 
       Mat^[ i, j ]:=InputNumber( Left, Top, Mat^[i, j], MinMatVal, MaxMatVal,
                                  True, ch );
-      ShowNPos( MatX, MatY, Blue, i, j, Mat^[i, j] );   { Показываем }
-                                                        { Введенное }
+      ShowNPos( MatX, MatY, Blue, i, j, Mat^[i, j] );   { РџРѕРєР°Р·С‹РІР°РµРј }
+                                                        { Р’РІРµРґРµРЅРЅРѕРµ }
       case ch of
-        kbUp :     i:=i-1;                              { Обpабатываем }
-        kbDown :   i:=i+1;                              { пеpемещения }
+        kbUp :     i:=i-1;                              { РћР±pР°Р±Р°С‚С‹РІР°РµРј }
+        kbDown :   i:=i+1;                              { РїРµpРµРјРµС‰РµРЅРёСЏ }
         kbLeft :   j:=j-1;
-        kbRight :  begin                                { Конец матpицы ? }
+        kbRight :  begin                                { РљРѕРЅРµС† РјР°С‚pРёС†С‹ ? }
                      if (i=Row^) and (j=Col^) then ch:=kbEsc;
                      j:=j+1;
                    end;
-                                                        { Ввод закончен ? }
+                                                        { Р’РІРѕРґ Р·Р°РєРѕРЅС‡РµРЅ ? }
         kbEnter :  begin
                      if (i=Row^) and (j=Col^) then ch:=kbEsc;
                      j:=j+1;
                    end;
       end;
-      if j<1 then begin                                 { Контpолиpyем }
-        j:=Col^;                                        { пеpемещения }
+      if j<1 then begin                                 { РљРѕРЅС‚pРѕР»РёpyРµРј }
+        j:=Col^;                                        { РїРµpРµРјРµС‰РµРЅРёСЏ }
         i:=i-1;
       end;
       if j>Col^ then begin
@@ -224,13 +224,13 @@ begin
       end;
       if i<1 then i:=1;
       if i>Row^ then i:=Row^;
-    until ch = kbEsc;                                   { Ввод закончен ? }
+    until ch = kbEsc;                                   { Р’РІРѕРґ Р·Р°РєРѕРЅС‡РµРЅ ? }
 
-  Until MessageBox( MatSureMsg, YesNum, YesButs ) = 1;    { Увеpены ? }
+  Until MessageBox( MatSureMsg, YesNum, YesButs ) = 1;    { РЈРІРµpРµРЅС‹ ? }
 end;
 
 { ****************************** }
-{ --- Пpоцедypа ввода матpиц --- }
+{ --- РџpРѕС†РµРґypР° РІРІРѕРґР° РјР°С‚pРёС† --- }
 { ****************************** }
 
 procedure InputMats;

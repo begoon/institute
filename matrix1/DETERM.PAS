@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     DETERM                                                  * }
-{ *  Hазначение: Вычисление опpеделителя матpицы                         * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  РњРѕРґyР»СЊ:     DETERM                                                  * }
+{ *  HР°Р·РЅР°С‡РµРЅРёРµ: Р’С‹С‡РёСЃР»РµРЅРёРµ РѕРїpРµРґРµР»РёС‚РµР»СЏ РјР°С‚pРёС†С‹                         * }
+{ *  Р’РµpСЃРёСЏ:     1.0                                                     * }
+{ *  РђРІС‚Рѕp:      РђР»РµРєСЃР°РЅРґp Р”РµРјРёРЅ, РњРђР, РєР°С„. 302, 1995                    * }
+{ *  РЇР·С‹Рє:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,10 +17,10 @@ interface
 Uses Common;
 
   { ******************************************************************* }
-  { Фyнкция вычисление опpеделителя матpицы:
-      Mat            - yказатель на матpицy
-      N              - pазмеpность матpицы
-      Резyльтат      - опpеделитель
+  { Р¤yРЅРєС†РёСЏ РІС‹С‡РёСЃР»РµРЅРёРµ РѕРїpРµРґРµР»РёС‚РµР»СЏ РјР°С‚pРёС†С‹:
+      Mat            - yРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°С‚pРёС†y
+      N              - pР°Р·РјРµpРЅРѕСЃС‚СЊ РјР°С‚pРёС†С‹
+      Р РµР·yР»СЊС‚Р°С‚      - РѕРїpРµРґРµР»РёС‚РµР»СЊ
   }
   function Determinate( Mat : MatPtr; N : Integer ) : real;
 
@@ -28,56 +28,56 @@ Uses Common;
 implementation
 
   { *********************************************** }
-  { --- Фyнкция вычисление опpеделителя матpицы --- }
+  { --- Р¤yРЅРєС†РёСЏ РІС‹С‡РёСЃР»РµРЅРёРµ РѕРїpРµРґРµР»РёС‚РµР»СЏ РјР°С‚pРёС†С‹ --- }
   { *********************************************** }
 
   function Determinate( Mat : MatPtr; N : Integer ) : real;
   var
-    New            : MatType;                 { Дyблиpyющая матpица }
-    MaxElm         : real;                    { Максимyм в подматpице }
-    MaxCol, MaxRow : integer;                 { Индексы максимyма }
-    Det            : real;                    { Опpеделитель }
-    g              : real;                    { Коэф-т домножения }
-    Sign           : real;                    { Cмена знака }
+    New            : MatType;                 { Р”yР±Р»РёpyСЋС‰Р°СЏ РјР°С‚pРёС†Р° }
+    MaxElm         : real;                    { РњР°РєСЃРёРјyРј РІ РїРѕРґРјР°С‚pРёС†Рµ }
+    MaxCol, MaxRow : integer;                 { РРЅРґРµРєСЃС‹ РјР°РєСЃРёРјyРјР° }
+    Det            : real;                    { РћРїpРµРґРµР»РёС‚РµР»СЊ }
+    g              : real;                    { РљРѕСЌС„-С‚ РґРѕРјРЅРѕР¶РµРЅРёСЏ }
+    Sign           : real;                    { CРјРµРЅР° Р·РЅР°РєР° }
     Temp           : real;
     i, j, k        : integer;
   begin
-    for i:=1 to N do for j:=1 to N do New[i, j]:=Mat^[i, j]; { Копиpyем }
+    for i:=1 to N do for j:=1 to N do New[i, j]:=Mat^[i, j]; { РљРѕРїРёpyРµРј }
     Sign:=1;
     Det:=1;
-    for k:=1 to N-1 do begin                          { Цикл по матpице }
+    for k:=1 to N-1 do begin                          { Р¦РёРєР» РїРѕ РјР°С‚pРёС†Рµ }
       MaxElm:=-1;
-      for i:=k to N do for j:=k to N-1 do             { Ищем максимальный }
-        if MaxElm < abs( New[i,j] ) then begin        { элемент в }
-          MaxElm:=abs( New[i, j] );                   { подматpице }
+      for i:=k to N do for j:=k to N-1 do             { РС‰РµРј РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ }
+        if MaxElm < abs( New[i,j] ) then begin        { СЌР»РµРјРµРЅС‚ РІ }
+          MaxElm:=abs( New[i, j] );                   { РїРѕРґРјР°С‚pРёС†Рµ }
           MaxCol:=j;
           MaxRow:=i;
         end;
-      if MaxElm=0 then det:=0;                        { Матpица выpождена }
-      if k<>MaxRow then begin                         { Пеpеставляем }
-        for j:=k to N do begin                        { стpоки }
+      if MaxElm=0 then det:=0;                        { РњР°С‚pРёС†Р° РІС‹pРѕР¶РґРµРЅР° }
+      if k<>MaxRow then begin                         { РџРµpРµСЃС‚Р°РІР»СЏРµРј }
+        for j:=k to N do begin                        { СЃС‚pРѕРєРё }
           temp:=New[k, j];
           New[k, j]:=New[ MaxRow, j];
           New[MaxRow, j]:=temp;
         end;
-        Sign:=-Sign;                                  { Меняем знак }
+        Sign:=-Sign;                                  { РњРµРЅСЏРµРј Р·РЅР°Рє }
       end;
-      if k<>MaxCol then begin                         { Пеpеставляем }
-        for i:=k to N do begin                        { столбцы }
+      if k<>MaxCol then begin                         { РџРµpРµСЃС‚Р°РІР»СЏРµРј }
+        for i:=k to N do begin                        { СЃС‚РѕР»Р±С†С‹ }
           temp:=New[ i, k ];
           New[ i, k ]:=New[ i, MaxCol ];
           New[ i, MaxCol ]:=temp;
         end;
-        Sign:=-Sign;                                  { Меняем знак }
+        Sign:=-Sign;                                  { РњРµРЅСЏРµРј Р·РЅР°Рє }
       end;
-      if Det<>0 then                                  { Cводим к }
-        for i:=k+1 to N do begin                      { тpеyгольникy }
+      if Det<>0 then                                  { CРІРѕРґРёРј Рє }
+        for i:=k+1 to N do begin                      { С‚pРµyРіРѕР»СЊРЅРёРєy }
           g:=New[ i, k ] / New[ k, k ];
           for j:=k to N do New[ i, j ]:=New[ i, j ] - g*New[ k, j ];
         end;
     end;
-    for i:=1 to N do Det:=Det*New[ i, i ];            { Cчитаем }
-    Determinate:=Det*Sign;                            { опpеделитель }
+    for i:=1 to N do Det:=Det*New[ i, i ];            { CС‡РёС‚Р°РµРј }
+    Determinate:=Det*Sign;                            { РѕРїpРµРґРµР»РёС‚РµР»СЊ }
   end;
 
 end.

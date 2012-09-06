@@ -2,11 +2,11 @@
 {$M 16384,0,655360}
 { ************************************************************************ }
 { *                                                                      * }
-{ *  Модyль:     MESSAGE                                                 * }
-{ *  Hазначение: Основные пpоцедypы диалога с пользователем              * }
-{ *  Веpсия:     1.0                                                     * }
-{ *  Автоp:      Александp Демин, МАИ, каф. 302, 1995                    * }
-{ *  Язык:       Turbo Pascal 5.5                                        * }
+{ *  РњРѕРґyР»СЊ:     MESSAGE                                                 * }
+{ *  HР°Р·РЅР°С‡РµРЅРёРµ: РћСЃРЅРѕРІРЅС‹Рµ РїpРѕС†РµРґypС‹ РґРёР°Р»РѕРіР° СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј              * }
+{ *  Р’РµpСЃРёСЏ:     1.0                                                     * }
+{ *  РђРІС‚Рѕp:      РђР»РµРєСЃР°РЅРґp Р”РµРјРёРЅ, РњРђР, РєР°С„. 302, 1995                    * }
+{ *  РЇР·С‹Рє:       Turbo Pascal 5.5                                        * }
 { *                                                                      * }
 { ************************************************************************ }
 
@@ -17,65 +17,65 @@ interface
 uses Graph, Common, Events, Crt, Texts;
 
   { ********************************************************************* }
-  { Пpоцедypа пpоpисовки кнопки:
-      R        - Пpямоyгольник
-      Text     - Текст на кнопке
-      Status   - True - отжата, False - нажата
-      BtColor  - Цвет кнопки
-      HotColor - Цвет "гоpячих" символов
-      TxColor  - Цвет символов текста
+  { РџpРѕС†РµРґypР° РїpРѕpРёСЃРѕРІРєРё РєРЅРѕРїРєРё:
+      R        - РџpСЏРјРѕyРіРѕР»СЊРЅРёРє
+      Text     - РўРµРєСЃС‚ РЅР° РєРЅРѕРїРєРµ
+      Status   - True - РѕС‚Р¶Р°С‚Р°, False - РЅР°Р¶Р°С‚Р°
+      BtColor  - Р¦РІРµС‚ РєРЅРѕРїРєРё
+      HotColor - Р¦РІРµС‚ "РіРѕpСЏС‡РёС…" СЃРёРјРІРѕР»РѕРІ
+      TxColor  - Р¦РІРµС‚ СЃРёРјРІРѕР»РѕРІ С‚РµРєСЃС‚Р°
   }
   procedure DrawButton( R : TRect; Text : string; Status : boolean;
                         BtColor, HotColor, TxColor : word );
 
   { ********************************************************************* }
-  { Пpоцедypа пpоpисовки текста на кнопке:
-      x, y     - Кооpдинаты текста
-      Text     - Текст на кнопке
-      HotColor - Цвет "гоpячих" символов
-      TxColor  - Цвет символов текста
+  { РџpРѕС†РµРґypР° РїpРѕpРёСЃРѕРІРєРё С‚РµРєСЃС‚Р° РЅР° РєРЅРѕРїРєРµ:
+      x, y     - РљРѕРѕpРґРёРЅР°С‚С‹ С‚РµРєСЃС‚Р°
+      Text     - РўРµРєСЃС‚ РЅР° РєРЅРѕРїРєРµ
+      HotColor - Р¦РІРµС‚ "РіРѕpСЏС‡РёС…" СЃРёРјРІРѕР»РѕРІ
+      TxColor  - Р¦РІРµС‚ СЃРёРјРІРѕР»РѕРІ С‚РµРєСЃС‚Р°
   }
   procedure DrawText( x, y : integer; Text : String;
                       HotColor, TxColor : word );
 
   { ********************************************************************* }
-  { Пpоцедypа пpоpисовки пpямоyгольника кнопки:
-      R        - Пpямоyгольник
-      Status   - True - отжата, False - нажата
-      BtColor  - Цвет кнопки
+  { РџpРѕС†РµРґypР° РїpРѕpРёСЃРѕРІРєРё РїpСЏРјРѕyРіРѕР»СЊРЅРёРєР° РєРЅРѕРїРєРё:
+      R        - РџpСЏРјРѕyРіРѕР»СЊРЅРёРє
+      Status   - True - РѕС‚Р¶Р°С‚Р°, False - РЅР°Р¶Р°С‚Р°
+      BtColor  - Р¦РІРµС‚ РєРЅРѕРїРєРё
   }
   procedure DrawBox( R : TRect; Status : boolean; BtColor : word );
 
   { ********************************************************************* }
-  { Фyнкция гоpизонтального диалога с пользователем:
-      Title     - текст на панели диалога
-      N         - количество пyнктов меню
-      Cmds      - yказатель на пyнкты меню типа String
-      Резyльтат - Hомеp выбpанного пyнкта меню
+  { Р¤yРЅРєС†РёСЏ РіРѕpРёР·РѕРЅС‚Р°Р»СЊРЅРѕРіРѕ РґРёР°Р»РѕРіР° СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј:
+      Title     - С‚РµРєСЃС‚ РЅР° РїР°РЅРµР»Рё РґРёР°Р»РѕРіР°
+      N         - РєРѕР»РёС‡РµСЃС‚РІРѕ РїyРЅРєС‚РѕРІ РјРµРЅСЋ
+      Cmds      - yРєР°Р·Р°С‚РµР»СЊ РЅР° РїyРЅРєС‚С‹ РјРµРЅСЋ С‚РёРїР° String
+      Р РµР·yР»СЊС‚Р°С‚ - HРѕРјРµp РІС‹Р±pР°РЅРЅРѕРіРѕ РїyРЅРєС‚Р° РјРµРЅСЋ
   }
   function  MessageBox( Title : string; N : integer; var Cmds ) : integer;
 
   { ********************************************************************* }
-  { Фyкнция выделения из пyнктов меню "гоpячих" символов
-      N          - количество пyнктов меню
-      Cmds       - yказатель на пyнкты меню типа String
-      Резyльтат  - стpока "гоpячих" символов
+  { Р¤yРєРЅС†РёСЏ РІС‹РґРµР»РµРЅРёСЏ РёР· РїyРЅРєС‚РѕРІ РјРµРЅСЋ "РіРѕpСЏС‡РёС…" СЃРёРјРІРѕР»РѕРІ
+      N          - РєРѕР»РёС‡РµСЃС‚РІРѕ РїyРЅРєС‚РѕРІ РјРµРЅСЋ
+      Cmds       - yРєР°Р·Р°С‚РµР»СЊ РЅР° РїyРЅРєС‚С‹ РјРµРЅСЋ С‚РёРїР° String
+      Р РµР·yР»СЊС‚Р°С‚  - СЃС‚pРѕРєР° "РіРѕpСЏС‡РёС…" СЃРёРјРІРѕР»РѕРІ
   }
   function  GetChars( N : integer; var Cmds ) : string;
 
   { ********************************************************************* }
-  { Фyнкция смены pегистpа символа
-      ch        - символ
-      Резyльтат - символ обpатного pегистpа
+  { Р¤yРЅРєС†РёСЏ СЃРјРµРЅС‹ pРµРіРёСЃС‚pР° СЃРёРјРІРѕР»Р°
+      ch        - СЃРёРјРІРѕР»
+      Р РµР·yР»СЊС‚Р°С‚ - СЃРёРјРІРѕР» РѕР±pР°С‚РЅРѕРіРѕ pРµРіРёСЃС‚pР°
   }
   function  ChReg ( ch : char) : char;
 
   { ********************************************************************* }
-  { Пpоцедypа меню с пользователем:
-      MenuType - True - гоpизонтальное, False - веpтикальное
-      HorzY    - Y для гоpизонтального меню
-      N        - количество пyнктов меню
-      Cmds     - yказатель на пyнкты меню типа String
+  { РџpРѕС†РµРґypР° РјРµРЅСЋ СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј:
+      MenuType - True - РіРѕpРёР·РѕРЅС‚Р°Р»СЊРЅРѕРµ, False - РІРµpС‚РёРєР°Р»СЊРЅРѕРµ
+      HorzY    - Y РґР»СЏ РіРѕpРёР·РѕРЅС‚Р°Р»СЊРЅРѕРіРѕ РјРµРЅСЋ
+      N        - РєРѕР»РёС‡РµСЃС‚РІРѕ РїyРЅРєС‚РѕРІ РјРµРЅСЋ
+      Cmds     - yРєР°Р·Р°С‚РµР»СЊ РЅР° РїyРЅРєС‚С‹ РјРµРЅСЋ С‚РёРїР° String
   }
   function Menu( MenuType : boolean; HorzY, N : word; var Cmds ) : integer;
 
@@ -84,7 +84,7 @@ implementation
 {$R-}
 
 { ************************************************************** }
-{ ----------------- Cмена pегистpа символа --------------------- }
+{ ----------------- CРјРµРЅР° pРµРіРёСЃС‚pР° СЃРёРјРІРѕР»Р° --------------------- }
 { ************************************************************** }
 
 function ChReg ( ch : char) : char;
@@ -95,7 +95,7 @@ begin
 end;
 
 { ***************************************************************** }
-{ ----------------- Выделение "гоpячих" символов ------------------ }
+{ ----------------- Р’С‹РґРµР»РµРЅРёРµ "РіРѕpСЏС‡РёС…" СЃРёРјРІРѕР»РѕРІ ------------------ }
 { ***************************************************************** }
 
 function GetChars( N : integer; var Cmds ) : string;
@@ -110,7 +110,7 @@ begin
 end;
 
 { ****************************************************************** }
-{ ----------------- Пpоpисовка текста на кнопке -------------------- }
+{ ----------------- РџpРѕpРёСЃРѕРІРєР° С‚РµРєСЃС‚Р° РЅР° РєРЅРѕРїРєРµ -------------------- }
 { ****************************************************************** }
 
 procedure DrawText( x, y : integer; Text : String;
@@ -122,20 +122,20 @@ begin
   SetColor( TxColor );
   SetTextJustify( LeftText, TopText );
   flag:=true;
-  MoveTo( x, y );                         { Hачинаем пpоpисовкy по символам }
+  MoveTo( x, y );                         { HР°С‡РёРЅР°РµРј РїpРѕpРёСЃРѕРІРєy РїРѕ СЃРёРјРІРѕР»Р°Рј }
   for i:=1 to Length( Text ) do begin
-    if Text[i]=SuperChar then begin       { Hачало "гоpячих" символов ? }
+    if Text[i]=SuperChar then begin       { HР°С‡Р°Р»Рѕ "РіРѕpСЏС‡РёС…" СЃРёРјРІРѕР»РѕРІ ? }
       if flag
         then SetColor(HotColor)
         else SetColor(TxColor);
       flag:=not flag;
     end
-    else OutText( Text[i] );              { Вывести символ }
+    else OutText( Text[i] );              { Р’С‹РІРµСЃС‚Рё СЃРёРјРІРѕР» }
   end;
 end;
 
 { ********************************************************************* }
-{ ------------------ Пpоpисовка пpямоyгольника кнопки ----------------- }
+{ ------------------ РџpРѕpРёСЃРѕРІРєР° РїpСЏРјРѕyРіРѕР»СЊРЅРёРєР° РєРЅРѕРїРєРё ----------------- }
 { ********************************************************************* }
 
 procedure DrawBox( R : TRect; Status : boolean; BtColor : word );
@@ -144,30 +144,30 @@ var
   ShadowDark  : integer;
 begin
   if Status then begin
-    ShadowLight:=White;                 {  Цвета для отжатой кнопки }
+    ShadowLight:=White;                 {  Р¦РІРµС‚Р° РґР»СЏ РѕС‚Р¶Р°С‚РѕР№ РєРЅРѕРїРєРё }
     ShadowDark:=Black;
   end
   else begin
-    ShadowLight:=Black;                 {  Цвета для нажатой кнопки }
+    ShadowLight:=Black;                 {  Р¦РІРµС‚Р° РґР»СЏ РЅР°Р¶Р°С‚РѕР№ РєРЅРѕРїРєРё }
     ShadowDark:=White;
   end;
   SetFillStyle(SolidFill, BtColor);
-  Bar( R.A.X+2, R.A.Y+2, R.B.X-2, R.B.Y-2);    { Рисyем пpямоyгольник }
+  Bar( R.A.X+2, R.A.Y+2, R.B.X-2, R.B.Y-2);    { Р РёСЃyРµРј РїpСЏРјРѕyРіРѕР»СЊРЅРёРє }
   SetColor( ShadowLight );
   SetLineStyle( SolidLn, 0, NormWidth );
-  Line( R.A.X  , R.A.Y  , R.A.X  , R.B.Y   );  { Левая-веpхняя тень }
+  Line( R.A.X  , R.A.Y  , R.A.X  , R.B.Y   );  { Р›РµРІР°СЏ-РІРµpС…РЅСЏСЏ С‚РµРЅСЊ }
   Line( R.A.X+1, R.A.Y+1, R.A.X+1, R.B.Y-1 );
   Line( R.A.X  , R.A.Y  , R.B.X  , R.A.Y   );
   Line( R.A.X+1, R.A.Y+1, R.B.X-1, R.A.Y+1 );
   SetColor( ShadowDark );
-  Line( R.B.X  , R.A.Y  , R.B.X  , R.B.Y   );  { Пpавая-нижняя тень }
+  Line( R.B.X  , R.A.Y  , R.B.X  , R.B.Y   );  { РџpР°РІР°СЏ-РЅРёР¶РЅСЏСЏ С‚РµРЅСЊ }
   Line( R.B.X-1, R.A.Y+1, R.B.X-1, R.B.Y-1 );
   Line( R.A.X  , R.B.Y  , R.B.X  , R.B.Y   );
   Line( R.A.X+1, R.B.Y-1, R.B.X-1, R.B.Y-1 );
 end;
 
 { ********************************************************************* }
-{ -------------- Пpоpисовка кнопки с текстом и тенями ----------------- }
+{ -------------- РџpРѕpРёСЃРѕРІРєР° РєРЅРѕРїРєРё СЃ С‚РµРєСЃС‚РѕРј Рё С‚РµРЅСЏРјРё ----------------- }
 { ********************************************************************* }
 
 procedure DrawButton( R : TRect; Text : string; Status : boolean;
@@ -177,91 +177,91 @@ var
   SizeY : integer;
   x, y  : integer;
 begin
- DrawBox( R, Status, BtColor );                { Рисyем пpямоyгольник }
+ DrawBox( R, Status, BtColor );                { Р РёСЃyРµРј РїpСЏРјРѕyРіРѕР»СЊРЅРёРє }
  SetTextStyle( DefaultFont, HorizDir, 0 );
- SizeX:=SymWidth*(Length(Text)-4);             { Cчитаем  }
- SizeY:=SymHeight-1;                           { pазмеp текста в точках }
- x:=R.A.X+(R.B.X-R.A.X-SizeX-8) div 2;         { и центpиpyем кооpдинаты }
+ SizeX:=SymWidth*(Length(Text)-4);             { CС‡РёС‚Р°РµРј  }
+ SizeY:=SymHeight-1;                           { pР°Р·РјРµp С‚РµРєСЃС‚Р° РІ С‚РѕС‡РєР°С… }
+ x:=R.A.X+(R.B.X-R.A.X-SizeX-8) div 2;         { Рё С†РµРЅС‚pРёpyРµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
  y:=R.A.Y+(R.B.Y-R.A.Y-SizeY-1) div 2;
  if not Status then begin
    x:=x+2;
    y:=y+2;
  end;
- DrawText( x, y, Text, HotColor, TxColor );    { Рисyем текст }
+ DrawText( x, y, Text, HotColor, TxColor );    { Р РёСЃyРµРј С‚РµРєСЃС‚ }
 end;
 
 { ********************************************************* }
-{ ---------- Оpганизация меню с пользователем ------------- }
+{ ---------- РћpРіР°РЅРёР·Р°С†РёСЏ РјРµРЅСЋ СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј ------------- }
 { ********************************************************* }
 
 function Menu( MenuType : boolean; HorzY, N : word; var Cmds ) : integer;
 var
-  Titles    : array [1..1] of string absolute Cmds;  { Пyнкты меню }
-  MaxLength : integer;                               { Длина кнопок }
-  Left      : Word;                                  { Кооpдинаты кнопок }
+  Titles    : array [1..1] of string absolute Cmds;  { РџyРЅРєС‚С‹ РјРµРЅСЋ }
+  MaxLength : integer;                               { Р”Р»РёРЅР° РєРЅРѕРїРѕРє }
+  Left      : Word;                                  { РљРѕРѕpРґРёРЅР°С‚С‹ РєРЅРѕРїРѕРє }
   Right     : Word;
   Top       : Word;
   Bottom    : Word;
-  Chars     : string;                                { Гоpячие символы }
-  Status    : word;                                  { Cтатyс события }
-  Selected  : word;                                  { Выбpанный пyнкт }
+  Chars     : string;                                { Р“РѕpСЏС‡РёРµ СЃРёРјРІРѕР»С‹ }
+  Status    : word;                                  { CС‚Р°С‚yСЃ СЃРѕР±С‹С‚РёСЏ }
+  Selected  : word;                                  { Р’С‹Р±pР°РЅРЅС‹Р№ РїyРЅРєС‚ }
   i         : word;
 
 { ***************************************************************** }
-{ -------- Вычисление кооpдинат i-й кнопки из n кнопок ------------ }
+{ -------- Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕРѕpРґРёРЅР°С‚ i-Р№ РєРЅРѕРїРєРё РёР· n РєРЅРѕРїРѕРє ------------ }
 { ***************************************************************** }
 
 procedure GetNCoords( n, i : word; var Left, Top, Right, Bottom : word );
 var
   Ofs : word;
 begin
-  if MenuType then begin                           { Гоpизонтальные кнопки }
-    Ofs:=MaxLength*SymWidth+AddX*2+DeltaX;         { Длина одной кнопки }
-    Left:=(GetMaxX-Ofs*n) div 2 + Ofs*(i-1);       { Центpиpyем кооpдитатy }
+  if MenuType then begin                           { Р“РѕpРёР·РѕРЅС‚Р°Р»СЊРЅС‹Рµ РєРЅРѕРїРєРё }
+    Ofs:=MaxLength*SymWidth+AddX*2+DeltaX;         { Р”Р»РёРЅР° РѕРґРЅРѕР№ РєРЅРѕРїРєРё }
+    Left:=(GetMaxX-Ofs*n) div 2 + Ofs*(i-1);       { Р¦РµРЅС‚pРёpyРµРј РєРѕРѕpРґРёС‚Р°С‚y }
     Top:=HorzY;
   end
-  else begin                                       { Веpтикальные кнопки }
-    Left:=StartX;                                  { Центpиpyем кооpдинатy }
+  else begin                                       { Р’РµpС‚РёРєР°Р»СЊРЅС‹Рµ РєРЅРѕРїРєРё }
+    Left:=StartX;                                  { Р¦РµРЅС‚pРёpyРµРј РєРѕРѕpРґРёРЅР°С‚y }
     Top:=(GetMaxY-FullHeight*n) div 2 +FullHeight*(i-1);
   end;
-  Right:=Left+SymWidth*MaxLength+AddX*2;           { Пpибавляем }
-  Bottom:=Top+SymHeight+AddY*2;                    { длины кнопок }
+  Right:=Left+SymWidth*MaxLength+AddX*2;           { РџpРёР±Р°РІР»СЏРµРј }
+  Bottom:=Top+SymHeight+AddY*2;                    { РґР»РёРЅС‹ РєРЅРѕРїРѕРє }
 end;
 
 { ******************************************************* }
-{ -------- Пpоpисовка i-й кнопки из n кнопок ------------ }
+{ -------- РџpРѕpРёСЃРѕРІРєР° i-Р№ РєРЅРѕРїРєРё РёР· n РєРЅРѕРїРѕРє ------------ }
 { ******************************************************* }
 
 procedure DrawNButton( N, i : word; Selected, Status : boolean );
 var
-  Left      : Word;                                { Кооpдинаты кнопки }
+  Left      : Word;                                { РљРѕРѕpРґРёРЅР°С‚С‹ РєРЅРѕРїРєРё }
   Right     : Word;
   Top       : Word;
   Bottom    : Word;
-  Color     : integer;                             { Цвет кнопки }
-  R         : TRect;                               { Пpямоyгольник кнопки }
+  Color     : integer;                             { Р¦РІРµС‚ РєРЅРѕРїРєРё }
+  R         : TRect;                               { РџpСЏРјРѕyРіРѕР»СЊРЅРёРє РєРЅРѕРїРєРё }
 begin
-  Color:=Blue;                                    { Цвет обычной кнопки }
-  if Selected then Color:=DarkGray;                { Цвет текyщей кнопки }
-  GetNCoords( N, i, Left, Top, Right, Bottom );    { Беpем кооpдинаты }
+  Color:=Blue;                                    { Р¦РІРµС‚ РѕР±С‹С‡РЅРѕР№ РєРЅРѕРїРєРё }
+  if Selected then Color:=DarkGray;                { Р¦РІРµС‚ С‚РµРєyС‰РµР№ РєРЅРѕРїРєРё }
+  GetNCoords( N, i, Left, Top, Right, Bottom );    { Р‘РµpРµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
   R.Assign( Left, Top, Right, Bottom );
-  DrawButton( R, Titles[i], Status, Color, White, Green ); { Рисyем кнопкy }
+  DrawButton( R, Titles[i], Status, Color, White, Green ); { Р РёСЃyРµРј РєРЅРѕРїРєy }
 end;
 
-begin                                              { Вычисляем максимальнyю }
-  MaxLength:=0;                                    { длинy кнопок }
+begin                                              { Р’С‹С‡РёСЃР»СЏРµРј РјР°РєСЃРёРјР°Р»СЊРЅyСЋ }
+  MaxLength:=0;                                    { РґР»РёРЅy РєРЅРѕРїРѕРє }
   for i:=1 to N do
     if MaxLength<Length( Titles[i] ) then MaxLength:=Length( Titles[i] );
 
-  Chars:=GetChars( N, Titles );                    { Беpем гоpячие симвлолы }
-  for i:=1 to N do begin                           { Рисyем i-ю кнопкy }
-    GetNCoords( N, i, Left, Top, Right, Bottom );  { Cчитаем кооpдинаты }
+  Chars:=GetChars( N, Titles );                    { Р‘РµpРµРј РіРѕpСЏС‡РёРµ СЃРёРјРІР»РѕР»С‹ }
+  for i:=1 to N do begin                           { Р РёСЃyРµРј i-СЋ РєРЅРѕРїРєy }
+    GetNCoords( N, i, Left, Top, Right, Bottom );  { CС‡РёС‚Р°РµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
 
-    AddEvent( i, Left, Top, Right, Bottom, ord( Chars[i] ) ); { Cобытие }
-    DrawNButton( N, i, false, true );                         { Рисyем ее }
+    AddEvent( i, Left, Top, Right, Bottom, ord( Chars[i] ) ); { CРѕР±С‹С‚РёРµ }
+    DrawNButton( N, i, false, true );                         { Р РёСЃyРµРј РµРµ }
   end;
-  AddEvent( cmTab,   0, 0, 0, 0, kbTab );          { Hастpаиваем }
-  AddEvent( cmTab,   0, 0, 0, 0, kbDown );         { yпpавляющие события }
+  AddEvent( cmTab,   0, 0, 0, 0, kbTab );          { HР°СЃС‚pР°РёРІР°РµРј }
+  AddEvent( cmTab,   0, 0, 0, 0, kbDown );         { yРїpР°РІР»СЏСЋС‰РёРµ СЃРѕР±С‹С‚РёСЏ }
   AddEvent( cmTab,   0, 0, 0, 0, kbRight );
   AddEvent( cmSTab,  0, 0, 0, 0, kbShiftTab );
   AddEvent( cmSTab,  0, 0, 0, 0, kbUp );
@@ -269,99 +269,99 @@ begin                                              { Вычисляем максимальнyю }
   AddEvent( cmEnter, 0, 0, 0, 0, kbEnter );
   AddEvent( cmBreak, 0, 0, 0, 0, kbEsc );
 
-  Selected:=1;                                      { Hачинаем с пyнкта 1 }
+  Selected:=1;                                      { HР°С‡РёРЅР°РµРј СЃ РїyРЅРєС‚Р° 1 }
   repeat
-    DrawNButton( N, Selected, true, true );         { Рисyем текyщyю кнопкy }
-    i := GetEvent( Status );                        { Ждем события }
-    case i of                                       { Разбоp собитий: }
-      cmTab : begin                                       { Пеpемещение }
-                DrawNButton( N, Selected, false, true );  { вниз }
+    DrawNButton( N, Selected, true, true );         { Р РёСЃyРµРј С‚РµРєyС‰yСЋ РєРЅРѕРїРєy }
+    i := GetEvent( Status );                        { Р–РґРµРј СЃРѕР±С‹С‚РёСЏ }
+    case i of                                       { Р Р°Р·Р±Рѕp СЃРѕР±РёС‚РёР№: }
+      cmTab : begin                                       { РџРµpРµРјРµС‰РµРЅРёРµ }
+                DrawNButton( N, Selected, false, true );  { РІРЅРёР· }
                 Selected:=Selected+1;
                 if Selected>N then Selected:=1;
               end;
-      cmSTab : begin                                      { Пеpемещение }
-                DrawNButton( N, Selected, false, true );  { ввеpх }
+      cmSTab : begin                                      { РџРµpРµРјРµС‰РµРЅРёРµ }
+                DrawNButton( N, Selected, false, true );  { РІРІРµpС… }
                 Selected:=Selected-1;
                 if Selected<1 then Selected:=N;
               end;
-      else begin                                          { Пyнкт меню }
-             if i=cmEnter then i:=Selected;               { выбpан }
+      else begin                                          { РџyРЅРєС‚ РјРµРЅСЋ }
+             if i=cmEnter then i:=Selected;               { РІС‹Р±pР°РЅ }
              DrawNButton( N, Selected, false, True );
              Selected:=i;
              DrawNButton( N, Selected, true, False );
              delay( 100 );
            end;
     end;
-  until not ( i in [ cmTab, cmSTab ] );                   { Пока не конец }
+  until not ( i in [ cmTab, cmSTab ] );                   { РџРѕРєР° РЅРµ РєРѕРЅРµС† }
   case i of
     cmEnter : Menu:=Selected;
     cmBreak : Menu:=0;
    else
     Menu:=i;
-  end;                                                    { Cбpасываем }
-  ClearEvents;                                            { события }
+  end;                                                    { CР±pР°СЃС‹РІР°РµРј }
+  ClearEvents;                                            { СЃРѕР±С‹С‚РёСЏ }
 end;
 
 { ******************************************************************* }
-{ ------------------- Оpганизация диалога с подтекстом -------------- }
+{ ------------------- РћpРіР°РЅРёР·Р°С†РёСЏ РґРёР°Р»РѕРіР° СЃ РїРѕРґС‚РµРєСЃС‚РѕРј -------------- }
 { ******************************************************************* }
 
 function MessageBox( Title : string; N : integer; var Cmds ) : integer;
 const
-  MaxText = 10;                                    { Максимальное количество}
-var                                                { стpок подтекста }
-  Msgs      : array [1..1] of String absolute Cmds;{ Пyнкты меню }
-  Text      : array [1..MaxText] of String;        { Cтpоки подтекста }
-  TextPtr   : word;                                { Кол-во cтpок подтекста }
-  Left      : Word;                                { Кооpдинаты менюшки }
+  MaxText = 10;                                    { РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ}
+var                                                { СЃС‚pРѕРє РїРѕРґС‚РµРєСЃС‚Р° }
+  Msgs      : array [1..1] of String absolute Cmds;{ РџyРЅРєС‚С‹ РјРµРЅСЋ }
+  Text      : array [1..MaxText] of String;        { CС‚pРѕРєРё РїРѕРґС‚РµРєСЃС‚Р° }
+  TextPtr   : word;                                { РљРѕР»-РІРѕ cС‚pРѕРє РїРѕРґС‚РµРєСЃС‚Р° }
+  Left      : Word;                                { РљРѕРѕpРґРёРЅР°С‚С‹ РјРµРЅСЋС€РєРё }
   Right     : Word;
   Top       : Word;
   Bottom    : Word;
-  SizeX     : word;                                { Размеpы менюшки }
+  SizeX     : word;                                { Р Р°Р·РјРµpС‹ РјРµРЅСЋС€РєРё }
   SizeY     : word;
-  MaxLength : word;                                { Длина стpок подтекста }
-  ButLen    : word;                                { Длина стpок меню }
-  R         : TRect;                               { Пpямоyгольник менюшки }
-  MsgSize   : word;                                { Размеp и yказатель на }
-  MsgPtr    : pointer;                             { битовый обpаз под меню }
+  MaxLength : word;                                { Р”Р»РёРЅР° СЃС‚pРѕРє РїРѕРґС‚РµРєСЃС‚Р° }
+  ButLen    : word;                                { Р”Р»РёРЅР° СЃС‚pРѕРє РјРµРЅСЋ }
+  R         : TRect;                               { РџpСЏРјРѕyРіРѕР»СЊРЅРёРє РјРµРЅСЋС€РєРё }
+  MsgSize   : word;                                { Р Р°Р·РјРµp Рё yРєР°Р·Р°С‚РµР»СЊ РЅР° }
+  MsgPtr    : pointer;                             { Р±РёС‚РѕРІС‹Р№ РѕР±pР°Р· РїРѕРґ РјРµРЅСЋ }
   i, j      : integer;
-begin                                              { Cчитаем максимальнyю }
-  ButLen:=0;                                       { длинy кнопок }
+begin                                              { CС‡РёС‚Р°РµРј РјР°РєСЃРёРјР°Р»СЊРЅyСЋ }
+  ButLen:=0;                                       { РґР»РёРЅy РєРЅРѕРїРѕРє }
   for i:=1 to N do
     if ButLen<Length( Msgs[i] ) then ButLen:=Length( Msgs[i] );
 
-  TextPtr:=0;                                      { Выделяем стpоки }
-  MaxLength:=0;                                    { подтекста }
+  TextPtr:=0;                                      { Р’С‹РґРµР»СЏРµРј СЃС‚pРѕРєРё }
+  MaxLength:=0;                                    { РїРѕРґС‚РµРєСЃС‚Р° }
   while Length( Title ) <> 0 do begin
-    i:=Pos( DelimChar, Title );                    { Hачало i-й стpоки }
+    i:=Pos( DelimChar, Title );                    { HР°С‡Р°Р»Рѕ i-Р№ СЃС‚pРѕРєРё }
     delete( Title, i, 1 );
-    j:=Pos( DelimChar, Title);                     { Конец i-й стpоки }
+    j:=Pos( DelimChar, Title);                     { РљРѕРЅРµС† i-Р№ СЃС‚pРѕРєРё }
     TextPtr:=TextPtr+1;
     Text[TextPtr]:=Copy( Title, i, j-i );
     if MaxLength<Length(Text[TextPtr]) then MaxLength:=Length(Text[TextPtr]);
     delete( Title, i, j-i+1);
   end;
-  SizeX:= (SymWidth*ButLen+AddX*2+DeltaX)*N+AddX*2; { Cчитаем pазмеp кнопок }
-  i:=(MaxLength+2)*SymWidth+AddX*2;                 { и pазмеp подтекста }
-  if SizeX<i then SizeX:=i;                         { Беpем максимальное }
-  SizeY:=(TextPtr+3)*SymHeight*2+FullHeight+AddY*2; { Cчитаем pазмеp окна }
-  Left:=(GetMaxX-SizeX) div 2 - 2;                  { Центpиpyем кооpдинаты }
-  Top:=(GetMaxY-SizeY) div 2 - 16;                  { левого-веpхнего yгла }
-  Right:=Left+SizeX;                                { Cчитаем кооpдинаты }
-  Bottom:=Top+SizeY;                                { пpавого-нижнего yгла }
+  SizeX:= (SymWidth*ButLen+AddX*2+DeltaX)*N+AddX*2; { CС‡РёС‚Р°РµРј pР°Р·РјРµp РєРЅРѕРїРѕРє }
+  i:=(MaxLength+2)*SymWidth+AddX*2;                 { Рё pР°Р·РјРµp РїРѕРґС‚РµРєСЃС‚Р° }
+  if SizeX<i then SizeX:=i;                         { Р‘РµpРµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ }
+  SizeY:=(TextPtr+3)*SymHeight*2+FullHeight+AddY*2; { CС‡РёС‚Р°РµРј pР°Р·РјРµp РѕРєРЅР° }
+  Left:=(GetMaxX-SizeX) div 2 - 2;                  { Р¦РµРЅС‚pРёpyРµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
+  Top:=(GetMaxY-SizeY) div 2 - 16;                  { Р»РµРІРѕРіРѕ-РІРµpС…РЅРµРіРѕ yРіР»Р° }
+  Right:=Left+SizeX;                                { CС‡РёС‚Р°РµРј РєРѕРѕpРґРёРЅР°С‚С‹ }
+  Bottom:=Top+SizeY;                                { РїpР°РІРѕРіРѕ-РЅРёР¶РЅРµРіРѕ yРіР»Р° }
   R.Assign( Left, Top, Right, Bottom );
-  MsgSize:=ImageSize( Left, Top, Right, Bottom );   { Cохpаняем изобpажение }
-  GetMem( MsgPtr, MsgSize );                        { под окном }
+  MsgSize:=ImageSize( Left, Top, Right, Bottom );   { CРѕС…pР°РЅСЏРµРј РёР·РѕР±pР°Р¶РµРЅРёРµ }
+  GetMem( MsgPtr, MsgSize );                        { РїРѕРґ РѕРєРЅРѕРј }
   GetImage( Left, Top, Right, Bottom, MsgPtr^ );
-  DrawBox( R, True, RED );                          { Рисyем окно }
+  DrawBox( R, True, RED );                          { Р РёСЃyРµРј РѕРєРЅРѕ }
   SetTextJustify( CenterText, TopText );
-  SetColor( White );                                { Рисyем подтекст }
+  SetColor( White );                                { Р РёСЃyРµРј РїРѕРґС‚РµРєСЃС‚ }
   for i:=1 to TextPtr do
-    OutTextXY( GetMaxX div 2, Top+SymHeight*2*i+AddX, Text[i]);      { Меню }
+    OutTextXY( GetMaxX div 2, Top+SymHeight*2*i+AddX, Text[i]);      { РњРµРЅСЋ }
   MessageBox:=Menu( True, Top+SymHeight*2*(TextPtr+2)+AddX, N, Cmds );
 
-  PutImage( Left, Top, MsgPtr^, NormalPut );        { Восстанавливаем }
-  FreeMem( MsgPtr, MsgSize );                       { изобpажение }
+  PutImage( Left, Top, MsgPtr^, NormalPut );        { Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј }
+  FreeMem( MsgPtr, MsgSize );                       { РёР·РѕР±pР°Р¶РµРЅРёРµ }
 end;
 
 end.
